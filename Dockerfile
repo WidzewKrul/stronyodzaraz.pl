@@ -20,7 +20,7 @@ ENV NODE_ENV=production
 ENV PORT=3000
 ENV HOSTNAME=0.0.0.0
 
-RUN apk add --no-cache libc6-compat \
+RUN apk add --no-cache libc6-compat curl \
  && addgroup -g 1001 -S nodejs \
  && adduser -S -u 1001 -G nodejs nodejs
 
@@ -34,7 +34,11 @@ COPY --from=builder --chown=nodejs:nodejs /app/drizzle ./drizzle
 COPY --from=builder --chown=nodejs:nodejs /app/scripts/migrate.mjs ./scripts/migrate.mjs
 COPY --from=deps --chown=nodejs:nodejs /app/node_modules/drizzle-orm ./node_modules/drizzle-orm
 COPY --from=deps --chown=nodejs:nodejs /app/node_modules/postgres ./node_modules/postgres
+COPY --from=builder --chown=nodejs:nodejs /app/scripts/docker-entrypoint.sh ./scripts/docker-entrypoint.sh
+RUN chmod +x ./scripts/docker-entrypoint.sh
 
 USER nodejs
 EXPOSE 3000
-CMD ["sh", "-c", "node scripts/migrate.mjs && node server.js"]
+HEALTHCHECK --interval=15s --timeout=5s --start-period=90s --retries=5 \
+  CMD curl -fsS "http://127.0.0.1:3000/" || exit 1
+CMD ["./scripts/docker-entrypoint.sh"]
