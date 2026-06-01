@@ -1,0 +1,115 @@
+{
+  "_comment": "Mapowanie trigger → kod → szablon JSON. Status: implemented | backlog | manual",
+  "mappings": [
+    {
+      "templateId": "checkout_confirmation",
+      "function": "sendOrderConfirmationEmail",
+      "file": "lib/email.ts",
+      "trigger": "worker after kickoffGenerate",
+      "status": "implemented",
+      "syncWithJson": "partial — kod ma własną treść HTML"
+    },
+    {
+      "templateId": "brief_delivery",
+      "function": "deliverProjectBrief",
+      "file": "lib/email.ts",
+      "trigger": "worker after brief generation",
+      "status": "implemented",
+      "syncWithJson": "no — dynamic attachments"
+    },
+    {
+      "templateId": "brief_reminder_d1",
+      "function": "sendBriefReminderEmail",
+      "file": "lib/email.ts",
+      "trigger": "cron.process no_brief_24h",
+      "status": "backlog"
+    },
+    {
+      "templateId": "project_started",
+      "function": "sendProjectStartedEmail",
+      "trigger": "manual or brief.complete webhook",
+      "status": "backlog"
+    },
+    {
+      "templateId": "staging_review",
+      "function": "sendStagingReviewEmail",
+      "trigger": "manual internal.staging_ready",
+      "status": "backlog"
+    },
+    {
+      "templateId": "project_delivered",
+      "function": "sendProjectDeliveredEmail",
+      "trigger": "manual status.DELIVERED",
+      "status": "backlog"
+    },
+    {
+      "templateId": "drip_d3_opieka",
+      "function": "sendDripUpsellEmail day=3",
+      "trigger": "cron.drip day3",
+      "status": "implemented",
+      "syncWithJson": "no — kod: checklist materiałów"
+    },
+    {
+      "templateId": "drip_d7_ads",
+      "function": "sendDripUpsellEmail day=7",
+      "trigger": "cron.drip day7",
+      "status": "implemented",
+      "syncWithJson": "no — kod: opieka -20%"
+    },
+    {
+      "templateId": "drip_waas_offer",
+      "function": "sendWaaSOfferEmail",
+      "trigger": "cron.delivered.day14",
+      "status": "backlog"
+    },
+    {
+      "templateId": "contact_autoreply",
+      "function": "sendContactAutoReply",
+      "trigger": "POST /api/kontakt",
+      "status": "implemented"
+    },
+    {
+      "templateId": "contact_internal",
+      "function": "sendContactEmail",
+      "trigger": "POST /api/kontakt",
+      "status": "implemented"
+    },
+    {
+      "templateId": "scope_clarification",
+      "function": null,
+      "trigger": "manual Gmail",
+      "status": "manual",
+      "supportTemplate": "support_out_of_scope"
+    },
+    {
+      "templateId": "waas_payment_failed",
+      "function": "sendWaaSPaymentFailedEmail",
+      "trigger": "stripe.invoice.payment_failed",
+      "status": "backlog"
+    },
+    {
+      "templateId": "waas_suspension_warning",
+      "function": "sendWaaSSuspensionEmail",
+      "trigger": "cron waas D+14",
+      "status": "backlog"
+    },
+    {
+      "templateId": "admin_order_failed",
+      "function": "sendAdminOrderFailedAlert",
+      "trigger": "worker error",
+      "status": "implemented"
+    },
+    {
+      "templateId": "admin_brief_pdf_failed",
+      "function": "sendAdminAttachmentFailureAlert",
+      "trigger": "brief PDF/DOCX fail",
+      "status": "implemented"
+    },
+    {
+      "templateId": "admin_brief_missing_p0",
+      "function": "sendAdminBriefEscalation",
+      "trigger": "cron brief 48h missing",
+      "status": "backlog"
+    }
+  ]
+}

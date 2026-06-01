@@ -1,0 +1,92 @@
+{
+  "_comment": "Uzupełniaj co kwartał. status: watch | direct | indirect | ignore",
+  "lastUpdated": "2026-05-31",
+  "directProductized": [
+    {
+      "name": "Becht.pl (Marek Becht)",
+      "url": "https://marekbecht.pl",
+      "model": "productized WP packages + TAYA SEO",
+      "pricePublic": true,
+      "priceRange": "1690–8990 PLN netto wdrożenie",
+      "deliveryDays": "pakietowe",
+      "strengths": ["personal brand", "SEO content machine", "public pricing"],
+      "weaknesses": ["węższy katalog branż", "brak self-serve checkout?", "skupienie WP"],
+      "ourCounter": ["317 PDP branż", "Stripe checkout", "sklepy+opieka+integracje", "ekosystem odzaraz"],
+      "status": "direct"
+    },
+    {
+      "name": "WebyJuice",
+      "url": "https://webyjuice.pl",
+      "model": "agencja z cennikiem online",
+      "pricePublic": true,
+      "priceRange": "4000 landing, 8500+ sklep, opieka 299",
+      "deliveryDays": "tygodnie",
+      "strengths": ["cennik", "blog SEO", "opieka 299"],
+      "weaknesses": ["droższy sklep", "mniej pSEO branż"],
+      "ourCounter": ["niższy próg sklep 5990", "szerszy katalog", "self-serve"],
+      "status": "direct"
+    },
+    {
+      "name": "stronadlafirm.com",
+      "url": "https://stronadlafirm.com",
+      "model": "AI + human, productized",
+      "pricePublic": true,
+      "priceRange": "4900–24900 PLN",
+      "deliveryDays": "3–7",
+      "strengths": ["AI narrative", "szybkość", "preview przed płatnością"],
+      "weaknesses": ["wyższa cena wejścia", "wąskie kategorie vs nasz katalog"],
+      "ourCounter": ["od 1490 landing", "transparent scope bez AI hype", "PL e-commerce depth"],
+      "status": "direct"
+    },
+    {
+      "name": "top1wsieci.pl",
+      "url": "https://top1wsieci.pl",
+      "model": "tanie strony volume",
+      "pricePublic": true,
+      "priceRange": "599–2500 PLN",
+      "deliveryDays": "szybko",
+      "strengths": ["cena", "SEO taniość"],
+      "weaknesses": ["jakość?", "red flag u świadomych"],
+      "ourCounter": ["NIE konkurować ceną", "quality + scope + gwarancja"],
+      "status": "ignore_price_war"
+    }
+  ],
+  "indirect": [
+    {
+      "name": "WebWave",
+      "url": "https://webwave.me",
+      "model": "DIY SaaS PL",
+      "status": "indirect",
+      "ourCounter": ["blog Wix/WebWave vs WP", "integracje PL", "własność"]
+    },
+    {
+      "name": "Wix / Squarespace",
+      "model": "DIY global",
+      "status": "indirect",
+      "ourCounter": ["segment post-Wix failure", "SEO", "sklep PL"]
+    },
+    {
+      "name": "home.pl / cyber_Folks",
+      "model": "hosting + strona",
+      "status": "indirect",
+      "ourCounter": ["branżowość", "sklep", "jakość design"]
+    },
+    {
+      "name": "Useme / Fixly",
+      "model": "marketplace aukcja",
+      "status": "indirect",
+      "ourCounter": ["fixed scope", "brak licytacji", "termin"]
+    }
+  ],
+  "serpContentCompetitors": [
+    { "name": "SN Solutions", "url": "https://snsolutions.pl", "type": "blog SEO", "targetQueries": ["ile kosztuje strona 2026"] },
+    { "name": "WebyJuice blog", "url": "https://webyjuice.pl/blog", "type": "blog SEO", "targetQueries": ["ile kosztuje strona"] }
+  ],
+  "researchLog": [
+    {
+      "date": "2026-05-31",
+      "action": "Initial desk research — pricing benchmarks, productized map",
+      "next": "SERP scrape top 10 dla 5 seed KW po launch GSC"
+    }
+  ]
+}

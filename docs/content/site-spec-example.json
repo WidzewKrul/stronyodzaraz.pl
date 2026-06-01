@@ -1,0 +1,101 @@
+{
+  "version": "1.0",
+  "templateId": "wp-landing-restauracja",
+  "brand": {
+    "name": "Restauracja U Kucharza",
+    "tagline": "Domowa kuchnia polska · rezerwacja online",
+    "colors": {
+      "primary": "#ea580c",
+      "accent": "#c2410c"
+    }
+  },
+  "contact": {
+    "email": "kontakt@ukucharza.pl",
+    "phone": "+48 22 123 45 67",
+    "address": "ul. Przykładowa 12, 00-001 Warszawa"
+  },
+  "pages": [
+    {
+      "slug": "strona-glowna",
+      "title": "Strona główna",
+      "sections": [
+        {
+          "id": "hero",
+          "blocks": {
+            "headline": "Smaki, które znasz z domu",
+            "subline": "Świeże składniki · menu sezonowe · stoliki na weekend",
+            "ctaPrimary": "Zarezerwuj stolik",
+            "ctaSecondary": "Zobacz menu"
+          }
+        },
+        {
+          "id": "about",
+          "blocks": {
+            "title": "O nas",
+            "text": "Od 2010 serwujemy domowe dania w sercu Warszawy. Współpracujemy z lokalnymi dostawcami."
+          }
+        },
+        {
+          "id": "services",
+          "blocks": {
+            "items": [
+              "Obiady domowe",
+              "Menu sezonowe",
+              "Imprezy okolicznościowe",
+              "Catering"
+            ]
+          }
+        },
+        {
+          "id": "contact",
+          "blocks": {
+            "title": "Kontakt",
+            "hours": "Pn–Sb 12:00–22:00",
+            "formEmail": "kontakt@ukucharza.pl"
+          }
+        }
+      ]
+    },
+    {
+      "slug": "menu",
+      "title": "Menu",
+      "sections": [
+        {
+          "id": "menu-list",
+          "blocks": {
+            "items": [
+              { "name": "Żurek na zakwasie", "price": "28 zł" },
+              { "name": "Kotlet schabowy", "price": "42 zł" },
+              { "name": "Pierogi ruskie (8 szt.)", "price": "32 zł" }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "slug": "kontakt",
+      "title": "Kontakt",
+      "sections": [
+        {
+          "id": "contact-full",
+          "blocks": {
+            "mapEmbed": true,
+            "showForm": true
+          }
+        }
+      ]
+    }
+  ],
+  "seo": {
+    "title": "Restauracja U Kucharza — domowa kuchnia Warszawa",
+    "description": "Restauracja U Kucharza w Warszawie. Menu sezonowe, rezerwacja online. Obiady domowe i catering."
+  },
+  "assets": {
+    "useStockPhotos": true,
+    "stockKeywords": ["polish restaurant interior", "homemade food plate"]
+  },
+  "integrations": {
+    "ga4": true,
+    "contactFormEmail": "kontakt@ukucharza.pl"
+  }
+}

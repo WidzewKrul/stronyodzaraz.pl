@@ -1,0 +1,83 @@
+{
+  "version": 1,
+  "description": "Warianty intro na landing /l/{city} i /l/{city}/{category}. Placeholdery: {city}, {cityGenitive}, {voivodeship}, {categoryTitle}, {priceFrom}. Rotacja po hash(slug) % count.",
+  "cityGenitive": {
+    "Warszawa": "Warszawy",
+    "Kraków": "Krakowa",
+    "Wrocław": "Wrocławia",
+    "Poznań": "Poznania",
+    "Gdańsk": "Gdańska",
+    "Gdynia": "Gdyni",
+    "Łódź": "Łodzi",
+    "Katowice": "Katowic",
+    "Lublin": "Lublina",
+    "Szczecin": "Szczecina"
+  },
+  "hubIntro": [
+    "Realizujemy strony i sklepy internetowe dla firm z {city} i całego województwa {voivodeship}. Pracujemy zdalnie — brief online, wdrożenie w 7–14 dni, stała cena przed płatnością.",
+    "Szukasz agencji web w {city}? stronyodzaraz.pl to productized packages: WordPress, WooCommerce, Shopify i Shoper bez wyceny „na zapytanie”. Zamów pakiet z katalogu i wypełnij brief projektu.",
+    "Firmy z {city} zamawiają u nas strony firmowe i sklepy online z gwarancją poprawek 30 dni. Obsługujemy klientów zdalnie — spotkania wideo, materiały przez formularz, płatność Stripe.",
+    "Tworzymy strony www dla MŚP z {city}: restauracje, gabinety, kancelarie, sklepy. Jasny scope w pakiecie, bez ukrytych kosztów. Realizacja zdalna, termin 7–14 dni roboczych.",
+    "Polska agencja web obsługująca {city} — productized services zamiast godzinówek. Wybierz pakiet, opłać online, otrzymaj stronę lub sklep dopasowany do branży."
+  ],
+  "categoryIntro": {
+    "strony-internetowe": [
+      "Strony internetowe dla firm z {city} — WordPress, responsywność, SEO on-page w cenie pakietu. Od {priceFrom} zł, realizacja 7–14 dni.",
+      "Potrzebujesz strony firmowej w {city}? Pakiety Start i Pro obejmują projekt, wdrożenie, formularz kontaktowy i szkolenie z panelu.",
+      "Profesjonalna strona www dla MŚP z {city} i okolic. Zdalna współpraca, stała cena, gwarancja poprawek 30 dni po oddaniu."
+    ],
+    "sklepy-internetowe": [
+      "Sklepy internetowe WooCommerce dla przedsiębiorców z {city} — Przelewy24, InPost, faktury. Od {priceFrom} zł, wdrożenie ok. 14 dni.",
+      "Załóż sklep online w {city} bez technicznej wiedzy — pakiet obejmuje płatności PL, kurierów i szkolenie z obsługi zamówień.",
+      "E-commerce dla firm z woj. {voivodeship}: sklep od zera z polskimi integracjami. Zamów online, wypełnij brief, my budujemy."
+    ],
+    "wordpress": [
+      "Wdrożenia WordPress dla firm z {city} — motyw branżowy, bezpieczeństwo, szybkość. Productized packages od {priceFrom} zł.",
+      "WordPress na zamówienie dla MŚP z {city}: od landing page po rozbudowaną stronę firmową. Realizacja zdalna 7–14 dni."
+    ],
+    "shopify-shoper": [
+      "Shopify i Shoper dla sklepów z {city} — szybki start sprzedaży online, integracje Allegro i kurierzy. Od {priceFrom} zł.",
+      "Platforma SaaS dla e-commerce w {city}: mniej technicznej obsługi niż WooCommerce, polskie płatności w pakiecie."
+    ],
+    "opieka-techniczna": [
+      "Opieka techniczna WordPress dla stron firm z {city} — backup, aktualizacje, monitoring. Abonament od {priceFrom} zł/mc.",
+      "Utrzymanie strony www w {city}: aktualizacje wtyczek, kopie zapasowe, wsparcie mailowe. Dla firm bez własnego IT."
+    ],
+    "reklama-marketing": [
+      "Setup Google Ads i GA4 dla firm z {city} — kampania gotowa do startu, konwersje, tagi. Od {priceFrom} zł jednorazowo.",
+      "Marketing online dla MŚP z {city}: konfiguracja analityki i kampanii search — bez długiej umowy agencyjnej."
+    ],
+    "integracje": [
+      "Integracje e-commerce dla sklepów z {city}: Przelewy24, InPost, BaseLinker, Allegro. Wycena w pakiecie od {priceFrom} zł.",
+      "Podłączymy Twój sklep w {city} do polskich płatności i kurierów — WooCommerce, Shopify lub Shoper."
+    ],
+    "migracje-naprawy": [
+      "Migracja strony lub sklepu dla firm z {city} — SEO 301, bez utraty pozycji. Audyt i naprawa WordPress po ataku.",
+      "Przyspieszenie strony i Core Web Vitals dla witryn firm z {city}. Naprawa błędów, optymalizacja hostingu."
+    ]
+  },
+  "localFaq": [
+    {
+      "q": "Czy realizujecie projekty dla firm z {city}?",
+      "a": "Tak — współpracujemy zdalnie z klientami z {city} i całego woj. {voivodeship}. Brief i materiały online, wdrożenie bez konieczności spotkań stacjonarnych."
+    },
+    {
+      "q": "Ile trwa strona internetowa dla firmy z {city}?",
+      "a": "Pakiet Start: 7 dni roboczych, Pro: 14 dni — liczone od kompletnego briefu. Dotyczy zamówień z {city} i innych miast."
+    },
+    {
+      "q": "Jaka jest cena strony www w {city}?",
+      "a": "Ceny są stałe w całej Polsce — landing od 1490 zł, strona Start od 2490 zł, sklep od 5990 zł. Widzisz cenę w katalogu przed płatnością."
+    }
+  ],
+  "priceFromByCategory": {
+    "strony-internetowe": "2490",
+    "sklepy-internetowe": "5990",
+    "wordpress": "2490",
+    "shopify-shoper": "7990",
+    "opieka-techniczna": "299",
+    "reklama-marketing": "990",
+    "integracje": "490",
+    "migracje-naprawy": "990"
+  }
+}

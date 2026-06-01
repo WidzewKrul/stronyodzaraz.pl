@@ -1,0 +1,42 @@
+{
+  "sectionTitle": "Popularne pakiety",
+  "sectionSubtitle": "Najczęściej wybierane usługi — cena i scope w katalogu.",
+  "items": [
+    {
+      "slug": "strona-wordpress-restauracja",
+      "category": "strony-internetowe",
+      "cardTitle": "Strona WordPress — restauracja",
+      "cardLine": "Menu, mapa, rezerwacja · Pakiet Start"
+    },
+    {
+      "slug": "strona-wordpress-gabinet-dentystyczny",
+      "category": "strony-internetowe",
+      "cardTitle": "Strona — gabinet dentystyczny",
+      "cardLine": "Usługi, zespół, formularz wizyty"
+    },
+    {
+      "slug": "strona-wordpress-sklep-odziezowy",
+      "category": "sklepy-internetowe",
+      "cardTitle": "Sklep WooCommerce — odzież",
+      "cardLine": "Katalog, P24, InPost"
+    },
+    {
+      "slug": "google-analytics-4-firma-b2b-setup",
+      "category": "reklama-marketing",
+      "cardTitle": "Setup Google Analytics 4",
+      "cardLine": "Property, GTM, eventy konwersji"
+    },
+    {
+      "slug": "opieka-wordpress-start",
+      "category": "opieka-techniczna",
+      "cardTitle": "Opieka WordPress Start",
+      "cardLine": "299 zł/mc · update, backup, monitoring"
+    },
+    {
+      "slug": "landing-page-restauracja",
+      "category": "strony-internetowe",
+      "cardTitle": "Landing page — restauracja",
+      "cardLine": "Kampania Ads · 1 strona · szybki start"
+    }
+  ]
+}

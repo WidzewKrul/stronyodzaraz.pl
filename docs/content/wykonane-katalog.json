@@ -1,0 +1,561 @@
+{
+  "meta": {
+    "hubTitle": "Przykładowe układy stron, sklepów i usług",
+    "hubSubtitle": "Zobacz typową strukturę projektu w każdej kategorii — od landing page po opiekę techniczną i integracje.",
+    "disclaimer": "Marki i layouty są fikcyjne — ilustrują scope pakietu. Twój projekt dopasowujemy do branży, logo i treści.",
+    "stats": {
+      "showcaseCount": 17,
+      "categoryCount": 8,
+      "catalogRef": "317+ pakietów w katalogu"
+    }
+  },
+  "filters": [
+    { "id": "all", "label": "Wszystkie" },
+    { "id": "strony-internetowe", "label": "Strony" },
+    { "id": "sklepy-internetowe", "label": "Sklepy" },
+    { "id": "wordpress", "label": "WordPress" },
+    { "id": "shopify-shoper", "label": "Shopify / Shoper" },
+    { "id": "reklama-marketing", "label": "Marketing" },
+    { "id": "opieka-techniczna", "label": "Opieka" },
+    { "id": "integracje", "label": "Integracje" },
+    { "id": "migracje", "label": "Migracje" }
+  ],
+  "items": [
+    {
+      "slug": "landing-warsztat-samochodowy",
+      "category": "strony-internetowe",
+      "tier": "Landing",
+      "mockVariant": "browser",
+      "mockRef": "landing-warsztat",
+      "title": "Landing page — warsztat samochodowy",
+      "fakeBrand": "AutoSerwis Kowalski",
+      "tagline": "Jedna strona pod kampanię Google Ads — szybki start",
+      "scopeOneLiner": "Hero, usługi, cennik orientacyjny, formularz, mapa, RODO",
+      "scopeDelivered": [
+        "1 strona docelowa (one-page)",
+        "Sekcje: hero, usługi, cennik, opinie placeholder, kontakt",
+        "Formularz zapisu + click-to-call",
+        "Mapa Google i godziny otwarcia",
+        "Banner cookies RODO",
+        "Responsywność mobile-first",
+        "1 runda poprawek"
+      ],
+      "stack": ["WordPress", "Formularz", "GA4"],
+      "deliveryDays": "5–7",
+      "priceFrom": 1490,
+      "pdpSlug": "landing-page-warsztat-samochodowy",
+      "pdpCategory": "strony-internetowe",
+      "relatedSlugs": ["strona-restauracja-wordpress", "strona-kancelaria-b2b"],
+      "faq": [
+        {
+          "q": "Czy landing wystarczy zamiast pełnej strony?",
+          "a": "Tak, jeśli cel to kampania Ads lub jedna usługa. Pełna strona firmowa — Pakiet Start."
+        },
+        {
+          "q": "Czy mogę później rozbudować landing?",
+          "a": "Tak — migracja do Pakietu Start w ramach upsellu."
+        }
+      ]
+    },
+    {
+      "slug": "strona-restauracja-wordpress",
+      "category": "strony-internetowe",
+      "tier": "Start",
+      "mockVariant": "browser",
+      "mockRef": "restauracja",
+      "title": "Strona WordPress — restauracja",
+      "fakeBrand": "Restauracja U Kucharza",
+      "tagline": "Menu, rezerwacja, galeria — Pakiet Start",
+      "scopeOneLiner": "Do 5 podstron, menu z cenami, mapa, formularz rezerwacji, GA4",
+      "scopeDelivered": [
+        "WordPress + motyw branżowy gastronomia",
+        "Podstrony: Home, Menu, O nas, Galeria, Kontakt",
+        "Menu z kategoriami i cenami",
+        "Formularz rezerwacji / kontakt",
+        "Mapa Google, godziny otwarcia",
+        "GA4 + podstawowe meta SEO",
+        "Szkolenie z panelu 30 min",
+        "1 runda poprawek"
+      ],
+      "stack": ["WordPress", "GA4", "SSL"],
+      "deliveryDays": "7",
+      "priceFrom": 2490,
+      "pdpSlug": "strona-wordpress-restauracja",
+      "pdpCategory": "strony-internetowe",
+      "relatedSlugs": ["landing-warsztat-samochodowy", "strona-hotel-uslugowy"],
+      "faq": [
+        {
+          "q": "Czy menu można edytować samemu?",
+          "a": "Tak — panel WordPress + krótkie szkolenie w pakiecie."
+        }
+      ]
+    },
+    {
+      "slug": "strona-dentysta-pro",
+      "category": "strony-internetowe",
+      "tier": "Pro",
+      "mockVariant": "browser",
+      "mockRef": "dentysta",
+      "title": "Strona Pro — gabinet stomatologiczny",
+      "fakeBrand": "DentalCare",
+      "tagline": "Usługi, zespół, SEO lokalne — Pakiet Pro",
+      "scopeOneLiner": "Do 10 podstron, schema LocalBusiness, blog szablon, 2 rundy poprawek",
+      "scopeDelivered": [
+        "Do 10 podstron (usługi, zespół, cennik, FAQ)",
+        "Schema.org LocalBusiness / MedicalBusiness",
+        "SEO on-page: title, meta, H1 per podstrona",
+        "Formularz umówienia wizyty",
+        "Szablon bloga (aktualności gabinetu)",
+        "Optymalizacja Core Web Vitals — podstawowa",
+        "2 rundy poprawek",
+        "Szkolenie 30 min"
+      ],
+      "stack": ["WordPress", "Schema", "GA4", "GSC"],
+      "deliveryDays": "14",
+      "priceFrom": 4990,
+      "pdpSlug": "strona-wordpress-gabinet-dentystyczny-pro",
+      "pdpCategory": "strony-internetowe",
+      "relatedSlugs": ["strona-kancelaria-b2b", "wordpress-panel-edycja"],
+      "faq": [
+        {
+          "q": "Czy strona spełnia wymogi reklamy usług medycznych?",
+          "a": "Treści medyczne dostarcza klient / lekarz. Wdrażamy strukturę i RODO."
+        }
+      ]
+    },
+    {
+      "slug": "strona-kancelaria-b2b",
+      "category": "strony-internetowe",
+      "tier": "Pro",
+      "mockVariant": "browser",
+      "mockRef": "kancelaria",
+      "title": "Strona firmowa B2B — kancelaria prawna",
+      "fakeBrand": "Kancelaria Nowak i Wspólnicy",
+      "tagline": "Profesjonalny wizerunek, zaufanie, struktura usług prawnych",
+      "scopeOneLiner": "Strona korporacyjna, zespół, obszary prawa, formularz, RODO",
+      "scopeDelivered": [
+        "Design stonowany, profesjonalny (granat, szarość)",
+        "Obszary praktyki — podstrony per specjalizacja",
+        "Zespół prawników z biografiami",
+        "Formularz bezpieczny + polityka prywatności",
+        "Blog / aktualności prawne (szablon)",
+        "Schema LegalService",
+        "2 rundy poprawek"
+      ],
+      "stack": ["WordPress", "Schema", "SSL"],
+      "deliveryDays": "14",
+      "priceFrom": 4990,
+      "pdpSlug": "strona-wordpress-kancelaria-prawna-pro",
+      "pdpCategory": "strony-internetowe",
+      "relatedSlugs": ["strona-dentysta-pro", "strona-hotel-uslugowy"],
+      "faq": []
+    },
+    {
+      "slug": "strona-hotel-uslugowy",
+      "category": "strony-internetowe",
+      "tier": "Start",
+      "mockVariant": "browser",
+      "mockRef": "hotel",
+      "title": "Strona — hotel / pensjonat",
+      "fakeBrand": "Pensjonat Pod Sosnami",
+      "tagline": "Pokoje, galeria, rezerwacja, okolica",
+      "scopeOneLiner": "Galeria pokoi, cennik sezonowy, mapa dojazdu, kontakt",
+      "scopeDelivered": [
+        "Prezentacja pokoi i udogodnień",
+        "Galeria zdjęć (placeholder / stock)",
+        "Cennik orientacyjny lub „sprawdź dostępność”",
+        "Mapa dojazdu + atrakcje w okolicy",
+        "Formularz rezerwacji / link Booking (integracja link)",
+        "Wielojęzyczność — poza scope Start (upsell)"
+      ],
+      "stack": ["WordPress", "GA4", "Mapa"],
+      "deliveryDays": "7–10",
+      "priceFrom": 2490,
+      "pdpSlug": "strona-wordpress-hotel",
+      "pdpCategory": "strony-internetowe",
+      "relatedSlugs": ["strona-restauracja-wordpress", "landing-warsztat-samochodowy"],
+      "faq": []
+    },
+    {
+      "slug": "sklep-woocommerce-moda",
+      "category": "sklepy-internetowe",
+      "tier": "Sklep Start",
+      "mockVariant": "browser",
+      "mockRef": "sklep-moda",
+      "title": "Sklep WooCommerce — odzież",
+      "fakeBrand": "ModaPark",
+      "tagline": "Katalog, koszyk, P24, InPost — do 50 produktów",
+      "scopeOneLiner": "Sklep modowy z kategoriami, BLIK, Paczkomaty, regulamin sklepu",
+      "scopeDelivered": [
+        "WooCommerce na WordPress",
+        "Do 50 produktów (import CSV)",
+        "Kategorie, filtry, wyszukiwarka",
+        "Przelewy24 + BLIK",
+        "InPost Paczkomaty",
+        "Regulamin sklepu + polityka prywatności (szablon)",
+        "Szkolenie panelu sklepu",
+        "Testowe zamówienie przed oddaniem"
+      ],
+      "stack": ["WooCommerce", "P24", "InPost", "RODO"],
+      "deliveryDays": "10–14",
+      "priceFrom": 5990,
+      "pdpSlug": "strona-wordpress-sklep-odziezowy",
+      "pdpCategory": "sklepy-internetowe",
+      "relatedSlugs": ["sklep-spozywczy-lokalny", "integracja-inpost-sklep"],
+      "faq": [
+        {
+          "q": "Czy mogę sam dodawać produkty?",
+          "a": "Tak — szkolenie obejmuje dodawanie produktów i zamówień."
+        }
+      ]
+    },
+    {
+      "slug": "sklep-spozywczy-lokalny",
+      "category": "sklepy-internetowe",
+      "tier": "Sklep Start",
+      "mockVariant": "browser",
+      "mockRef": "sklep-spozywczy",
+      "title": "Sklep online — delikatesy lokalne",
+      "fakeBrand": "Smaki Regionu",
+      "tagline": "Produkty regionalne, dostawa lokalna, prosty katalog",
+      "scopeOneLiner": "Kategorie spożywcze, koszyk, płatność online, strefa dostawy",
+      "scopeDelivered": [
+        "Katalog produktów spożywczych",
+        "Informacja o dostawie / odbiorze",
+        "P24 / BLIK",
+        "Progi darmowej dostawy (konfiguracja)",
+        "Regulamin i allergeny — treści od klienta",
+        "Responsywny checkout mobile"
+      ],
+      "stack": ["WooCommerce", "P24"],
+      "deliveryDays": "10–14",
+      "priceFrom": 5990,
+      "pdpSlug": "strona-wordpress-sklep-spozywczy",
+      "pdpCategory": "sklepy-internetowe",
+      "relatedSlugs": ["sklep-woocommerce-moda", "integracja-p24-bramka"],
+      "faq": []
+    },
+    {
+      "slug": "sklep-b2b-hurt",
+      "category": "sklepy-internetowe",
+      "tier": "Sklep Pro",
+      "mockVariant": "browser",
+      "mockRef": "sklep-b2b",
+      "title": "Sklep B2B — logowanie hurtowników",
+      "fakeBrand": "HurtMet",
+      "tagline": "Ceny netto, konta firmowe, większy katalog",
+      "scopeOneLiner": "Rejestracja B2B, cenniki hurtowe, do 200 produktów, 2+ płatności",
+      "scopeDelivered": [
+        "Rejestracja i weryfikacja kont firmowych",
+        "Cennik detal / hurt (grupy użytkowników)",
+        "Do 200 produktów",
+        "2+ metody płatności, faktura VAT",
+        "2+ kurierów",
+        "Feed XML Merchant Center (podstawowy)"
+      ],
+      "stack": ["WooCommerce", "B2B", "P24", "InPost"],
+      "deliveryDays": "14–21",
+      "priceFrom": 8990,
+      "pdpSlug": "sklep-woocommerce-firma-b2b-pro",
+      "pdpCategory": "sklepy-internetowe",
+      "relatedSlugs": ["sklep-woocommerce-moda", "strona-kancelaria-b2b"],
+      "faq": []
+    },
+    {
+      "slug": "sklep-shopify-kosmetyki",
+      "category": "shopify-shoper",
+      "tier": "Sklep Start",
+      "mockVariant": "browser",
+      "mockRef": "shopify-kosmetyki",
+      "title": "Sklep Shopify — kosmetyki",
+      "fakeBrand": "PureSkin",
+      "tagline": "SaaS sklep — szybki start bez serwera",
+      "scopeOneLiner": "Motyw Shopify, katalog kosmetyków, checkout, płatności PL",
+      "scopeDelivered": [
+        "Konfiguracja sklepu Shopify",
+        "Motyw premium / customizacja kolorystyki",
+        "Do 50 produktów",
+        "Płatności i wysyłka pod Polskę",
+        "Polityki sklepu PL",
+        "Szkolenie panel Shopify"
+      ],
+      "stack": ["Shopify", "P24"],
+      "deliveryDays": "10–14",
+      "priceFrom": 7990,
+      "pdpSlug": "sklep-shopify-salon-kosmetyczny",
+      "pdpCategory": "shopify-shoper",
+      "relatedSlugs": ["sklep-shoper-elektronika", "sklep-woocommerce-moda"],
+      "faq": [
+        {
+          "q": "Kto płaci abonament Shopify?",
+          "a": "Klient — abonament platformy po stronie właściciela sklepu."
+        }
+      ]
+    },
+    {
+      "slug": "sklep-shoper-elektronika",
+      "category": "shopify-shoper",
+      "tier": "Sklep Start",
+      "mockVariant": "browser",
+      "mockRef": "shoper-elektronika",
+      "title": "Sklep Shoper — elektronika",
+      "fakeBrand": "TechPoint",
+      "tagline": "Polski SaaS — natywne integracje PL",
+      "scopeOneLiner": "Szablon elektronika, filtry parametrów, P24, InPost",
+      "scopeDelivered": [
+        "Sklep Shoper + szablon branżowy",
+        "Filtry produktów (parametry techniczne)",
+        "P24, BLIK, InPost",
+        "Regulamin i RODO",
+        "Import produktów CSV",
+        "Szkolenie Shoper"
+      ],
+      "stack": ["Shoper", "P24", "InPost"],
+      "deliveryDays": "10–14",
+      "priceFrom": 6990,
+      "pdpSlug": "sklep-shoper-firma-it",
+      "pdpCategory": "shopify-shoper",
+      "relatedSlugs": ["sklep-shopify-kosmetyki", "integracja-p24-bramka"],
+      "faq": []
+    },
+    {
+      "slug": "wordpress-panel-edycja",
+      "category": "wordpress",
+      "tier": "Start",
+      "mockVariant": "dashboard",
+      "mockRef": "wp-panel",
+      "title": "WordPress — edycja treści bez programisty",
+      "fakeBrand": "Panel administracyjny",
+      "tagline": "Co dostajesz po wdrożeniu — samodzielna edycja",
+      "scopeOneLiner": "Szkolenie 30 min, edycja podstron, wpisy bloga, media",
+      "scopeDelivered": [
+        "Panel WP po polsku",
+        "Edycja tekstów WYSIWYG",
+        "Zarządzanie menu i podstronami",
+        "Dodawanie zdjęć do galerii",
+        "Publikacja wpisów blogowych",
+        "Szkolenie wideo / call 30 min",
+        "Instrukcja PDF"
+      ],
+      "stack": ["WordPress"],
+      "deliveryDays": "—",
+      "priceFrom": 2490,
+      "pdpSlug": "strona-wordpress-restauracja",
+      "pdpCategory": "wordpress",
+      "relatedSlugs": ["strona-restauracja-wordpress", "opieka-wordpress-dashboard"],
+      "faq": []
+    },
+    {
+      "slug": "marketing-ga4-dashboard",
+      "category": "reklama-marketing",
+      "tier": "Usługa",
+      "mockVariant": "dashboard",
+      "mockRef": "ga4-dashboard",
+      "title": "Google Analytics 4 — setup i raporty",
+      "fakeBrand": "Analityka ruchu",
+      "tagline": "Property, GTM, eventy konwersji — wiesz skąd przychodzą klienci",
+      "scopeOneLiner": "GA4 + Tag Manager + 3 eventy (formularz, klik tel, zakup)",
+      "scopeDelivered": [
+        "Utworzenie property GA4",
+        "Google Tag Manager — kontener",
+        "Eventy: generate_lead, klik telefon, purchase (jeśli sklep)",
+        "Połączenie z Search Console",
+        "Krótki raport PDF „jak czytać dane”",
+        "Przekazanie dostępu admin"
+      ],
+      "stack": ["GA4", "GTM", "GSC"],
+      "deliveryDays": "3",
+      "priceFrom": 490,
+      "pdpSlug": "google-analytics-4-firma-b2b-setup",
+      "pdpCategory": "reklama-marketing",
+      "relatedSlugs": ["marketing-google-ads-kampania", "strona-dentysta-pro"],
+      "faq": []
+    },
+    {
+      "slug": "marketing-google-ads-kampania",
+      "category": "reklama-marketing",
+      "tier": "Usługa",
+      "mockVariant": "dashboard",
+      "mockRef": "google-ads",
+      "title": "Google Ads — setup kampanii",
+      "fakeBrand": "Kampania Search",
+      "tagline": "Struktura kampanii, konwersje, pierwsze grupy reklam",
+      "scopeOneLiner": "Konto Ads, 1 kampania Search, tag konwersji, listy słów kluczowych",
+      "scopeDelivered": [
+        "Konfiguracja Google Ads + billing klienta",
+        "1 kampania Search (brand lub generic)",
+        "2–3 grupy reklam",
+        "Tag konwersji z GA4/GTM",
+        "Listy negatywne — podstawowe",
+        "Handover + 30 min szkolenie"
+      ],
+      "stack": ["Google Ads", "GA4", "GTM"],
+      "deliveryDays": "5",
+      "priceFrom": 990,
+      "pdpSlug": "google-ads-setup",
+      "pdpCategory": "reklama-marketing",
+      "relatedSlugs": ["landing-warsztat-samochodowy", "marketing-ga4-dashboard"],
+      "faq": []
+    },
+    {
+      "slug": "opieka-wordpress-dashboard",
+      "category": "opieka-techniczna",
+      "tier": "Abonament",
+      "mockVariant": "dashboard",
+      "mockRef": "opieka-dashboard",
+      "title": "Opieka WordPress — monitoring i backup",
+      "fakeBrand": "Panel opieki stronyodzaraz",
+      "tagline": "Aktualizacje, backup, uptime — Ty zajmujesz się biznesem",
+      "scopeOneLiner": "299 zł/mc — update WP/wtyczek, backup tygodniowy, raport",
+      "scopeDelivered": [
+        "Aktualizacje WordPress, motywu, wtyczek (test staging)",
+        "Backup automatyczny co tydzień",
+        "Monitoring uptime (alert e-mail)",
+        "1h prac drobnych miesięcznie",
+        "Raport e-mail co miesiąc",
+        "Priorytetowa reakcja na awarie"
+      ],
+      "stack": ["WordPress", "Backup", "Monitoring"],
+      "deliveryDays": "ongoing",
+      "priceFrom": 299,
+      "priceNote": "zł/mc",
+      "pdpSlug": "opieka-wordpress-start",
+      "pdpCategory": "opieka-techniczna",
+      "relatedSlugs": ["wordpress-panel-edycja", "opieka-raport-miesieczny"],
+      "faq": [
+        {
+          "q": "Czy opieka obejmuje naprawę po włamaniu?",
+          "a": "Podstawowa reakcja i restore z backupu — w scope abonamentu. Poza scope: audyt bezpieczeństwa."
+        }
+      ]
+    },
+    {
+      "slug": "opieka-raport-miesieczny",
+      "category": "opieka-techniczna",
+      "tier": "Abonament",
+      "mockVariant": "dashboard",
+      "mockRef": "opieka-raport",
+      "title": "Raport miesięczny opieki",
+      "fakeBrand": "Raport — styczeń 2026",
+      "tagline": "Co robimy w tle — transparentność abonamentu",
+      "scopeOneLiner": "Lista update'ów, status backupu, uptime, wykonane prace",
+      "scopeDelivered": [
+        "PDF / e-mail raport co miesiąc",
+        "Lista wykonanych aktualizacji",
+        "Status kopii zapasowych",
+        "Uptime %",
+        "Wykorzystanie godziny prac",
+        "Rekomendacje na kolejny miesiąc"
+      ],
+      "stack": ["WordPress"],
+      "deliveryDays": "ongoing",
+      "priceFrom": 299,
+      "priceNote": "zł/mc",
+      "pdpSlug": "opieka-wordpress-start",
+      "pdpCategory": "opieka-techniczna",
+      "relatedSlugs": ["opieka-wordpress-dashboard"],
+      "faq": []
+    },
+    {
+      "slug": "integracja-inpost-sklep",
+      "category": "integracje",
+      "tier": "Usługa",
+      "mockVariant": "flow",
+      "mockRef": "flow-inpost",
+      "title": "Integracja InPost — Paczkomaty w sklepie",
+      "fakeBrand": "Checkout → Paczkomat",
+      "tagline": "Wybór paczkomatu, etykiety, śledzenie przesyłki",
+      "scopeOneLiner": "WooCommerce + InPost ShipX — mapa paczkomatów w checkout",
+      "scopeDelivered": [
+        "Integracja InPost ShipX API",
+        "Mapa wyboru paczkomatu w checkout",
+        "Automatyczne etykiety (w scope API klienta)",
+        "Status przesyłki w panelu zamówień",
+        "Testowe zamówienie z dostawą",
+        "Dokumentacja dla klienta"
+      ],
+      "stack": ["WooCommerce", "InPost"],
+      "deliveryDays": "3–5",
+      "priceFrom": 790,
+      "pdpSlug": "integracja-inpost-woocommerce",
+      "pdpCategory": "integracje",
+      "relatedSlugs": ["integracja-p24-bramka", "sklep-woocommerce-moda"],
+      "faq": []
+    },
+    {
+      "slug": "integracja-p24-bramka",
+      "category": "integracje",
+      "tier": "Usługa",
+      "mockVariant": "flow",
+      "mockRef": "flow-p24",
+      "title": "Integracja Przelewy24 — płatności BLIK i karty",
+      "fakeBrand": "Bramka płatności PL",
+      "tagline": "P24 w sklepie — BLIK, szybki przelew, karty",
+      "scopeOneLiner": "Konfiguracja P24 sandbox → produkcja, webhook, test płatności",
+      "scopeDelivered": [
+        "Konto P24 — konfiguracja po stronie klienta",
+        "Integracja w WooCommerce / Shopify / Shoper",
+        "BLIK, karty, szybkie przelewy",
+        "Webhook potwierdzenia płatności",
+        "Test sandbox + go-live",
+        "Instrukcja dla księgowości (wpłaty)"
+      ],
+      "stack": ["P24", "BLIK", "WooCommerce"],
+      "deliveryDays": "2–4",
+      "priceFrom": 590,
+      "pdpSlug": "integracja-przelewy24-woocommerce",
+      "pdpCategory": "integracje",
+      "relatedSlugs": ["integracja-inpost-sklep", "sklep-spozywczy-lokalny"],
+      "faq": []
+    },
+    {
+      "slug": "migracja-strona-before-after",
+      "category": "migracje",
+      "tier": "Usługa",
+      "mockVariant": "split",
+      "mockRef": "migracja-split",
+      "title": "Migracja strony — przed i po",
+      "fakeBrand": "Stara strona → WordPress 2026",
+      "tagline": "Przeniesienie treści bez utraty pozycji w Google",
+      "scopeOneLiner": "Export treści, nowy design, mapa przekierowań 301, GSC",
+      "scopeDelivered": [
+        "Audyt starej strony (URL, treści)",
+        "Migracja treści do WordPress",
+        "Mapa 301 (stary URL → nowy URL)",
+        "Konfiguracja GSC po migracji",
+        "Test linków i formularzy",
+        "Monitoring indeksacji 14 dni po migracji"
+      ],
+      "stack": ["WordPress", "301", "GSC"],
+      "deliveryDays": "7–14",
+      "priceFrom": 1990,
+      "pdpSlug": "migracja-wordpress-restauracja",
+      "pdpCategory": "migracje",
+      "relatedSlugs": ["strona-restauracja-wordpress", "wordpress-panel-edycja"],
+      "faq": [
+        {
+          "q": "Czy stracię pozycje w Google?",
+          "a": "Przy poprawnej mapie 301 spadek jest minimalny i tymczasowy. To standardowa procedura."
+        }
+      ]
+    }
+  ],
+  "hubFaq": [
+    {
+      "q": "Czy to gotowe szablony do kupienia?",
+      "a": "Nie. To ilustracje typowego scope pakietu. Każdy projekt dopasowujemy do Twojej marki, treści i celów."
+    },
+    {
+      "q": "Czy to wasze prawdziwe realizacje?",
+      "a": "Marki są fikcyjne — pokazujemy strukturę i zakres pakietu. Po pierwszych klientach dodamy sekcję case study ze zgodą."
+    },
+    {
+      "q": "Czy mogę mieć inny układ niż na mockupie?",
+      "a": "Tak — brief określa priorytety. Pakiet Pro pozwala na więcej podstron i sekcji."
+    },
+    {
+      "q": "Ile trwa realizacja?",
+      "a": "Landing 5–7 dni, strona Start 7 dni, Pro 14 dni, sklep 10–14 dni — od kompletnego briefu."
+    }
+  ]
+}

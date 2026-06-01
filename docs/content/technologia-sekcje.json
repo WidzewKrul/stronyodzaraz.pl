@@ -1,0 +1,118 @@
+{
+  "meta": {
+    "title": "Technologia — WordPress, WooCommerce, Shopify, Shoper | stronyodzaraz.pl",
+    "description": "Stack technologiczny naszych pakietów: CMS, sklepy, płatności PL, hosting, SSL, RODO. Bez technicznego żargonu — konkretnie co wdrażamy.",
+    "h1": "Technologia i stack wdrożeń",
+    "intro": "Pracujemy na sprawdzonych platformach, które możesz później samodzielnie rozwijać lub zlecić nam w opiece. Poniżej — co dokładnie wdrażamy w pakietach."
+  },
+  "platforms": [
+    {
+      "id": "wordpress",
+      "name": "WordPress",
+      "icon": "Wordpress",
+      "tagline": "Strony firmowe i blogi",
+      "bullets": [
+        "Motyw branżowy dopasowany do Twojej firmy",
+        "Panel edycji treści — szkolenie 30 min w pakiecie",
+        "Pluginy: formularze, SEO, cache, bezpieczeństwo",
+        "Pełna własność — dostępy admin po oddaniu projektu"
+      ],
+      "linkCategory": "/uslugi?cat=wordpress"
+    },
+    {
+      "id": "woocommerce",
+      "name": "WooCommerce",
+      "icon": "ShoppingCart",
+      "tagline": "Sklep na WordPressie",
+      "bullets": [
+        "Przelewy24, BLIK, PayU — polskie bramki płatności",
+        "InPost Paczkomaty, DPD — kurierzy w scope sklepu",
+        "Import produktów CSV do 50 (Start) / 200 (Pro)",
+        "Regulamin i polityka prywatności — szablon pod sklep"
+      ],
+      "linkCategory": "/uslugi?cat=sklepy-internetowe"
+    },
+    {
+      "id": "shopify",
+      "name": "Shopify",
+      "icon": "Store",
+      "tagline": "SaaS sklep — szybki start",
+      "bullets": [
+        "Hosting w cenie abonamentu Shopify (po stronie klienta)",
+        "Motyw premium lub customizacja istniejącego",
+        "Płatności i wysyłka — konfiguracja pod PL",
+        "Mniej technicznej obsługi serwera po wdrożeniu"
+      ],
+      "linkCategory": "/uslugi?cat=shopify-shoper"
+    },
+    {
+      "id": "shoper",
+      "name": "Shoper",
+      "icon": "Store",
+      "tagline": "Polski SaaS e-commerce",
+      "bullets": [
+        "Natywne integracje PL — płatności, faktury, kurierzy",
+        "Szablony branżowe + dopasowanie kolorystyki",
+        "Idealny gdy chcesz polski support platformy",
+        "Abonament Shoper — po stronie klienta"
+      ],
+      "linkCategory": "/uslugi?cat=shopify-shoper"
+    }
+  ],
+  "integrations": {
+    "h2": "Integracje w pakietach",
+    "items": [
+      { "name": "Stripe", "context": "Płatność za nasze usługi (checkout stronyodzaraz.pl)" },
+      { "name": "Przelewy24 / PayU", "context": "Płatności w sklepie klienta" },
+      { "name": "InPost / DPD", "context": "Wysyłka w sklepie" },
+      { "name": "Google Analytics 4", "context": "Analityka ruchu — pakiet Start/Pro lub osobny setup" },
+      { "name": "Google Search Console", "context": "Indeksacja — konfiguracja przy Pro" },
+      { "name": "Google Ads", "context": "Osobny pakiet setup kampanii" }
+    ]
+  },
+  "hosting": {
+    "h2": "Hosting i domena",
+    "paragraphs": [
+      "Pakiet strony/sklepu **nie zawiera** abonamentu hostingu — wdrażamy na Twoim serwerze, VPS lub koncie u wybranego dostawcy (home.pl, OVH, Zenbox itd.).",
+      "Możemy skonfigurować hosting i DNS jako upsell. Domena zawsze na Twoją firmę — Ty jesteś właścicielem.",
+      "SSL (Let's Encrypt) konfigurujemy przy wdrożeniu. Backup: podstawowy przy oddaniu; stałe backupy — pakiet opieki od 299 zł/mc."
+    ],
+    "link": "/docs/INFRA-DOMENA-HOSTING.md"
+  },
+  "handover": {
+    "h2": "Co dostajesz po oddaniu",
+    "checklist": [
+      "Dostępy administratora (WordPress / sklep)",
+      "Instrukcja PDF + nagranie szkolenia (jeśli w pakiecie)",
+      "Lista wtyczek / aplikacji i licencji",
+      "Checklist SEO on-page (Pro)",
+      "30 dni poprawek w scope pakietu"
+    ]
+  },
+  "faq": [
+    {
+      "q": "Czy hosting jest w cenie pakietu?",
+      "a": "Nie — wdrażamy u Ciebie. Hosting możemy skonfigurować jako dodatek."
+    },
+    {
+      "q": "Kto jest właścicielem strony?",
+      "a": "Ty. Przekazujemy pełne dostępy po zakończeniu projektu i opłaceniu pakietu."
+    },
+    {
+      "q": "Czy mogę sam edytować treści?",
+      "a": "Tak — WordPress panel + szkolenie w pakiecie Start/Pro."
+    },
+    {
+      "q": "RODO i cookies?",
+      "a": "Banner cookies i polityka prywatności w pakiecie strony/sklepu."
+    },
+    {
+      "q": "Migracja ze starej strony?",
+      "a": "Osobny pakiet migracji — treści + mapa przekierowań 301."
+    }
+  ],
+  "cta": {
+    "primary": { "label": "Zobacz pakiety", "href": "/uslugi" },
+    "secondary": { "label": "Masz pytania techniczne?", "href": "/kontakt" }
+  }
+}

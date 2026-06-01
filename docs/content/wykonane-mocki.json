@@ -1,0 +1,428 @@
+{
+  "disclaimer": "Przykładowy układ sekcji — nie gotowy szablon. Twój projekt dopasowujemy do branży, logo i treści.",
+  "browser": {
+    "restauracja": {
+      "icon": "UtensilsCrossed",
+      "gradient": "from-amber-600 via-orange-600 to-rose-700",
+      "accentHex": "#ea580c",
+      "fakeBrand": "Restauracja U Kucharza",
+      "fakeTagline": "Domowa kuchnia polska · rezerwacja online",
+      "browserUrl": "ukucharza.pl",
+      "nav": ["Menu", "O nas", "Galeria", "Rezerwacja", "Kontakt"],
+      "hero": {
+        "headline": "Smaki, które znasz z domu",
+        "subline": "Świeże składniki · menu sezonowe · stoliki na weekend",
+        "ctaPrimary": "Zarezerwuj stolik",
+        "ctaSecondary": "Zobacz menu"
+      },
+      "sections": [
+        {
+          "type": "menu-highlights",
+          "title": "Dania dnia",
+          "items": [
+            { "name": "Żurek na zakwasie", "price": "28 zł" },
+            { "name": "Kotlet schabowy", "price": "42 zł" },
+            { "name": "Pierogi ruskie (8 szt.)", "price": "32 zł" }
+          ]
+        },
+        {
+          "type": "info-bar",
+          "items": [
+            { "icon": "Clock", "text": "Pn–Sb 12:00–22:00" },
+            { "icon": "MapPin", "text": "ul. Przykładowa 12, Warszawa" },
+            { "icon": "Phone", "text": "+48 22 000 00 00" }
+          ]
+        },
+        { "type": "gallery-grid", "title": "Atmosfera", "placeholderCount": 3 }
+      ]
+    },
+    "dentysta": {
+      "icon": "Smile",
+      "gradient": "from-sky-600 via-cyan-600 to-teal-700",
+      "accentHex": "#0284c7",
+      "fakeBrand": "DentalCare",
+      "fakeTagline": "Stomatologia dla całej rodziny",
+      "browserUrl": "dentalcare.example.pl",
+      "nav": ["Usługi", "Zespół", "Cennik", "Opinie", "Kontakt"],
+      "hero": {
+        "headline": "Twój uśmiech w dobrych rękach",
+        "subline": "Implanty · ortodoncja · stomatologia dziecięca",
+        "ctaPrimary": "Umów wizytę",
+        "ctaSecondary": "Zobacz cennik"
+      },
+      "sections": [
+        {
+          "type": "services-grid",
+          "title": "Usługi",
+          "items": [
+            { "name": "Implanty", "desc": "Plan leczenia + RTG" },
+            { "name": "Wybielanie", "desc": "Bezpieczne metody" },
+            { "name": "Protetyka", "desc": "Korony i mosty" }
+          ]
+        },
+        {
+          "type": "team",
+          "title": "Zespół",
+          "members": [
+            { "name": "dr Anna Kowalska", "role": "Stomatolog", "initials": "AK" },
+            { "name": "dr Piotr Nowak", "role": "Ortodonta", "initials": "PN" }
+          ]
+        },
+        { "type": "trust-bar", "items": ["NFZ / prywatnie", "Parking przy gabinecie", "Nowoczesny sprzęt"] }
+      ]
+    },
+    "sklep-moda": {
+      "icon": "ShoppingBag",
+      "gradient": "from-violet-600 via-purple-600 to-fuchsia-700",
+      "accentHex": "#7c3aed",
+      "fakeBrand": "ModaPark",
+      "fakeTagline": "Odzież damska i męska · dostawa 24h",
+      "browserUrl": "modapark.pl",
+      "nav": ["Nowości", "Damskie", "Męskie", "Sale", "Koszyk"],
+      "hero": {
+        "headline": "Kolekcja wiosna / lato 2026",
+        "subline": "Darmowa dostawa od 199 zł · zwrot 30 dni",
+        "ctaPrimary": "Zobacz nowości",
+        "ctaSecondary": "Promocje"
+      },
+      "sections": [
+        { "type": "category-chips", "items": ["Sukienki", "Kurtki", "Buty", "Akcesoria"] },
+        {
+          "type": "product-grid",
+          "title": "Bestsellery",
+          "products": [
+            { "name": "Sukienka midi lniana", "price": "189 zł", "badge": "Nowość" },
+            { "name": "Kurtka przejściowa", "price": "299 zł", "badge": null },
+            { "name": "Sneakersy białe", "price": "249 zł", "badge": "−20%" }
+          ]
+        },
+        { "type": "payment-badges", "items": ["BLIK", "Przelewy24", "InPost Paczkomaty", "DPD"] }
+      ]
+    },
+    "landing-warsztat": {
+      "icon": "Wrench",
+      "gradient": "from-zinc-600 via-slate-600 to-zinc-800",
+      "accentHex": "#52525b",
+      "fakeBrand": "AutoSerwis Kowalski",
+      "fakeTagline": "Mechanika · geometria · klimatyzacja",
+      "browserUrl": "autoserwis-kowalski.pl",
+      "nav": ["Usługi", "Cennik", "O nas", "Kontakt"],
+      "hero": {
+        "headline": "Twój samochód w dobrych rękach",
+        "subline": "Mechanika · geometria · klimatyzacja · opony",
+        "ctaPrimary": "Umów wizytę",
+        "ctaSecondary": "Zadzwoń"
+      },
+      "sections": [
+        {
+          "type": "icon-grid",
+          "title": "Usługi",
+          "items": ["Przegląd", "Hamulce", "Silnik", "Klimatyzacja"]
+        },
+        {
+          "type": "price-list",
+          "title": "Cennik orientacyjny",
+          "items": [
+            { "name": "Wymiana oleju", "price": "od 149 zł" },
+            { "name": "Geometria kół", "price": "od 120 zł" },
+            { "name": "Diagnostyka", "price": "od 80 zł" }
+          ]
+        },
+        { "type": "form-teaser", "title": "Umów termin", "fields": ["Imię", "Telefon", "Marka auta"] }
+      ]
+    },
+    "kancelaria": {
+      "icon": "Scale",
+      "gradient": "from-slate-800 via-slate-700 to-indigo-900",
+      "accentHex": "#ca8a04",
+      "fakeBrand": "Kancelaria Nowak i Wspólnicy",
+      "fakeTagline": "Prawo biznesowe i obsługa firm",
+      "browserUrl": "nowak-kancelaria.pl",
+      "nav": ["Obszary prawa", "Zespół", "Kontakt"],
+      "hero": {
+        "headline": "Prawo biznesowe i obsługa firm",
+        "subline": "Spory · umowy · prawo pracy · nieruchomości",
+        "ctaPrimary": "Umów konsultację",
+        "ctaSecondary": "Zobacz usługi"
+      },
+      "sections": [
+        {
+          "type": "services-grid",
+          "title": "Obszary prawa",
+          "items": [
+            { "name": "Prawo spółek", "desc": "Umowy, restructuring" },
+            { "name": "Prawo pracy", "desc": "Umowy, wypowiedzenia" },
+            { "name": "Nieruchomości", "desc": "Transakcje, najem" },
+            { "name": "Spory sądowe", "desc": "Reprezentacja" }
+          ]
+        },
+        {
+          "type": "team",
+          "title": "Zespół",
+          "members": [
+            { "name": "Mec. Jan Nowak", "role": "Partner", "initials": "JN" },
+            { "name": "Mec. Anna Kowalska", "role": "Adwokat", "initials": "AK" }
+          ]
+        }
+      ]
+    },
+    "hotel": {
+      "icon": "Mountain",
+      "gradient": "from-emerald-600 via-teal-600 to-cyan-700",
+      "accentHex": "#059669",
+      "fakeBrand": "Pensjonat Pod Sosnami",
+      "fakeTagline": "Wypoczynek blisko natury",
+      "browserUrl": "podsosnami.pl",
+      "nav": ["Pokoje", "Oferta", "Okolica", "Kontakt"],
+      "hero": {
+        "headline": "Wypoczynek blisko natury",
+        "subline": "Pokoje · śniadania · basen · parking",
+        "ctaPrimary": "Sprawdź dostępność",
+        "ctaSecondary": "Zobacz pokoje"
+      },
+      "sections": [
+        {
+          "type": "room-cards",
+          "title": "Pokoje",
+          "items": [
+            { "name": "Standard", "price": "280 zł / noc" },
+            { "name": "Superior", "price": "380 zł / noc" },
+            { "name": "Apartament", "price": "520 zł / noc" }
+          ]
+        },
+        { "type": "bullet-list", "title": "Atrakcje w okolicy", "items": ["Jezioro 2 km", "Szlaki rowerowe", "Restauracje regionalne"] }
+      ]
+    },
+    "sklep-spozywczy": {
+      "icon": "ShoppingBasket",
+      "gradient": "from-lime-600 via-green-600 to-emerald-700",
+      "accentHex": "#16a34a",
+      "fakeBrand": "Smaki Regionu",
+      "fakeTagline": "Produkty z polskich gospodarstw",
+      "browserUrl": "smakiregionu.pl",
+      "nav": ["Nabiał", "Mięso", "Warzywa", "Koszyk"],
+      "hero": {
+        "headline": "Produkty z polskich gospodarstw",
+        "subline": "Dostawa lokalna · świeżość co tydzień",
+        "ctaPrimary": "Zamów online",
+        "ctaSecondary": "Promocje"
+      },
+      "sections": [
+        { "type": "category-chips", "items": ["Nabiał", "Mięso", "Warzywa", "Przetwory"] },
+        {
+          "type": "product-grid",
+          "title": "Od lokalnych dostawców",
+          "products": [
+            { "name": "Ser kozi", "price": "24 zł", "badge": null },
+            { "name": "Kiełbasa domowa", "price": "32 zł", "badge": null },
+            { "name": "Miód lipowy", "price": "28 zł", "badge": "Nowość" }
+          ]
+        },
+        { "type": "info-bar", "items": [{ "icon": "Truck", "text": "Dostawa 30 km · min. 80 zł" }] }
+      ]
+    },
+    "sklep-b2b": {
+      "icon": "Building2",
+      "gradient": "from-blue-600 via-indigo-600 to-blue-800",
+      "accentHex": "#2563eb",
+      "fakeBrand": "HurtMet",
+      "fakeTagline": "Części i materiały B2B",
+      "browserUrl": "hurtmet.pl",
+      "nav": ["Katalog", "Hurt", "Logowanie", "Kontakt"],
+      "hero": {
+        "headline": "Zaloguj się po ceny hurtowe",
+        "subline": "Ceny netto · faktura VAT · min. 500 zł",
+        "ctaPrimary": "Załóż konto firmowe",
+        "ctaSecondary": "Katalog PDF"
+      },
+      "sections": [
+        { "type": "banner", "text": "Rejestracja B2B — weryfikacja NIP w 24h" },
+        {
+          "type": "product-grid",
+          "title": "Popularne",
+          "products": [
+            { "name": "Śruba M8", "price": "0,42 zł netto", "badge": "Hurt" },
+            { "name": "Podkładka M8", "price": "0,08 zł netto", "badge": null },
+            { "name": "Nakrętka M8", "price": "0,12 zł netto", "badge": null }
+          ]
+        }
+      ]
+    },
+    "shopify-kosmetyki": {
+      "icon": "Sparkles",
+      "gradient": "from-pink-500 via-rose-500 to-fuchsia-600",
+      "accentHex": "#ec4899",
+      "fakeBrand": "PureSkin",
+      "fakeTagline": "Pielęgnacja skóry bez kompromisów",
+      "browserUrl": "pureskin.pl",
+      "nav": ["Pielęgnacja", "Makijaż", "Nowości", "Koszyk"],
+      "hero": {
+        "headline": "Pielęgnacja skóry bez kompromisów",
+        "subline": "Weganskie formuły · dostawa 48h",
+        "ctaPrimary": "Bestsellery",
+        "ctaSecondary": "Promocje"
+      },
+      "sections": [
+        {
+          "type": "product-grid",
+          "title": "Bestsellery",
+          "products": [
+            { "name": "Serum wit. C", "price": "89 zł", "badge": "Nowość" },
+            { "name": "Krem SPF50", "price": "69 zł", "badge": null },
+            { "name": "Tonik", "price": "49 zł", "badge": null }
+          ]
+        },
+        { "type": "badge", "text": "Powered by Shopify" }
+      ]
+    },
+    "shoper-elektronika": {
+      "icon": "Cpu",
+      "gradient": "from-cyan-600 via-blue-600 to-indigo-700",
+      "accentHex": "#0891b2",
+      "fakeBrand": "TechPoint",
+      "fakeTagline": "Elektronika użytkowa i AGD",
+      "browserUrl": "techpoint.pl",
+      "nav": ["Laptopy", "Audio", "AGD", "Koszyk"],
+      "hero": {
+        "headline": "Elektronika użytkowa i AGD",
+        "subline": "Filtry parametrów · szybka wysyłka",
+        "ctaPrimary": "Nowości",
+        "ctaSecondary": "Promocje"
+      },
+      "sections": [
+        { "type": "filter-chips", "items": ["Marka", "Cena", "RAM", "Ekran"] },
+        {
+          "type": "product-grid",
+          "title": "Polecane",
+          "products": [
+            { "name": "Laptop 15\"", "price": "3499 zł", "badge": null },
+            { "name": "Słuchawki BT", "price": "299 zł", "badge": "−15%" },
+            { "name": "Monitor 27\"", "price": "899 zł", "badge": null }
+          ]
+        },
+        { "type": "badge", "text": "Sklep na Shoper" }
+      ]
+    }
+  },
+  "dashboard": {
+    "wp-panel": {
+      "title": "WordPress — Edytuj stronę",
+      "status": "Online",
+      "kpis": [
+        { "label": "Wersja WP", "value": "6.7.2" },
+        { "label": "Motyw", "value": "Aktywny" },
+        { "label": "Szkolenie", "value": "30 min ✓" }
+      ],
+      "main": {
+        "type": "editor",
+        "pageTitle": "Strona główna — Restauracja U Kucharza",
+        "blocks": ["Nagłówek hero", "Sekcja menu", "Kontakt"]
+      }
+    },
+    "ga4-dashboard": {
+      "title": "Google Analytics 4",
+      "status": "Live",
+      "kpis": [
+        { "label": "Sesje (7 dni)", "value": "847" },
+        { "label": "Konwersje", "value": "12" },
+        { "label": "Źródła top", "value": "Organic 62%" }
+      ],
+      "main": {
+        "type": "chart",
+        "label": "Ruch — ostatnie 7 dni",
+        "sources": ["Organic", "Direct", "Ads"]
+      }
+    },
+    "google-ads": {
+      "title": "Google Ads — Kampania Search",
+      "status": "Active",
+      "kpis": [
+        { "label": "Kampania", "value": "Strona firmowa" },
+        { "label": "CTR", "value": "4,2%" },
+        { "label": "Koszt", "value": "847 zł" }
+      ],
+      "main": { "type": "stats", "conversions": 23, "clicks": 412 }
+    },
+    "opieka-dashboard": {
+      "title": "Opieka stronyodzaraz",
+      "status": "Wszystko OK",
+      "kpis": [
+        { "label": "Uptime", "value": "99,9%" },
+        { "label": "Backup", "value": "Wczoraj ✓" },
+        { "label": "Update WP", "value": "6.7.2 ✓" }
+      ],
+      "main": {
+        "type": "checklist",
+        "items": [
+          { "label": "Wtyczki 12/12", "ok": true },
+          { "label": "SSL ważny", "ok": true },
+          { "label": "Prace w pakiecie", "value": "0,3h / 1h" }
+        ]
+      }
+    },
+    "opieka-raport": {
+      "title": "Raport opieki — styczeń 2026",
+      "status": "Wysłany",
+      "kpis": [
+        { "label": "Aktualizacje", "value": "4" },
+        { "label": "Backupy", "value": "4/4 OK" },
+        { "label": "Incydenty", "value": "0" }
+      ],
+      "main": {
+        "type": "table",
+        "rows": [
+          ["WP core", "6.7.1 → 6.7.2", "OK"],
+          ["Wordfence", "Update", "OK"],
+          ["Motyw", "Update", "OK"],
+          ["Rekomendacja", "Aktualizacja motywu luty", "—"]
+        ]
+      }
+    }
+  },
+  "flow": {
+    "flow-inpost": {
+      "title": "Checkout z InPost Paczkomaty",
+      "steps": [
+        { "icon": "ShoppingCart", "label": "Koszyk" },
+        { "icon": "User", "label": "Dane" },
+        { "icon": "MapPin", "label": "Paczkomat" },
+        { "icon": "CreditCard", "label": "P24 / BLIK" },
+        { "icon": "CheckCircle", "label": "Potwierdzenie" }
+      ],
+      "footer": {
+        "type": "paczkomaty",
+        "points": ["WAW01A", "WAW02B", "WAW03C"]
+      }
+    },
+    "flow-p24": {
+      "title": "Płatność Przelewy24",
+      "steps": [
+        { "icon": "Package", "label": "Zamówienie 249 zł" },
+        { "icon": "Wallet", "label": "Przelewy24" },
+        { "icon": "Smartphone", "label": "BLIK / Karta" },
+        { "icon": "CheckCircle", "label": "Opłacono" }
+      ],
+      "footer": { "type": "badge", "text": "Sandbox test OK · Webhook skonfigurowany" }
+    }
+  },
+  "split": {
+    "migracja-split": {
+      "title": "Migracja strony — przed i po",
+      "before": {
+        "label": "PRZED (2018)",
+        "badges": ["Not secure", "Nie responsywna"],
+        "issues": ["Rozjechane menu", "Wolne ładowanie", "Brak SSL"]
+      },
+      "after": {
+        "label": "PO (WordPress 2026)",
+        "badges": ["SSL ✓", "Mobile-first", "CWV zielone"],
+        "features": ["Czysta nawigacja", "Formularz + mapa", "GA4"]
+      },
+      "redirects": [
+        { "from": "/stara-oferta.html", "to": "/uslugi/oferta" },
+        { "from": "/kontakt.php", "to": "/kontakt" },
+        { "from": "/index.html", "to": "/" }
+      ]
+    }
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "_comment": "Indeks presetów — źródło prawdy templateId. Pełna spec: DELIVERY-STACK-WORDPRESS.md",
+  "version": "1.0",
+  "templates": [
+    {
+      "id": "wp-landing-restauracja",
+      "branch": "restauracja",
+      "tiers": ["landing", "waas-landing"],
+      "parentTheme": "astra",
+      "childThemeSlug": "so-restauracja",
+      "wooCommerce": false,
+      "demoMockRef": "restauracja",
+      "status": "planned"
+    },
+    {
+      "id": "wp-landing-dentysta",
+      "branch": "dentysta",
+      "tiers": ["landing", "start", "waas-landing"],
+      "parentTheme": "astra",
+      "childThemeSlug": "so-dentysta",
+      "wooCommerce": false,
+      "demoMockRef": "dentysta",
+      "status": "planned"
+    },
+    {
+      "id": "wp-landing-uslugi",
+      "branch": "uslugi-lokal",
+      "tiers": ["landing", "start"],
+      "parentTheme": "generatepress",
+      "childThemeSlug": "so-lokal",
+      "wooCommerce": false,
+      "demoMockRef": "landing-warsztat",
+      "status": "planned"
+    },
+    {
+      "id": "wp-start-b2b",
+      "branch": "b2b",
+      "tiers": ["start", "pro"],
+      "parentTheme": "astra",
+      "childThemeSlug": "so-b2b",
+      "wooCommerce": false,
+      "demoMockRef": "kancelaria",
+      "status": "planned"
+    },
+    {
+      "id": "wp-start-hotel",
+      "branch": "hotel",
+      "tiers": ["start", "pro"],
+      "parentTheme": "astra",
+      "childThemeSlug": "so-hotel",
+      "wooCommerce": false,
+      "demoMockRef": "hotel",
+      "status": "planned"
+    },
+    {
+      "id": "wp-sklep-moda",
+      "branch": "moda",
+      "tiers": ["sklep-start", "sklep-pro", "waas-sklep"],
+      "parentTheme": "astra",
+      "childThemeSlug": "so-sklep-moda",
+      "wooCommerce": true,
+      "demoMockRef": "sklep-moda",
+      "status": "planned"
+    },
+    {
+      "id": "wp-sklep-food",
+      "branch": "spozywczy",
+      "tiers": ["sklep-start", "sklep-pro"],
+      "parentTheme": "astra",
+      "childThemeSlug": "so-sklep-food",
+      "wooCommerce": true,
+      "demoMockRef": "sklep-spozywczy",
+      "status": "planned"
+    },
+    {
+      "id": "wp-sklep-b2b",
+      "branch": "hurt",
+      "tiers": ["sklep-pro"],
+      "parentTheme": "astra",
+      "childThemeSlug": "so-b2b",
+      "wooCommerce": true,
+      "demoMockRef": "sklep-b2b",
+      "status": "planned"
+    }
+  ],
+  "branchAliases": {
+    "restauracja": "wp-landing-restauracja",
+    "gastronomia": "wp-landing-restauracja",
+    "pizzeria": "wp-landing-restauracja",
+    "dentysta": "wp-landing-dentysta",
+    "stomatolog": "wp-landing-dentysta",
+    "gabinet": "wp-landing-dentysta",
+    "warsztat": "wp-landing-uslugi",
+    "mechanik": "wp-landing-uslugi",
+    "fryzjer": "wp-landing-uslugi",
+    "kancelaria": "wp-start-b2b",
+    "prawnik": "wp-start-b2b",
+    "hotel": "wp-start-hotel",
+    "pensjonat": "wp-start-hotel",
+    "sklep odzieżowy": "wp-sklep-moda",
+    "moda": "wp-sklep-moda",
+    "spożywczy": "wp-sklep-food",
+    "sklep spożywczy": "wp-sklep-food"
+  }
+}

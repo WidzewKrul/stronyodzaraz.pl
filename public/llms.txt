@@ -1,0 +1,43 @@
+# stronyodzaraz.pl
+
+> Polska agencja web B2B — strony WordPress, sklepy WooCommerce, Shopify i Shoper. Productized packages z jasną ceną, zamówienie online przez Stripe, realizacja 7–14 dni.
+
+## Co oferujemy
+
+- Ponad 400 pakietów usług web w 8 kategoriach (strony, sklepy, WordPress, Shopify/Shoper, marketing, opieka, integracje, migracje)
+- Strony WordPress od 2 490 zł, sklepy WooCommerce od 5 990 zł, Shopify od 7 990 zł
+- Polskie integracje: Przelewy24, BLIK, PayU, InPost, Allegro, BaseLinker, fakturowanie
+- Opieka techniczna WordPress od 299 zł/mc
+- Google Ads / Meta Ads setup od 990 zł
+
+## Dla kogo
+
+- Małe i średnie firmy B2B w Polsce
+- Restauracje, sklepy, gabinety, kancelarie, hotele
+- Firmy startujące z e-commerce
+- Przedsiębiorcy bez własnego działu IT
+
+## Jak to działa
+
+1. Wybierz pakiet w katalogu /uslugi
+2. Opłać online (Stripe) i wypełnij brief projektu
+3. Realizacja 7–14 dni — oddanie projektu + szkolenie + gwarancja 30 dni
+
+## Kluczowe strony
+
+- Strona główna: https://stronyodzaraz.pl/
+- Katalog usług: https://stronyodzaraz.pl/uslugi
+- Strony internetowe: https://stronyodzaraz.pl/uslugi/strony-internetowe
+- Sklepy internetowe: https://stronyodzaraz.pl/uslugi/sklepy-internetowe
+- WordPress: https://stronyodzaraz.pl/uslugi/wordpress
+- Blog: https://stronyodzaraz.pl/blog
+- Wykonane (portfolio): https://stronyodzaraz.pl/wykonane
+- Demo (mockupy branż): https://stronyodzaraz.pl/demo
+- Technologia (stack, hosting): https://stronyodzaraz.pl/technologia
+- O nas: https://stronyodzaraz.pl/o-nas
+- Kontakt: https://stronyodzaraz.pl/kontakt
+
+## Kontakt
+
+- E-mail: kontakt@bblikh.pl
+- Formularz: https://stronyodzaraz.pl/kontakt

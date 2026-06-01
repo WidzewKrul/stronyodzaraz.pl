@@ -1,0 +1,36 @@
+{
+  "_comment": "Rekordy do dodania w services-catalog.json — primary curated",
+  "products": [
+    {
+      "slug": "waas-landing-page",
+      "category": "opieka-techniczna",
+      "branch": "generic",
+      "seoTitle": "WaaS Landing — strona w abonamencie",
+      "priceGrosze": 49000,
+      "priceNote": "setup + 99 zł/mc min 12 mc",
+      "tier": "WaaS",
+      "primary": true
+    },
+    {
+      "slug": "waas-strona-start",
+      "category": "opieka-techniczna",
+      "branch": "generic",
+      "seoTitle": "WaaS Start — strona firmowa w abonamencie",
+      "priceGrosze": 99000,
+      "priceNote": "setup + 149 zł/mc min 12 mc",
+      "tier": "WaaS",
+      "primary": true
+    },
+    {
+      "slug": "waas-sklep-start",
+      "category": "opieka-techniczna",
+      "branch": "generic",
+      "seoTitle": "WaaS Sklep — sklep WooCommerce w abonamencie",
+      "priceGrosze": 299000,
+      "priceNote": "setup + 249 zł/mc min 12 mc",
+      "tier": "WaaS",
+      "primary": true
+    }
+  ],
+  "stripeMapping": "content/mrr-pakiety.json"
+}

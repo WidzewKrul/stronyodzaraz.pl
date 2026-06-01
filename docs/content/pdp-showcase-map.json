@@ -1,0 +1,36 @@
+{
+  "_comment": "PDP slug → showcase slug dla linku Zobacz przykład układu",
+  "defaultShowcase": "strona-restauracja-wordpress",
+  "map": {
+    "landing-page-warsztat-samochodowy": "landing-warsztat-samochodowy",
+    "landing-page-restauracja": "landing-warsztat-samochodowy",
+    "strona-wordpress-restauracja": "strona-restauracja-wordpress",
+    "strona-wordpress-restauracja-pro": "strona-restauracja-wordpress",
+    "strona-wordpress-gabinet-dentystyczny": "strona-dentysta-pro",
+    "strona-wordpress-gabinet-dentystyczny-pro": "strona-dentysta-pro",
+    "strona-wordpress-kancelaria-prawna-pro": "strona-kancelaria-b2b",
+    "strona-wordpress-hotel": "strona-hotel-uslugowy",
+    "strona-wordpress-sklep-odziezowy": "sklep-woocommerce-moda",
+    "strona-wordpress-sklep-spozywczy": "sklep-spozywczy-lokalny",
+    "sklep-woocommerce-firma-b2b-pro": "sklep-b2b-hurt",
+    "sklep-shopify-salon-kosmetyczny": "sklep-shopify-kosmetyki",
+    "sklep-shoper-firma-it": "sklep-shoper-elektronika",
+    "google-analytics-4-firma-b2b-setup": "marketing-ga4-dashboard",
+    "google-ads-setup": "marketing-google-ads-kampania",
+    "opieka-wordpress-start": "opieka-wordpress-dashboard",
+    "opieka-wordpress-standard": "opieka-raport-miesieczny",
+    "integracja-inpost-woocommerce": "integracja-inpost-sklep",
+    "integracja-przelewy24-woocommerce": "integracja-p24-bramka",
+    "migracja-wordpress-restauracja": "migracja-strona-before-after"
+  },
+  "byCategoryDefault": {
+    "strony-internetowe": "strona-restauracja-wordpress",
+    "sklepy-internetowe": "sklep-woocommerce-moda",
+    "wordpress": "wordpress-panel-edycja",
+    "shopify-shoper": "sklep-shopify-kosmetyki",
+    "reklama-marketing": "marketing-ga4-dashboard",
+    "opieka-techniczna": "opieka-wordpress-dashboard",
+    "integracje": "integracja-inpost-sklep",
+    "migracje": "migracja-strona-before-after"
+  }
+}

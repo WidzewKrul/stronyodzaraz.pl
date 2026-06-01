@@ -1,0 +1,18 @@
+{
+  "h2": "Start czy Pro — co wybrać?",
+  "subtitle": "Porównaj pakiety stron WordPress. Ceny brutto — szczegóły scope w katalogu.",
+  "columns": ["Pakiet Start", "Pakiet Pro"],
+  "highlightColumn": 1,
+  "rows": [
+    { "label": "Cena od", "start": "2 490 zł", "pro": "4 990 zł" },
+    { "label": "Podstrony", "start": "do 5", "pro": "do 10" },
+    { "label": "SEO on-page", "start": "podstawowe meta", "pro": "title, meta, H1, schema LocalBusiness" },
+    { "label": "Blog", "start": "—", "pro": "szablon bloga" },
+    { "label": "Rundy poprawek", "start": "1", "pro": "2" },
+    { "label": "Termin realizacji", "start": "7 dni roboczych", "pro": "14 dni roboczych" },
+    { "label": "Core Web Vitals", "start": "—", "pro": "optymalizacja podstawowa" },
+    { "label": "Szkolenie z panelu", "start": "30 min", "pro": "30 min" }
+  ],
+  "ctaStart": { "label": "Wybierz Start", "href": "/uslugi?cat=strony-internetowe" },
+  "ctaPro": { "label": "Wybierz Pro", "href": "/uslugi?cat=strony-internetowe" }
+}

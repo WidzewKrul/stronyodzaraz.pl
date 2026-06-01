@@ -1,0 +1,155 @@
+{
+  "disclaimer": "Przykładowy układ sekcji — nie gotowy szablon. Twój projekt dopasowujemy do branży, logo i treści.",
+  "demos": [
+    {
+      "id": "restauracja",
+      "label": "Restauracja",
+      "icon": "UtensilsCrossed",
+      "gradient": "from-amber-600 via-orange-600 to-rose-700",
+      "accentHex": "#ea580c",
+      "fakeBrand": "Restauracja U Kucharza",
+      "fakeTagline": "Domowa kuchnia polska · rezerwacja online",
+      "browserUrl": "ukucharza.pl",
+      "nav": ["Menu", "O nas", "Galeria", "Rezerwacja", "Kontakt"],
+      "hero": {
+        "headline": "Smaki, które znasz z domu",
+        "subline": "Świeże składniki · menu sezonowe · stoliki na weekend",
+        "ctaPrimary": "Zarezerwuj stolik",
+        "ctaSecondary": "Zobacz menu"
+      },
+      "sections": [
+        {
+          "type": "menu-highlights",
+          "title": "Dania dnia",
+          "items": [
+            { "name": "Żurek na zakwasie", "price": "28 zł" },
+            { "name": "Kotlet schabowy", "price": "42 zł" },
+            { "name": "Pierogi ruskie (8 szt.)", "price": "32 zł" }
+          ]
+        },
+        {
+          "type": "info-bar",
+          "items": [
+            { "icon": "Clock", "text": "Pn–Sb 12:00–22:00" },
+            { "icon": "MapPin", "text": "ul. Przykładowa 12, Warszawa" },
+            { "icon": "Phone", "text": "+48 22 000 00 00" }
+          ]
+        },
+        {
+          "type": "gallery-grid",
+          "title": "Atmosfera",
+          "placeholderCount": 3
+        }
+      ],
+      "bulletsCard": ["Menu z kategoriami i cenami", "Mapa Google + godziny otwarcia", "Formularz rezerwacji / kontakt", "Galeria zdjęć · mobile-first"],
+      "pdpSlug": "strona-wordpress-restauracja",
+      "pdpCategory": "strony-internetowe",
+      "ctaLabel": "Zamów stronę dla restauracji"
+    },
+    {
+      "id": "dentysta",
+      "label": "Gabinet dentystyczny",
+      "icon": "Smile",
+      "gradient": "from-sky-600 via-cyan-600 to-teal-700",
+      "accentHex": "#0284c7",
+      "fakeBrand": "DentalCare",
+      "fakeTagline": "Stomatologia dla całej rodziny",
+      "browserUrl": "dentalcare.example.pl",
+      "nav": ["Usługi", "Zespół", "Cennik", "Opinie", "Kontakt"],
+      "hero": {
+        "headline": "Twój uśmiech w dobrych rękach",
+        "subline": "Implanty · ortodoncja · stomatologia dziecięca",
+        "ctaPrimary": "Umów wizytę",
+        "ctaSecondary": "Zobacz cennik"
+      },
+      "sections": [
+        {
+          "type": "services-grid",
+          "title": "Usługi",
+          "items": [
+            { "name": "Implanty", "desc": "Plan leczenia + RTG" },
+            { "name": "Wybielanie", "desc": "Bezpieczne metody" },
+            { "name": "Protetyka", "desc": "Korony i mosty" }
+          ]
+        },
+        {
+          "type": "team",
+          "title": "Zespół",
+          "members": [
+            { "name": "dr Anna Kowalska", "role": "Stomatolog" },
+            { "name": "dr Piotr Nowak", "role": "Ortodonta" }
+          ]
+        },
+        {
+          "type": "trust-bar",
+          "items": ["NFZ / prywatnie", "Parking przy gabinecie", "Nowoczesny sprzęt"]
+        }
+      ],
+      "bulletsCard": ["Lista usług + krótkie opisy", "Zespół z zdjęciami placeholder", "Formularz umówienia wizyty", "Cennik orientacyjny + mapa"],
+      "pdpSlug": "strona-wordpress-gabinet-dentystyczny",
+      "pdpCategory": "strony-internetowe",
+      "ctaLabel": "Zamów stronę dla gabinetu"
+    },
+    {
+      "id": "sklep",
+      "label": "Sklep online",
+      "icon": "ShoppingBag",
+      "gradient": "from-violet-600 via-purple-600 to-fuchsia-700",
+      "accentHex": "#7c3aed",
+      "fakeBrand": "ModaPark",
+      "fakeTagline": "Odzież damska i męska · dostawa 24h",
+      "browserUrl": "modapark.pl",
+      "nav": ["Nowości", "Damskie", "Męskie", "Sale", "Koszyk"],
+      "hero": {
+        "headline": "Kolekcja wiosna / lato 2026",
+        "subline": "Darmowa dostawa od 199 zł · zwrot 30 dni",
+        "ctaPrimary": "Zobacz nowości",
+        "ctaSecondary": "Promocje"
+      },
+      "sections": [
+        {
+          "type": "category-chips",
+          "items": ["Sukienki", "Kurtki", "Buty", "Akcesoria"]
+        },
+        {
+          "type": "product-grid",
+          "title": "Bestsellery",
+          "products": [
+            { "name": "Sukienka midi lniana", "price": "189 zł", "badge": "Nowość" },
+            { "name": "Kurtka przejściowa", "price": "299 zł", "badge": null },
+            { "name": "Sneakersy białe", "price": "249 zł", "badge": "−20%" }
+          ]
+        },
+        {
+          "type": "payment-badges",
+          "items": ["BLIK", "Przelewy24", "InPost Paczkomaty", "DPD"]
+        }
+      ],
+      "bulletsCard": ["Katalog produktów + filtry", "Koszyk i checkout P24/BLIK", "InPost / kurier w stopce", "Regulamin sklepu + RODO"],
+      "pdpSlug": "strona-wordpress-sklep-odziezowy",
+      "pdpCategory": "sklepy-internetowe",
+      "ctaLabel": "Zamów sklep dla branży modowej"
+    }
+  ],
+  "pageMeta": {
+    "homeSection": {
+      "h2": "Zobacz przykładowe układy",
+      "subtitle": "Typowa struktura sekcji dla trzech popularnych branż — bez gotowego szablonu do skopiowania.",
+      "linkAll": { "href": "/demo", "label": "Pełne podglądy układów" }
+    },
+    "demoPage": {
+      "h1": "Przykładowe układy stron i sklepów",
+      "intro": "Poniżej pokazujemy, jak zwykle układamy sekcje w pakiecie Start lub Sklep Start. To ilustracja procesu — każdy projekt dostosowujemy do Twojej marki, treści i celów.",
+      "faq": [
+        {
+          "q": "Czy to gotowy szablon do kupienia?",
+          "a": "Nie. To wizualizacja typowego scope pakietu. Projektujemy pod Twoją firmę w ramach wybranego pakietu z katalogu."
+        },
+        {
+          "q": "Czy mogę mieć inne sekcje niż na mockupie?",
+          "a": "Tak — brief określa priorytety. Pakiet Pro pozwala na więcej podstron i sekcji."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["slug", "title", "excerpt", "primaryKeyword", "tags", "readMinutes", "bodyMd", "internalLinks", "suggestedCategory"],
+  "properties": {
+    "slug": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$", "maxLength": 80 },
+    "title": { "type": "string", "minLength": 20, "maxLength": 70 },
+    "excerpt": { "type": "string", "minLength": 120, "maxLength": 165 },
+    "primaryKeyword": { "type": "string" },
+    "tags": { "type": "array", "items": { "type": "string" }, "minItems": 2, "maxItems": 5 },
+    "readMinutes": { "type": "integer", "minimum": 5, "maximum": 20 },
+    "bodyMd": { "type": "string", "minLength": 3000 },
+    "internalLinks": { "type": "array", "items": { "type": "string" }, "minItems": 2 },
+    "suggestedCategory": {
+      "type": "string",
+      "enum": [
+        "strony-internetowe",
+        "sklepy-internetowe",
+        "wordpress",
+        "shopify-shoper",
+        "reklama-marketing",
+        "opieka-techniczna",
+        "integracje",
+        "migracje-naprawy"
+      ]
+    }
+  }
+}

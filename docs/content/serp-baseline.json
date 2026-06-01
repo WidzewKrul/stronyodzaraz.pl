@@ -1,0 +1,38 @@
+{
+  "_comment": "Uzupełnij po launch z GSC — baseline do porównania QoQ",
+  "lastUpdated": null,
+  "status": "template_pre_launch",
+  "seedKeywords": [
+    {
+      "keyword": "ile kosztuje strona internetowa",
+      "top3Domains": [],
+      "ourTargetUrl": "/blog/ile-kosztuje-strona-internetowa-2026",
+      "notes": "Uzupełnij po SERP scrape"
+    },
+    {
+      "keyword": "strona internetowa cennik",
+      "top3Domains": [],
+      "ourTargetUrl": "/uslugi?cat=strony-internetowe",
+      "notes": ""
+    },
+    {
+      "keyword": "sklep internetowy wycena",
+      "top3Domains": [],
+      "ourTargetUrl": "/uslugi?cat=sklepy-internetowe",
+      "notes": ""
+    },
+    {
+      "keyword": "strona wordpress restauracja",
+      "top3Domains": [],
+      "ourTargetUrl": "/uslugi/strony-internetowe/strona-wordpress-restauracja",
+      "notes": ""
+    },
+    {
+      "keyword": "opieka wordpress cena",
+      "top3Domains": [],
+      "ourTargetUrl": "/uslugi/opieka-techniczna/opieka-wordpress-start",
+      "notes": ""
+    }
+  ],
+  "competitorsSeen": []
+}

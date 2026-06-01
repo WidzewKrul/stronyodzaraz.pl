@@ -1,0 +1,151 @@
+{
+  "version": 1,
+  "description": "Mapowanie branch (services-catalog.json) ↔ formy gramatyczne i frazy z KEYWORDS-PLANNER. Używane w longDesc/FAQ — nie tworzy osobnych URL per synonim.",
+  "entries": [
+    {
+      "branch": "restauracja",
+      "nominative": "restauracja",
+      "genitive": "restauracji",
+      "dative": "restauracji",
+      "professionPhrases": ["strona dla restauracji", "strona www gastronomia", "strona lokalu gastronomicznego"],
+      "keywords": ["restauracja", "gastronomia", "lokal", "bar", "menu online"]
+    },
+    {
+      "branch": "bar",
+      "nominative": "bar",
+      "genitive": "baru",
+      "professionPhrases": ["strona dla baru", "strona pubu"],
+      "keywords": ["bar", "pub", "koktajle"]
+    },
+    {
+      "branch": "kawiarnia",
+      "nominative": "kawiarnia",
+      "genitive": "kawiarni",
+      "professionPhrases": ["strona dla kawiarni"],
+      "keywords": ["kawiarnia", "coffee shop"]
+    },
+    {
+      "branch": "pizzeria",
+      "nominative": "pizzeria",
+      "genitive": "pizzerii",
+      "professionPhrases": ["strona dla pizzerii"],
+      "keywords": ["pizzeria", "dowóz pizzy"]
+    },
+    {
+      "branch": "gabinet dentystyczny",
+      "nominative": "gabinet dentystyczny",
+      "genitive": "gabinetu dentystycznego",
+      "professionPhrases": ["strona dla dentysty", "strona stomatologa", "strona gabinetu stomatologicznego"],
+      "keywords": ["dentysta", "stomatolog", "gabinet dentystyczny"]
+    },
+    {
+      "branch": "gabinet lekarski",
+      "nominative": "gabinet lekarski",
+      "genitive": "gabinetu lekarskiego",
+      "professionPhrases": ["strona dla lekarza", "strona dla gabinetu", "strona przychodni"],
+      "keywords": ["lekarz", "przychodnia", "gabinet lekarski"]
+    },
+    {
+      "branch": "gabinet fizjoterapii",
+      "nominative": "gabinet fizjoterapii",
+      "genitive": "gabinetu fizjoterapii",
+      "professionPhrases": ["strona dla fizjoterapeuty"],
+      "keywords": ["fizjoterapia", "rehabilitacja"]
+    },
+    {
+      "branch": "kancelaria prawna",
+      "nominative": "kancelaria prawna",
+      "genitive": "kancelarii prawnej",
+      "professionPhrases": ["strona dla kancelarii", "strona dla prawnika", "strona adwokata"],
+      "keywords": ["prawnik", "adwokat", "kancelaria"]
+    },
+    {
+      "branch": "salon fryzjerski",
+      "nominative": "salon fryzjerski",
+      "genitive": "salonu fryzjerskiego",
+      "professionPhrases": ["strona dla fryzjera", "strona salonu fryzjerskiego"],
+      "keywords": ["fryzjer", "barber", "salon fryzjerski"]
+    },
+    {
+      "branch": "salon kosmetyczny",
+      "nominative": "salon kosmetyczny",
+      "genitive": "salonu kosmetycznego",
+      "professionPhrases": ["strona dla kosmetyczki", "strona salonu beauty"],
+      "keywords": ["kosmetyczka", "beauty", "salon kosmetyczny"]
+    },
+    {
+      "branch": "hotel",
+      "nominative": "hotel",
+      "genitive": "hotelu",
+      "professionPhrases": ["strona dla hotelu", "strona pensjonatu"],
+      "keywords": ["hotel", "noclegi", "rezerwacje"]
+    },
+    {
+      "branch": "pensjonat",
+      "nominative": "pensjonat",
+      "genitive": "pensjonatu",
+      "professionPhrases": ["strona dla pensjonatu"],
+      "keywords": ["pensjonat", "agroturystyka"]
+    },
+    {
+      "branch": "siłownia",
+      "nominative": "siłownia",
+      "genitive": "siłowni",
+      "professionPhrases": ["strona dla siłowni", "strona klubu fitness"],
+      "keywords": ["siłownia", "fitness", "trening personalny"]
+    },
+    {
+      "branch": "szkoła",
+      "nominative": "szkoła",
+      "genitive": "szkoły",
+      "professionPhrases": ["strona dla szkoły", "strona placówki edukacyjnej"],
+      "keywords": ["szkoła", "edukacja", "kursy"]
+    },
+    {
+      "branch": "warsztat samochodowy",
+      "nominative": "warsztat samochodowy",
+      "genitive": "warsztatu samochodowego",
+      "professionPhrases": ["strona dla mechanika", "strona serwisu samochodowego"],
+      "keywords": ["mechanik", "warsztat", "serwis samochodowy"]
+    },
+    {
+      "branch": "firma budowlana",
+      "nominative": "firma budowlana",
+      "genitive": "firmy budowlanej",
+      "professionPhrases": ["strona dla firmy budowlanej", "strona remontów"],
+      "keywords": ["budowlanka", "remonty", "wykończenia"]
+    },
+    {
+      "branch": "sklep odzieżowy",
+      "nominative": "sklep odzieżowy",
+      "genitive": "sklepu odzieżowego",
+      "professionPhrases": ["sklep odzieżowy online", "sklep modowy"],
+      "keywords": ["odzież", "butik", "moda"]
+    },
+    {
+      "branch": "sklep kosmetyczny",
+      "nominative": "sklep kosmetyczny",
+      "genitive": "sklepu kosmetycznego",
+      "professionPhrases": ["sklep z kosmetykami online"],
+      "keywords": ["kosmetyki", "e-commerce beauty"]
+    },
+    {
+      "branch": "firma IT",
+      "nominative": "firma IT",
+      "genitive": "firmy IT",
+      "professionPhrases": ["strona dla software house", "strona firmy technologicznej"],
+      "keywords": ["IT", "SaaS", "software house"]
+    },
+    {
+      "branch": "biuro rachunkowe",
+      "nominative": "biuro rachunkowe",
+      "genitive": "biura rachunkowego",
+      "professionPhrases": ["strona dla księgowości", "strona biura rachunkowego"],
+      "keywords": ["księgowość", "biuro rachunkowe"]
+    }
+  ],
+  "fallback": {
+    "patternGenitive": "dla {branch}",
+    "patternProfession": "strona dla {branch}"
+  }
+}

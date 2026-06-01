@@ -1,0 +1,1 @@
+indexnow-placeholder-replace-with-env-key

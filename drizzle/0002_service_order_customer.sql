@@ -1,0 +1,13 @@
+ALTER TABLE "ServiceOrder" ADD COLUMN IF NOT EXISTS "firstName" text NOT NULL DEFAULT '';
+ALTER TABLE "ServiceOrder" ADD COLUMN IF NOT EXISTS "lastName" text;
+ALTER TABLE "ServiceOrder" ADD COLUMN IF NOT EXISTS "phone" text;
+ALTER TABLE "ServiceOrder" ADD COLUMN IF NOT EXISTS "checkoutGroupId" text;
+ALTER TABLE "ServiceOrder" ADD COLUMN IF NOT EXISTS "invoiceRequested" boolean NOT NULL DEFAULT false;
+ALTER TABLE "ServiceOrder" ADD COLUMN IF NOT EXISTS "invoiceName" text;
+ALTER TABLE "ServiceOrder" ADD COLUMN IF NOT EXISTS "invoiceTaxId" text;
+ALTER TABLE "ServiceOrder" ADD COLUMN IF NOT EXISTS "invoiceStreet" text;
+ALTER TABLE "ServiceOrder" ADD COLUMN IF NOT EXISTS "invoiceCity" text;
+ALTER TABLE "ServiceOrder" ADD COLUMN IF NOT EXISTS "invoicePostalCode" text;
+ALTER TABLE "ServiceOrder" ADD COLUMN IF NOT EXISTS "invoiceProvince" text;
+ALTER TABLE "ServiceOrder" ADD COLUMN IF NOT EXISTS "termsAcceptedAt" timestamp;
+ALTER TABLE "ServiceOrder" ADD COLUMN IF NOT EXISTS "termsAcceptedIp" text;

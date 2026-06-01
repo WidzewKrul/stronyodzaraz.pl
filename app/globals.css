@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-50: #eef2ff;
+  --color-brand-100: #e0e7ff;
+  --color-brand-200: #c7d2fe;
+  --color-brand-300: #a5b4fc;
+  --color-brand-400: #818cf8;
+  --color-brand-500: #6366f1;
+  --color-brand-600: #4f46e5;
+  --color-brand-700: #4338ca;
+  --color-brand-800: #3730a3;
+  --color-brand-900: #312e81;
+
+  --color-accent-500: #0ea5e9;
+  --color-accent-600: #0284c7;
+
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #fafafa;
+  color: #0f172a;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand-700);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+.prose-legal h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose-legal p {
+  color: #475569;
+  line-height: 1.7;
+}
+
+.hero-overlay-left {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.97) 0%,
+    rgba(255, 255, 255, 0.92) 42%,
+    rgba(255, 255, 255, 0.55) 68%,
+    transparent 100%
+  );
+}
+
+@media (max-width: 768px) {
+  .hero-overlay-left {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(255, 255, 255, 0.88) 55%,
+      rgba(255, 255, 255, 0.4) 100%
+    );
+  }
+}
+
+/* Entrance animations */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.65s ease-out both;
+}
+
+.animation-delay-100 {
+  animation-delay: 100ms;
+}
+.animation-delay-200 {
+  animation-delay: 200ms;
+}
+.animation-delay-300 {
+  animation-delay: 300ms;
+}
+.animation-delay-400 {
+  animation-delay: 400ms;
+}
+
+@supports (animation-timeline: view()) {
+  .animate-on-scroll {
+    animation: fade-up linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+  }
+}
+
+@supports not (animation-timeline: view()) {
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  .animate-on-scroll.is-visible {
+    animation: fade-up 0.65s ease-out both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up,
+  .animate-on-scroll {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* FAQ accordion */
+details.faq-item > summary {
+  transition: color 0.15s ease;
+}
+
+details.faq-item[open] > summary {
+  color: var(--color-brand-800);
+}
+
+details.faq-item > p,
+details.faq-item > div {
+  animation: fade-up 0.25s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  details.faq-item > p,
+  details.faq-item > div {
+    animation: none;
+  }
+}

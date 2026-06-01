@@ -1,0 +1,68 @@
+{
+  "_comment": "Klucz: slug PDP źródłowy. Wartość: upsell do pokazania w UpsellBox (max 1 na PDP).",
+  "rules": {
+    "maxUpsellsPerPdp": 1,
+    "fallbackSlug": "opieka-wordpress-start",
+    "fallbackCategory": "opieka-techniczna"
+  },
+  "map": {
+    "strona-wordpress-restauracja": {
+      "upsellSlug": "opieka-wordpress-start",
+      "oneLiner": "Aktualizacje, backup i spokój po wdrożeniu — od 299 zł/mc."
+    },
+    "strona-wordpress-restauracja-pro": {
+      "upsellSlug": "google-analytics-4-restauracja-setup",
+      "oneLiner": "GA4 + eventy konwersji pod rezerwacje i menu."
+    },
+    "strona-wordpress-gabinet-dentystyczny": {
+      "upsellSlug": "opieka-wordpress-start",
+      "oneLiner": "Opieka techniczna — aktualizacje WP i backup co tydzień."
+    },
+    "strona-wordpress-sklep-odziezowy": {
+      "upsellSlug": "integracja-inpost-woocommerce",
+      "oneLiner": "Pełna integracja InPost Paczkomaty + etykiety."
+    },
+    "landing-page-restauracja": {
+      "upsellSlug": "google-ads-setup-restauracja",
+      "oneLiner": "Kampania Google Ads pod rezerwacje — setup od 990 zł."
+    },
+    "sklep-woocommerce-start": {
+      "upsellSlug": "opieka-wordpress-start",
+      "oneLiner": "Opieka sklepu WooCommerce — update, backup, monitoring."
+    }
+  },
+  "defaultByCategory": {
+    "strony-internetowe": {
+      "upsellSlug": "opieka-wordpress-start",
+      "oneLiner": "Opieka WordPress po wdrożeniu — od 299 zł/mc."
+    },
+    "sklepy-internetowe": {
+      "upsellSlug": "opieka-wordpress-start",
+      "oneLiner": "Opieka sklepu — aktualizacje, backup, bezpieczeństwo."
+    },
+    "wordpress": {
+      "upsellSlug": "opieka-wordpress-start",
+      "oneLiner": "Abonament opieki — nie musisz pilnować update'ów."
+    },
+    "shopify-shoper": {
+      "upsellSlug": "google-analytics-4-firma-b2b-setup",
+      "oneLiner": "Analityka GA4 pod Twój sklep SaaS."
+    },
+    "reklama-marketing": {
+      "upsellSlug": "opieka-wordpress-start",
+      "oneLiner": "Opieka strony, na której mierzysz kampanie."
+    },
+    "opieka-techniczna": {
+      "upsellSlug": "google-ads-setup",
+      "oneLiner": "Google Ads — więcej ruchu na gotową stronę."
+    },
+    "integracje": {
+      "upsellSlug": "opieka-wordpress-start",
+      "oneLiner": "Opieka po integracji — spokój techniczny."
+    },
+    "migracje": {
+      "upsellSlug": "opieka-wordpress-start",
+      "oneLiner": "Opieka po migracji — monitoring 301 i update'y."
+    }
+  }
+}

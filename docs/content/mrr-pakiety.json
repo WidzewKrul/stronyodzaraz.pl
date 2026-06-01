@@ -1,0 +1,189 @@
+{
+  "currency": "PLN",
+  "vat": "brutto",
+  "minCommitmentMonths": 12,
+  "earlyCancelFee": 200,
+  "ownershipBuyoutAfter12mo": 990,
+  "packages": [
+    {
+      "id": "waas-landing",
+      "slug": "waas-landing-page",
+      "category": "opieka-techniczna",
+      "name": "WaaS Landing — strona w abonamencie",
+      "setupFee": 490,
+      "monthlyFee": 99,
+      "minMonths": 12,
+      "totalYear1": 1678,
+      "compareOneShot": {
+        "slug": "landing-page-restauracja",
+        "oneTimePrice": 1490,
+        "note": "One-shot tańszy rok 1, ale bez hostingu/opieki"
+      },
+      "includes": [
+        "Landing page do 1 URL",
+        "Hosting WordPress u stronyodzaraz",
+        "Domena .pl — rok 1 w setup",
+        "SSL Let's Encrypt",
+        "Aktualizacje WP i wtyczek co tydzień",
+        "Backup co tydzień, retencja 30 dni",
+        "Monitoring uptime",
+        "Reakcja na awarie do 48h"
+      ],
+      "excludes": [
+        "Nowe podstrony powyżej scope",
+        "Copywriting >800 słów",
+        "Poczta @domena",
+        "Kampanie reklamowe",
+        "Więcej niż 1h prac dev/rok"
+      ],
+      "estimatedCogsMonthly": 35,
+      "grossMarginMonthlyPct": 65,
+      "idealIcp": "Mikro firma, kampania Ads, pierwsza strona, budżet rozłożony",
+      "stripeProducts": {
+        "setupPriceId": "STRIPE_PRICE_WAAS_LANDING_SETUP",
+        "monthlyPriceId": "STRIPE_PRICE_WAAS_LANDING_99"
+      }
+    },
+    {
+      "id": "waas-start",
+      "slug": "waas-strona-start",
+      "category": "opieka-techniczna",
+      "name": "WaaS Start — strona firmowa w abonamencie",
+      "setupFee": 990,
+      "monthlyFee": 149,
+      "minMonths": 12,
+      "totalYear1": 2778,
+      "compareOneShot": {
+        "slug": "strona-wordpress-restauracja",
+        "oneTimePrice": 2490,
+        "hostingNote": "+ hosting ~600-1200/rok osobno"
+      },
+      "includes": [
+        "Strona WordPress do 5 podstron",
+        "Hosting u stronyodzaraz",
+        "Domena .pl rok 1",
+        "GA4 podstawowe",
+        "Formularz kontaktowy",
+        "Backup tygodniowy",
+        "Aktualizacje WP",
+        "Szkolenie z panelu 30 min",
+        "1h prac drobnych/rok"
+      ],
+      "excludes": [
+        "Blog rozbudowany",
+        "SEO Pro / schema rozszerzone",
+        "Sklep"
+      ],
+      "estimatedCogsMonthly": 45,
+      "grossMarginMonthlyPct": 70,
+      "idealIcp": "Firma usługowa bez IT, chce all-in",
+      "stripeProducts": {
+        "setupPriceId": "STRIPE_PRICE_WAAS_START_SETUP",
+        "monthlyPriceId": "STRIPE_PRICE_WAAS_START_149"
+      }
+    },
+    {
+      "id": "waas-sklep",
+      "slug": "waas-sklep-start",
+      "category": "opieka-techniczna",
+      "name": "WaaS Sklep — sklep w abonamencie",
+      "setupFee": 2990,
+      "monthlyFee": 249,
+      "minMonths": 12,
+      "totalYear1": 5978,
+      "compareOneShot": {
+        "slug": "strona-wordpress-sklep-odziezowy",
+        "oneTimePrice": 5990
+      },
+      "includes": [
+        "Sklep WooCommerce do 50 produktów",
+        "Hosting (slot wyższy RAM)",
+        "P24 + InPost w setup",
+        "Backup dzienny",
+        "Aktualizacje + test po update",
+        "Monitoring zamówień/checkout",
+        "2h prac/mc drobnych"
+      ],
+      "excludes": [
+        "Allegro sync",
+        "ERP",
+        ">50 produktów"
+      ],
+      "estimatedCogsMonthly": 80,
+      "grossMarginMonthlyPct": 68,
+      "idealIcp": "Starter e-commerce, boi się technicznego utrzymania sklepu",
+      "stripeProducts": {
+        "setupPriceId": "STRIPE_PRICE_WAAS_SKLEP_SETUP",
+        "monthlyPriceId": "STRIPE_PRICE_WAAS_SKLEP_249"
+      }
+    },
+    {
+      "id": "opieka-lite",
+      "slug": "opieka-wordpress-start",
+      "category": "opieka-techniczna",
+      "name": "Opieka Lite — bez hostingu u nas",
+      "setupFee": 0,
+      "monthlyFee": 299,
+      "minMonths": 0,
+      "includes": [
+        "Klient ma własny hosting",
+        "Backup tygodniowy zdalny",
+        "Aktualizacje WP",
+        "Monitoring uptime",
+        "Reakcja 48h"
+      ],
+      "note": "Dla klientów one-shot którzy nie chcą WaaS"
+    },
+    {
+      "id": "opieka-standard",
+      "slug": "opieka-wordpress-standard",
+      "monthlyFee": 499,
+      "includes": ["Lite + backup dzienny", "1h dev/mc", "reakcja 24h"]
+    },
+    {
+      "id": "opieka-pro",
+      "slug": "opieka-wordpress-pro",
+      "monthlyFee": 799,
+      "includes": ["Standard + 3h dev/mc", "raport miesięczny", "reakcja 8h"]
+    }
+  ],
+  "addons": {
+    "domainRenewalYearly": 99,
+    "extraWorkHour": 150,
+    "emailWorkspaceSetup": 299,
+    "buyoutOwnership": 990,
+    "prepaidYearlyDiscountPct": 10
+  },
+  "dripOffers": [
+    {
+      "day": 0,
+      "trigger": "checkout_success_one_shot",
+      "offer": "Pierwszy mc WaaS -50%",
+      "targetPackage": "waas-start"
+    },
+    {
+      "day": 3,
+      "trigger": "project_delivered",
+      "offer": "Opieka Lite 299 — pierwszy mc gratis",
+      "targetPackage": "opieka-lite"
+    },
+    {
+      "day": 14,
+      "trigger": "no_mrr_attached",
+      "offer": "Upgrade do WaaS — hosting u nas, 99/mc",
+      "targetPackage": "waas-landing"
+    },
+    {
+      "day": 330,
+      "trigger": "domain_expiry_soon",
+      "offer": "Odnowienie domeny 99 zł lub wliczone w plan",
+      "targetPackage": null
+    }
+  ],
+  "pricingRationale": {
+    "waasLanding99": "Poniżej opieki rynkowej 299 — hook; marża OK przy >50 klientach/VPS",
+    "waasStart149": "Porównywalne z Wix Business + wykonanie agencji",
+    "min12mo": "ROI setup + churn protection",
+    "setupNotZero": "Filtruje tire-kickers; pokrywa 4-8h pracy"
+  }
+}

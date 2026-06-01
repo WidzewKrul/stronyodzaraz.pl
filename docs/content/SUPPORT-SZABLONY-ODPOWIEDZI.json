@@ -1,0 +1,80 @@
+{
+  "_comment": "Szablony odpowiedzi support — copy-paste z Gmail. Placeholdery: {name}, {domain}, {orderId}, {deadline}, {portalUrl}, {upsellUrl}",
+  "templates": [
+    {
+      "id": "support_first_response",
+      "subject": "Re: {original_subject}",
+      "body": "Cześć {name},\n\nDziękujemy za wiadomość — zajmujemy się tym. Odpowiemy z konkretami w ciągu {sla_hours}h roboczych.\n\nNumer zamówienia (jeśli dotyczy): #{orderId}\n\nPozdrawiam,\nPaweł · stronyodzaraz.pl"
+    },
+    {
+      "id": "support_brief_resend",
+      "subject": "Brief projektu #{orderId} — ponowna wysyłka",
+      "body": "Cześć {name},\n\nW załączniku / poniżej link ponownie wysyłamy brief:\n{briefUrl}\n\nJeśli dalej nie widzisz maila — sprawdź spam i dodaj noreply@stronyodzaraz.pl do kontaktów.\n\nstronyodzaraz.pl"
+    },
+    {
+      "id": "support_brief_help",
+      "subject": "Jak wypełnić brief — #{orderId}",
+      "body": "Cześć {name},\n\nMinimum do startu:\n• nazwa firmy + NIP\n• krótki opis branży\n• email/telefon na stronę\n• logo (lub zgoda na placeholder)\n• lista podstron / produktów wg pakietu\n\nLink: {briefUrl}\n\nNie wiesz co wpisać w sekcji X? Odpisz — podpowiemy w 1 mailu.\n\nstronyodzaraz.pl"
+    },
+    {
+      "id": "support_timeline",
+      "subject": "Termin realizacji — #{orderId}",
+      "body": "Cześć {name},\n\nPlanowany termin oddania: **{deadline}** (dni robocze od kompletnego briefu).\n\nEtapy:\n1. Brief ✓/○\n2. Staging — mail z linkiem\n3. Poprawki (5 dni na uwagi)\n4. Produkcja\n\nOpóźnienie materiałów po Twojej stronie przesuwa datę — daj znać jeśli coś blokuje.\n\nstronyodzaraz.pl"
+    },
+    {
+      "id": "support_change_in_scope",
+      "subject": "Poprawka w zakresie pakietu — #{orderId}",
+      "body": "Cześć {name},\n\nTo mieści się w gwarancji / rundzie poprawek — wprowadzimy do {deadline_fix}.\n\nstronyodzaraz.pl"
+    },
+    {
+      "id": "support_out_of_scope",
+      "subject": "Zakres pakietu — #{orderId}",
+      "body": "Cześć {name},\n\nTo wykracza poza pakiet {productName}. Możemy:\n\n1) Uprościć do scope pakietu (bez dopłaty)\n2) Rozszerzyć — pakiet Pro / wycena: {upsellUrl}\n3) Wycena jednorazowa: {quote_pln} zł\n\nDaj znać którą opcję wybierasz.\n\nstronyodzaraz.pl"
+    },
+    {
+      "id": "support_p0_ack",
+      "subject": "[P0] Awaria {domain} — diagnozujemy",
+      "body": "Cześć {name},\n\nPotwierdzamy problem z {domain}. Diagnozujemy — update w ciągu 2h roboczych.\n\nstronyodzaraz.pl"
+    },
+    {
+      "id": "support_p0_resolved",
+      "subject": "Przywrócono działanie — {domain}",
+      "body": "Cześć {name},\n\nStrona działa. Przyczyna: {cause}.\n\nZabezpieczenie: {prevention}.\n\nPrzepraszamy za niedogodność.\n\nstronyodzaraz.pl"
+    },
+    {
+      "id": "support_wp_password",
+      "subject": "Dostęp do panelu WordPress",
+      "body": "Cześć {name},\n\nReset hasła: {domain}/wp-admin → „Nie pamiętasz hasła?”\n\nLogin: {wp_user}\n\nKrótka instrukcja edycji treści: {loomUrl}\n\nstronyodzaraz.pl"
+    },
+    {
+      "id": "support_refund_process",
+      "subject": "[ZWROT] Zamówienie #{orderId}",
+      "body": "Cześć {name},\n\nOtrzymaliśmy wniosek o zwrot. Weryfikujemy wg polityki zwrotów (status briefu / prac).\n\nOdpowiedź do 14 dni rob. — w tym mailu damy znać kwotę i termin na kartę.\n\nstronyodzaraz.pl"
+    },
+    {
+      "id": "support_waas_payment",
+      "subject": "Płatność abonamentu — zaktualizuj kartę",
+      "body": "Cześć {name},\n\nNie udało się pobrać abonamentu WaaS. Zaktualizuj płatność:\n{portalUrl}\n\nBez płatności w 14 dni strona może zostać wstrzymana (regulamin WaaS).\n\nstronyodzaraz.pl"
+    },
+    {
+      "id": "support_lead_qualify",
+      "subject": "Re: Zapytanie — stronyodzaraz.pl",
+      "body": "Cześć {name},\n\nDzięki za kontakt. Żeby trafić w cenę i termin — doprecyzuj:\n• typ: strona / sklep / migracja\n• budżet orientacyjny\n• deadline\n\nGotowe pakiety z ceną online: https://stronyodzaraz.pl/uslugi\n\nMożemy też 15 min call — podaj 2 terminy.\n\nPozdrawiam,\nPaweł"
+    },
+    {
+      "id": "support_staging_ready",
+      "subject": "Podgląd projektu — #{orderId}",
+      "body": "Cześć {name},\n\nWersja testowa:\n{stagingUrl}\n\nUwagi w ciągu 5 dni roboczych — odpowiedz na ten mail punktami.\nBrak uwag = akceptacja → wdrożenie na produkcję.\n\nstronyodzaraz.pl"
+    },
+    {
+      "id": "support_handover_credentials",
+      "subject": "Dostępy do strony — {domain}",
+      "body": "Cześć {name},\n\nProdukcja: {domain}\n\nDostępy wysłane w menedżerze haseł / osobnym zabezpieczonym mailu.\n\nGwarancja 30 dni — zgłoszenia z tematem [GWARANCJA] #{orderId}.\n\nOpieka opcjonalna: {upsellUrl}\n\nstronyodzaraz.pl"
+    },
+    {
+      "id": "support_opt_out_drip",
+      "subject": "Re: wypis z ofert",
+      "body": "Cześć {name},\n\nWypisaliśmy Cię z maili ofertowych po projekcie. Maile transakcyjne (faktury, awarie) nadal mogą przyjść jeśli jesteś klientem.\n\nstronyodzaraz.pl"
+    }
+  ]
+}

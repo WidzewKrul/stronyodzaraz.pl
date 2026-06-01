@@ -1,0 +1,125 @@
+{
+  "_comment": "Szablony email — Resend. Placeholdery: {name}, {orderId}, {productName}, {briefUrl}, {stagingUrl}, {domain}, {deadline}, {upsellUrl}",
+  "emails": [
+    {
+      "id": "checkout_confirmation",
+      "trigger": "checkout.session.completed",
+      "to": "customer",
+      "subject": "Potwierdzenie zamówienia #{orderId} — stronyodzaraz.pl",
+      "bodyText": "Cześć {name},\n\nDziękujemy za płatność za pakiet: {productName}.\n\nNastępny krok: uzupełnij brief projektu w ciągu 48 godzin:\n{briefUrl}\n\nTermin realizacji liczymy od momentu kompletnego briefu i materiałów.\n\nPytania? Odpowiedz na ten mail lub napisz na kontakt@bblikh.pl.\n\nPozdrawiamy,\nZespół stronyodzaraz.pl"
+    },
+    {
+      "id": "brief_reminder_d1",
+      "trigger": "cron.no_brief_24h",
+      "to": "customer",
+      "subject": "Przypomnienie: brief projektu #{orderId}",
+      "bodyText": "Cześć {name},\n\nCzekamy na brief Twojego projektu ({productName}).\n\nLink: {briefUrl}\n\nBez briefu nie możemy rozpocząć prac. Masz pytania? Napisz — pomożemy.\n\nstronyodzaraz.pl"
+    },
+    {
+      "id": "project_started",
+      "trigger": "brief.complete",
+      "to": "customer",
+      "subject": "Projekt #{orderId} — start realizacji",
+      "bodyText": "Cześć {name},\n\nBrief przyjęty. Rozpoczynamy prace nad {productName}.\n\nPlanowany termin oddania: {deadline}\n\nStaging (podgląd) wyślemy mailem gdy będzie gotowy.\n\nstronyodzaraz.pl"
+    },
+    {
+      "id": "staging_review",
+      "trigger": "internal.staging_ready",
+      "to": "customer",
+      "subject": "Podgląd projektu gotowy — #{orderId}",
+      "bodyText": "Cześć {name},\n\nZobacz wersję testową:\n{stagingUrl}\n\nWyślij uwagi w ciągu 5 dni roboczych — odpowiedz na ten mail.\n\nstronyodzaraz.pl"
+    },
+    {
+      "id": "project_delivered",
+      "trigger": "status.DELIVERED",
+      "to": "customer",
+      "subject": "Twój projekt jest online — {domain}",
+      "bodyText": "Cześć {name},\n\nStrona/sklep jest na produkcji: {domain}\n\nDostępy do panelu wysłaliśmy osobnym mailm (bezpieczny link).\n\nGwarancja 30 dni poprawek w scope pakietu — zgłoszenia na kontakt@bblikh.pl.\n\nOpcjonalnie: opieka techniczna od 299 zł/mc — {upsellUrl}\n\nDziękujemy za zaufanie!\nstronyodzaraz.pl"
+    },
+    {
+      "id": "drip_d3_opieka",
+      "trigger": "cron.drip.day3",
+      "to": "customer",
+      "subject": "Ochrona strony po wdrożeniu — opieka od 299 zł/mc",
+      "bodyText": "Cześć {name},\n\nWordPress wymaga aktualizacji i backupów. Pakiet opieki obejmuje monitoring, update wtyczek i spokój.\n\nZobacz: {upsellUrl}\n\nPierwszy miesiąc -20% przy aktywacji w 7 dni od tego maila.\n\nstronyodzaraz.pl"
+    },
+    {
+      "id": "drip_d7_ads",
+      "trigger": "cron.drip.day7",
+      "to": "customer",
+      "subject": "Pozyskaj klientów z Google — setup Ads od 990 zł",
+      "bodyText": "Cześć {name},\n\nStrona gotowa — czas na ruch. Pakiet Google Ads Setup: konto, konwersje, pierwsza kampania.\n\n{upsellUrl}\n\nstronyodzaraz.pl"
+    },
+    {
+      "id": "drip_waas_offer",
+      "trigger": "cron.delivered.no_mrr",
+      "to": "customer",
+      "subject": "Hosting i opieka — od 99 zł/mc",
+      "bodyText": "Cześć {name},\n\nNie musisz sam pilnować hostingu i aktualizacji. Pakiet WaaS: hosting u nas, backup, SSL, update WP.\n\nOd 99 zł/mc + setup — szczegóły: {upsellUrl}\n\nstronyodzaraz.pl"
+    },
+    {
+      "id": "contact_autoreply",
+      "trigger": "POST /api/kontakt",
+      "to": "customer",
+      "subject": "Otrzymaliśmy Twoją wiadomość — stronyodzaraz.pl",
+      "bodyText": "Cześć,\n\nDziękujemy za kontakt. Odpowiemy w ciągu 1 dnia roboczego.\n\nW międzyczasie zobacz pakiety i ceny: https://stronyodzaraz.pl/uslugi\n\nstronyodzaraz.pl"
+    },
+    {
+      "id": "contact_internal",
+      "trigger": "POST /api/kontakt",
+      "to": "CONTACT_EMAIL",
+      "subject": "[KONTAKT] {name}",
+      "bodyText": "Nowy lead z formularza.\n\nImię: {name}\nEmail: {email}\nTel: {phone}\nTyp: {projectType}\nBudżet: {budget}\n\nWiadomość:\n{message}"
+    },
+    {
+      "id": "scope_clarification",
+      "trigger": "manual.brief_review",
+      "to": "customer",
+      "subject": "Projekt #{orderId} — doprecyzowanie zakresu",
+      "bodyText": "Cześć {name},\n\nW briefie znalazłeś elementy poza pakietem {productName}. Możemy:\n\n1) Dostosować do scope pakietu\n2) Rozszerzyć pakiet (Pro / upsell): {upsellUrl}\n3) Wycena indywidualna\n\nOdpowiedz co wybierasz.\n\nstronyodzaraz.pl"
+    },
+    {
+      "id": "waas_payment_failed",
+      "trigger": "stripe.invoice.payment_failed",
+      "to": "customer",
+      "subject": "Problem z płatnością abonamentu — stronyodzaraz.pl",
+      "bodyText": "Cześć {name},\n\nNie udało się pobrać opłaty za abonament WaaS ({productName}).\n\nZaktualizuj kartę w portalu Stripe:\n{portalUrl}\n\nHarmonogram:\n• D+3 — to przypomnienie\n• D+7 — drugie przypomnienie\n• D+14 — wstrzymanie strony (landing informacyjny)\n• D+30 — zakończenie umowy\n\nPytania: kontakt@bblikh.pl\n\nstronyodzaraz.pl"
+    },
+    {
+      "id": "waas_suspension_warning",
+      "trigger": "cron.waas.D+14",
+      "to": "customer",
+      "subject": "Wstrzymanie strony za 24h — brak płatności WaaS",
+      "bodyText": "Cześć {name},\n\nBrak opłaty abonamentu od {daysOverdue} dni.\n\nJutro strona {domain} zostanie zastąpiona stroną informacyjną do czasu uregulowania płatności.\n\nPortal płatności: {portalUrl}\n\nstronyodzaraz.pl"
+    },
+    {
+      "id": "admin_order_failed",
+      "trigger": "worker.error",
+      "to": "CONTACT_EMAIL",
+      "subject": "[FAILED] {orderId} — {productName}",
+      "bodyText": "Zamówienie nieudane.\n\nID: {orderId}\nKlient: {email}\nUsługa: {productName}\nBłąd: {error}\n\nStripe + DB — sprawdź ręcznie."
+    },
+    {
+      "id": "admin_brief_missing_p0",
+      "trigger": "cron.no_brief_48h",
+      "to": "CONTACT_EMAIL",
+      "subject": "[P0 BRIEF BRAK] #{orderId} — {email}",
+      "bodyText": "48h bez briefu.\n\nKlient: {name} · {email} · tel: {phone}\nPakiet: {productName}\n\nAkcja: telefon + brief_reminder"
+    },
+    {
+      "id": "brief_delivery",
+      "trigger": "worker.brief_generated",
+      "to": "customer",
+      "subject": "{documentTitle} · zamówienie #{orderId}",
+      "bodyText": "Cześć {name},\n\nW załączniku brief projektu (PDF + DOCX) dla zamówienia #{orderId}.\n\nSkontaktujemy się w 24h rob. z terminem realizacji.\nPrzygotuj materiały (logo, treści) — przyspieszy to prace.\n\nstronyodzaraz.pl",
+      "attachments": ["brief.pdf", "brief.docx"]
+    },
+    {
+      "id": "partner_outreach",
+      "trigger": "manual",
+      "to": "partner",
+      "subject": "Współpraca partnerska — strony dla Twoich klientów",
+      "bodyText": "Cześć,\n\nProwadzimy stronyodzaraz.pl — pakiety stron i sklepów z jasną ceną online (od 1490 zł). Szukamy partnerów (biura rachunkowe, doradcy) — 10% prowizji od pierwszego zamówienia.\n\nChętnie wyślę one-pager.\n\nPozdrawiam,\nPaweł — stronyodzaraz.pl"
+    }
+  ]
+}
