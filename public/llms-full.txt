@@ -1,0 +1,97 @@
+# stronyodzaraz.pl — Pełny katalog usług
+
+> Polska agencja web B2B — productized web services z jasną ceną, zamówienie online przez Stripe, realizacja 7–14 dni roboczych.
+
+## O firmie
+
+Tworzymy strony i sklepy internetowe dla małych i średnich firm w Polsce. Model produktowy — stała cena, określony zakres, krótki czas realizacji. Wszystko online bez spotkań.
+
+- Założona: 2024
+- Obsługa: cała Polska (zdalnie)
+- Kontakt: kontakt@bblikh.pl
+- Formularz: https://stronyodzaraz.pl/kontakt
+
+## Cennik i pakiety
+
+### Strony internetowe
+- Strona Start (5 podstron, WordPress) — od 2 490 zł, 7 dni roboczych
+- Strona Pro (do 15 podstron, animacje, SEO) — od 4 990 zł, 14 dni roboczych
+- Landing Page — od 990 zł, 3–5 dni roboczych
+- Strona firmowa + blog WordPress — od 3 490 zł
+
+### Sklepy internetowe
+- Sklep WooCommerce (do 100 produktów) — od 5 990 zł
+- Sklep Shopify — od 7 990 zł
+- Sklep Shoper — od 5 490 zł
+- Sklep B2B z indywidualnym cennikiem — od 9 990 zł
+
+### WordPress — opieka i optymalizacja
+- Opieka WordPress Start — 299 zł/mc
+- Opieka WordPress Pro (bezpieczeństwo + backupy + aktualizacje) — 499 zł/mc
+- Optymalizacja Core Web Vitals — od 990 zł
+- Naprawa zhakowanej strony WordPress — od 690 zł
+
+### Shopify i Shoper
+- Konfiguracja Shopify (motyw + płatności + wysyłka) — od 2 990 zł
+- Migracja do Shopify — od 4 490 zł
+- Konfiguracja Shoper — od 2 490 zł
+
+### Reklama i marketing
+- Google Ads Setup (konto + konwersje + kampania) — 990 zł
+- Meta Ads Setup (Pixel + kampania) — 990 zł
+- Pakiet Google Ads + Meta Ads — 1 690 zł
+- Audyt Google Ads — 490 zł
+
+### Integracje
+- Integracja Przelewy24 / PayU / BLIK — od 490 zł
+- Integracja InPost Paczkomaty — od 390 zł
+- Integracja Allegro + BaseLinker — od 990 zł
+- Integracja systemu fakturowania (iFirma, Fakturownia) — od 390 zł
+
+### Migracje i naprawy
+- Migracja strony na nowy hosting — od 490 zł
+- Migracja WordPress → WordPress — od 990 zł
+- Migracja PrestaShop → WooCommerce — od 3 990 zł
+
+### Opieka techniczna dla innych CMS
+- Opieka Shoper / Shopify — od 199 zł/mc
+
+## Zasięg lokalny
+
+Obsługujemy firmy z całej Polski. Biura i strony lokalne dla miast:
+Warszawa, Kraków, Wrocław, Gdańsk, Poznań, Łódź, Katowice, Szczecin, Lublin, Bydgoszcz, Białystok, Rzeszów, Toruń, Kielce, Gliwice, Zabrze, Olsztyn, Bielsko-Biała, Częstochowa, Radom, Sosnowiec, Bytom, Rybnik, Gdynia, Tychy, Opole, Gorzów Wielkopolski, Zielona Góra, Elbląg, Płock
+
+## Jak działa zamówienie
+
+1. Wybierz pakiet na stronie /uslugi
+2. Opłać online przez Stripe (Visa, Mastercard, BLIK, PayU)
+3. Wypełnij brief projektu (formularz online, ~10 min)
+4. Realizacja 7–14 dni roboczych
+5. Oddanie projektu + szkolenie z panelu + gwarancja poprawek 30 dni
+
+## Często zadawane pytania
+
+**Czy muszę mieć hosting?** Zamawiamy hosting i domenę — możesz podać własny lub my dobieramy optymalne rozwiązanie w cenie pakietu.
+
+**Co potrzebuję przygotować?** Logo (lub zamawiamy projekt), treści (teksty), zdjęcia. Pomagamy stworzyć je w ramach pakietu Pro.
+
+**Czy wykonujecie e-commerce z integracją płatności polskich?** Tak — Przelewy24, PayU, BLIK, Tpay jako standardowe integracje.
+
+**Czy obsługujecie B2B?** Tak, mamy pakiety dla firm z cennikami indywidualnymi, zamówieniami hurtowymi i loginem klienta.
+
+## Kluczowe strony
+
+- https://stronyodzaraz.pl/ — strona główna
+- https://stronyodzaraz.pl/uslugi — pełny katalog
+- https://stronyodzaraz.pl/uslugi/strony-internetowe — strony WWW
+- https://stronyodzaraz.pl/uslugi/sklepy-internetowe — sklepy WooCommerce
+- https://stronyodzaraz.pl/uslugi/shopify-shoper — Shopify i Shoper
+- https://stronyodzaraz.pl/uslugi/wordpress — WordPress i WooCommerce
+- https://stronyodzaraz.pl/uslugi/opieka-techniczna — abonamenty opieki
+- https://stronyodzaraz.pl/uslugi/reklama-marketing — Google Ads, Meta Ads
+- https://stronyodzaraz.pl/uslugi/integracje — integracje e-commerce
+- https://stronyodzaraz.pl/uslugi/migracje-naprawy — migracje i naprawy
+- https://stronyodzaraz.pl/wykonane — portfolio realizacji
+- https://stronyodzaraz.pl/technologia — stack technologiczny
+- https://stronyodzaraz.pl/blog — blog
+- https://stronyodzaraz.pl/kontakt — kontakt

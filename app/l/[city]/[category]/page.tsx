@@ -13,7 +13,7 @@ import {
   getPriceFromForCategory,
 } from "@/lib/seo/local";
 import { buildMetaFromTemplate } from "@/lib/seo/metadata";
-import { buildBreadcrumbJsonLd, buildFaqJsonLd } from "@/lib/seo/json-ld";
+import { buildBreadcrumbJsonLd, buildFaqJsonLd, buildLocalBusinessJsonLd } from "@/lib/seo/json-ld";
 
 type Props = { params: Promise<{ city: string; category: string }> };
 
@@ -78,6 +78,7 @@ export default async function LocalCityCategoryPage({ params }: Props) {
       { name: category.title, item: `/l/${city.slug}/${categorySlug}` },
     ]),
     buildFaqJsonLd(faq),
+    buildLocalBusinessJsonLd(city.name),
   ];
 
   return (
