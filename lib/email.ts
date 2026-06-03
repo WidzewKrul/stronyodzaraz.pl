@@ -1,13 +1,13 @@
 import { Resend } from "resend";
 import { log } from "./logger";
-import { resendFrom, contactEmail } from "./env";
+import { resendFrom, contactEmail, siteUrl as getSiteUrl } from "./env";
 import { buildToolResultAttachments } from "./tool-result-artifacts";
 import { getDripTemplate } from "./drip-templates";
 
 const apiKey = process.env.RESEND_API_KEY;
 const from = resendFrom();
 const contact = contactEmail();
-const siteUrl = process.env.SITE_URL ?? "https://stronyodzaraz.pl";
+const siteUrl = getSiteUrl();
 
 const resend = apiKey ? new Resend(apiKey) : null;
 
@@ -208,7 +208,7 @@ export async function sendOrderConfirmationEmail(params: {
      <p style="color:#334155;line-height:1.6;"><strong>Następny krok:</strong> uzupełnij brief projektu w koszyku (dane firmy, preferencje, materiały). Po wypełnieniu otrzymasz brief PDF na e-mail.</p>
      <p style="margin-top:20px;"><a href="${siteUrl}/koszyk" style="display:inline-block;background:#4f46e5;color:#fff;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:600;">Wypełnij brief projektu</a></p>`,
   );
-  await safeSend({ to: params.to, subject: `Potwierdzenie zamówienia #${params.orderId.slice(0, 8)}`, html });
+  await safeSend({ to: params.to, subject: `Potwierdzenie zamówienia #${params.orderId.slice(0, 8)}`, html, replyTo: contact });
 }
 
 export async function sendDripUpsellEmail(params: {
@@ -226,10 +226,12 @@ export async function sendDripUpsellEmail(params: {
     ${tpl.bodyHtml}
     <p style="margin-top:20px;"><a href="${ctaUrl}" style="display:inline-block;background:#4f46e5;color:#fff;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:600;">${escapeHtml(tpl.ctaLabel)}</a></p>
     ${portfolio}`;
+  const unsubLink = `<p style="margin-top:12px;font-size:11px;color:#94a3b8;">Nie chcesz więcej wiadomości? <a href="${siteUrl}/kontakt" style="color:#94a3b8;">Napisz do nas</a> z tematem "Rezygnacja".</p>`;
   await safeSend({
     to: params.to,
     subject: tpl.subject,
-    html: wrapper("stronyodzaraz.pl", body),
+    html: wrapper("stronyodzaraz.pl", body, unsubLink),
+    replyTo: contact,
   });
 }
 

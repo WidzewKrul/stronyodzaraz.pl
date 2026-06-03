@@ -6,13 +6,17 @@ export function checkCronAuth(req: NextRequest): NextResponse | null {
   if (!secret) {
     return NextResponse.json({ error: "Cron is not configured" }, { status: 500 });
   }
-  // Accept Bearer token from Authorization header, x-cron-secret header,
-  // or ?secret= query param (convenient for Coolify / cron-job.org schedulers).
+  // Accept Bearer token from Authorization header or x-cron-secret header only.
+  // Query param removed: secrets in URLs appear in access logs, Referer headers, and CDN caches.
   const header = req.headers.get("authorization") ?? req.headers.get("x-cron-secret");
-  const fromHeader = header?.replace(/^Bearer\s+/i, "").trim();
-  const fromQuery = new URL(req.url).searchParams.get("secret") ?? undefined;
-  const provided = fromHeader ?? fromQuery;
-  if (provided !== secret) {
+  const provided = header?.replace(/^Bearer\s+/i, "").trim() ?? "";
+
+  // Constant-time comparison to prevent timing attacks.
+  const secretBuf = Buffer.from(secret, "utf8");
+  const providedBuf = Buffer.from(provided.padEnd(secret.length, "\0").slice(0, secret.length), "utf8");
+  const valid = provided.length === secret.length && require("crypto").timingSafeEqual(secretBuf, providedBuf);
+
+  if (!valid) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
   return null;

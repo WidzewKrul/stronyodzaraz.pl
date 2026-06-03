@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { rateLimit } from "@/lib/rate-limit";
+import { assertSameOriginStrict } from "@/lib/cron-auth";
 import { sendContactEmail, sendContactAutoReply } from "@/lib/email";
 import { log } from "@/lib/logger";
 
@@ -14,6 +15,9 @@ const schema = z.object({
 });
 
 export async function POST(req: Request) {
+  const csrf = assertSameOriginStrict(req);
+  if (csrf) return csrf;
+
   const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
   const rl = rateLimit(`kontakt:${ip}`, 5, 60_000);
   if (!rl.ok) {

@@ -110,7 +110,7 @@ export async function processPendingJobs(): Promise<ProcessResult> {
     .limit(10);
 
   for (const order of stuck) {
-    const resetStatus = order.resultMarkdown ? "FILLED" : "FILLED";
+    const resetStatus = order.resultMarkdown ? "COMPLETED" : "FILLED";
     await db
       .update(serviceOrders)
       .set({ status: resetStatus, error: "Reset po zawieszeniu generowania" })

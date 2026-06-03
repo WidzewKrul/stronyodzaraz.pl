@@ -147,7 +147,7 @@ export async function POST(req: NextRequest) {
       const charge = event.data.object as Stripe.Charge;
       const paymentIntent = typeof charge.payment_intent === "string" ? charge.payment_intent : undefined;
       if (paymentIntent) {
-        await db.update(serviceOrders).set({ status: "FAILED", error: "Refunded" }).where(eq(serviceOrders.stripePaymentId, paymentIntent));
+        await db.update(serviceOrders).set({ status: "REFUNDED", error: "Refunded via Stripe" }).where(eq(serviceOrders.stripePaymentId, paymentIntent));
       }
     }
   } catch (err) {

@@ -88,7 +88,7 @@ const D7: Record<DripCategory, DripTemplate> = {
     bodyHtml: `<p style="color:#334155;line-height:1.6;">Strona gotowa? Setup Google Ads od <strong>990 zł</strong> — konto, konwersje, pierwsza kampania pod Twoją branżę.</p>`,
     ctaLabel: "Google Ads setup",
     ctaPath: "/uslugi/reklama-marketing",
-    portfolioLine: "Gastronomia? Zobacz też ekosystem <a href=\"https://haccpnajuz.pl\" style=\"color:#4f46e5;\">haccpnajuz.pl</a> (dokumentacja HACCP).",
+    portfolioLine: undefined,
   },
   "sklepy-internetowe": {
     subject: "Performance Max i Merchant Center",

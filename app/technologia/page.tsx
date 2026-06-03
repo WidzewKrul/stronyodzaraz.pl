@@ -90,7 +90,7 @@ export default function TechnologiaPage() {
           <h2 className="text-xl font-bold text-slate-900">{hosting.h2}</h2>
           <div className="mt-4 space-y-3 text-slate-700">
             {hosting.paragraphs.map((p) => (
-              <p key={p} dangerouslySetInnerHTML={{ __html: p.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>") }} />
+              <p key={p} dangerouslySetInnerHTML={{ __html: p.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>") }} />
             ))}
           </div>
         </div>

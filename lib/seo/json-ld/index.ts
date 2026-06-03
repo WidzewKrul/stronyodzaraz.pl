@@ -1,17 +1,25 @@
 import type { Usluga } from "@/lib/uslugi";
+import { siteUrl } from "@/lib/env";
+
+const BASE = siteUrl();
 
 export function buildProductJsonLd(pismo: Usluga, categoryTitle?: string) {
+  const url = `${BASE}/uslugi/${pismo.category}/${pismo.slug}`;
   return {
     "@context": "https://schema.org",
     "@type": "Product",
     name: pismo.seoTitle,
     description: pismo.shortDesc,
+    sku: pismo.slug,
+    url,
     brand: { "@type": "Brand", name: "stronyodzaraz.pl" },
     offers: {
       "@type": "Offer",
       price: (pismo.priceGrosze / 100).toFixed(2),
       priceCurrency: "PLN",
       availability: "https://schema.org/InStock",
+      priceValidUntil: "2027-12-31",
+      url,
       seller: { "@type": "Organization", name: "stronyodzaraz.pl" },
     },
     category: categoryTitle ?? pismo.category,
@@ -28,7 +36,7 @@ export function buildBreadcrumbJsonLd(
       "@type": "ListItem",
       position: i + 1,
       name: entry.name,
-      item: entry.item,
+      item: entry.item.startsWith("http") ? entry.item : `${BASE}${entry.item}`,
     })),
   };
 }
@@ -51,15 +59,18 @@ export function buildBlogPostingJsonLd(post: {
   publishedAt: string;
   slug: string;
 }) {
+  const url = `${BASE}/blog/${post.slug}`;
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: post.title,
     description: post.excerpt,
     datePublished: post.publishedAt,
-    url: `/blog/${post.slug}`,
-    author: { "@type": "Organization", name: "stronyodzaraz.pl" },
-    publisher: { "@type": "Organization", name: "stronyodzaraz.pl" },
+    dateModified: post.publishedAt,
+    url,
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    author: { "@type": "Organization", name: "stronyodzaraz.pl", url: BASE },
+    publisher: { "@type": "Organization", name: "stronyodzaraz.pl", url: BASE },
   };
 }
 
@@ -69,7 +80,7 @@ export function buildLocalBusinessJsonLd(cityName: string) {
     "@type": "ProfessionalService",
     name: "stronyodzaraz.pl",
     description: `Strony i sklepy internetowe dla firm z ${cityName} — realizacja zdalna w całej Polsce.`,
-    url: "https://stronyodzaraz.pl",
+    url: BASE,
     email: "kontakt@bblikh.pl",
     areaServed: {
       "@type": "City",

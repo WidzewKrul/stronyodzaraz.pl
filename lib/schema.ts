@@ -2,7 +2,7 @@ import { pgTable, pgEnum, text, integer, boolean, timestamp, json, index, unique
 import { sql } from "drizzle-orm";
 
 export const orderStatusEnum = pgEnum("OrderStatus", ["PENDING", "PAID", "DELIVERED", "FAILED", "REFUNDED"]);
-export const serviceOrderStatusEnum = pgEnum("ServiceOrderStatus", ["PENDING", "PAID", "FILLED", "GENERATING", "COMPLETED", "FAILED"]);
+export const serviceOrderStatusEnum = pgEnum("ServiceOrderStatus", ["PENDING", "PAID", "FILLED", "GENERATING", "COMPLETED", "FAILED", "REFUNDED"]);
 export const documentTemplateStatusEnum = pgEnum("DocumentTemplateStatus", ["GENERATING", "READY", "FAILED"]);
 
 export const orders = pgTable("Order", {
@@ -88,6 +88,8 @@ export const serviceOrders = pgTable("ServiceOrder", {
   index("ServiceOrder_status_idx").on(t.status),
   index("ServiceOrder_toolSlug_idx").on(t.toolSlug),
   index("ServiceOrder_status_generateAttempts_idx").on(t.status, t.generateAttempts),
+  index("ServiceOrder_stripePaymentId_idx").on(t.stripePaymentId),
+  index("ServiceOrder_deliveredAt_followUp_idx").on(t.deliveredAt, t.followUpSentAt),
 ]);
 
 export const processedEvents = pgTable("ProcessedEvent", {

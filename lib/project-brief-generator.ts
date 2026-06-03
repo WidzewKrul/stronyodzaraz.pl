@@ -96,7 +96,6 @@ export async function buildPersonalizedDocument(
 
 export function extractProductSlugFromToolSlug(toolSlug: string): string {
   if (toolSlug.startsWith("uslugi:")) return toolSlug.slice("uslugi:".length);
-  if (toolSlug.startsWith("uslugi:")) return toolSlug.slice("uslugi:".length);
   return toolSlug;
 }
 

@@ -1,15 +1,20 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
-import { orders } from "@/lib/schema";
-import { and, eq, isNull, lte, gte } from "drizzle-orm";
+import { serviceOrders } from "@/lib/schema";
+import { and, eq, isNull, lte, gte, isNotNull } from "drizzle-orm";
 import { sendDripUpsellEmail } from "@/lib/email";
 import { checkCronAuth } from "@/lib/cron-auth";
 import { log } from "@/lib/logger";
-import { extractCategoryFromOrderItems } from "@/lib/drip-templates";
+import { getDripTemplate } from "@/lib/drip-templates";
 import { getUslugaBySlug } from "@/lib/uslugi";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
+
+function categoryFromToolSlug(toolSlug: string): string | null {
+  const slug = toolSlug.startsWith("uslugi:") ? toolSlug.slice("uslugi:".length) : toolSlug;
+  return getUslugaBySlug(slug)?.category ?? null;
+}
 
 async function handler(req: NextRequest) {
   const unauth = checkCronAuth(req);
@@ -26,22 +31,23 @@ async function handler(req: NextRequest) {
 
   const plusThree = await db
     .select()
-    .from(orders)
+    .from(serviceOrders)
     .where(
       and(
-        eq(orders.status, "DELIVERED"),
-        isNull(orders.followUpSentAt),
-        lte(orders.deliveredAt, threeDays),
-        gte(orders.deliveredAt, fourDays),
+        eq(serviceOrders.status, "COMPLETED"),
+        isNotNull(serviceOrders.deliveredAt),
+        isNull(serviceOrders.followUpSentAt),
+        lte(serviceOrders.deliveredAt, threeDays),
+        gte(serviceOrders.deliveredAt, fourDays),
       ),
     )
     .limit(50);
 
   for (const o of plusThree) {
     try {
-      const category = extractCategoryFromOrderItems(o.items, (slug) => getUslugaBySlug(slug)?.category ?? null);
+      const category = categoryFromToolSlug(o.toolSlug);
       await sendDripUpsellEmail({ to: o.email, orderId: o.id, day: 3, category });
-      await db.update(orders).set({ followUpSentAt: new Date() }).where(eq(orders.id, o.id));
+      await db.update(serviceOrders).set({ followUpSentAt: new Date() }).where(eq(serviceOrders.id, o.id));
       sent++;
     } catch (err) {
       failed++;
@@ -51,22 +57,23 @@ async function handler(req: NextRequest) {
 
   const plusSeven = await db
     .select()
-    .from(orders)
+    .from(serviceOrders)
     .where(
       and(
-        eq(orders.status, "DELIVERED"),
-        isNull(orders.followUp7SentAt),
-        lte(orders.deliveredAt, sevenDays),
-        gte(orders.deliveredAt, eightDays),
+        eq(serviceOrders.status, "COMPLETED"),
+        isNotNull(serviceOrders.deliveredAt),
+        isNull(serviceOrders.followUpSentAt),
+        lte(serviceOrders.deliveredAt, sevenDays),
+        gte(serviceOrders.deliveredAt, eightDays),
       ),
     )
     .limit(50);
 
   for (const o of plusSeven) {
     try {
-      const category = extractCategoryFromOrderItems(o.items, (slug) => getUslugaBySlug(slug)?.category ?? null);
+      const category = categoryFromToolSlug(o.toolSlug);
       await sendDripUpsellEmail({ to: o.email, orderId: o.id, day: 7, category });
-      await db.update(orders).set({ followUp7SentAt: new Date() }).where(eq(orders.id, o.id));
+      await db.update(serviceOrders).set({ followUpSentAt: new Date() }).where(eq(serviceOrders.id, o.id));
       sent++;
     } catch (err) {
       failed++;

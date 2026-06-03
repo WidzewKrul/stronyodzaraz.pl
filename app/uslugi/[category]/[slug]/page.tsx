@@ -5,6 +5,7 @@ import {
   getStoreProductBySlug,
   getUslugaBySlug,
   getUslugiByCategory,
+  getAllUslugi,
   getPrimarySlugForProduct,
   isPrimaryProductSlug,
   CATEGORIES,
@@ -110,7 +111,9 @@ export const revalidate = 86400;
 export const dynamicParams = true;
 
 export async function generateStaticParams() {
-  return [];
+  return getAllUslugi()
+    .filter((p) => isPrimaryProductSlug(p.slug))
+    .map((p) => ({ category: p.category, slug: p.slug }));
 }
 
 

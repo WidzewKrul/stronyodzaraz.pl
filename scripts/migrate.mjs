@@ -31,8 +31,20 @@ if (!reg) {
   await applySqlFile("./drizzle/0001_document_templates.sql");
 }
 
-console.log("[migrate] Repair ServiceOrder customer columns from 0002...");
+console.log("[migrate] Repair ServiceOrder customer columns from 0002 (idempotent)...");
 await applySqlFile("./drizzle/0002_service_order_customer.sql");
+
+const [{ hasRefunded }] = await client`
+  SELECT EXISTS (
+    SELECT 1 FROM pg_enum
+    WHERE enumtypid = 'public."ServiceOrderStatus"'::regtype
+    AND enumlabel = 'REFUNDED'
+  ) AS "hasRefunded"
+`;
+if (!hasRefunded) {
+  console.log("[migrate] Applying 0003: REFUNDED enum + indexes...");
+  await applySqlFile("./drizzle/0003_refunded_enum_indexes.sql");
+}
 
 console.log("[migrate] Done.");
 await client.end();
