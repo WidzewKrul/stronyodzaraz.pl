@@ -92,23 +92,29 @@ export default function HomePage() {
         title={
           <>
             Strony i sklepy internetowe
-            <span className="block text-white/95">od zera — z gwarancją działania</span>
+            <span className="block bg-gradient-to-r from-violet-300 via-fuchsia-300 to-orange-300 bg-clip-text text-transparent">
+              od zera — z gwarancją działania
+            </span>
           </>
         }
         subtitle="Polska agencja web B2B. Productized packages — jasna cena, zamówienie online, realizacja 7–14 dni."
       >
         <div className="flex flex-wrap gap-3">
-          <Link href="/uslugi" className="inline-flex items-center rounded-lg bg-white px-6 py-3 text-sm font-semibold text-brand-800 shadow-sm hover:bg-brand-50">
+          <Link
+            href="/uslugi"
+            className="inline-flex items-center gap-2 rounded-xl bg-accent-500 px-6 py-3 text-sm font-bold text-white shadow-lg shadow-accent-500/30 transition hover:bg-accent-600 hover:shadow-accent-600/40 active:scale-95"
+          >
+            <Zap className="h-4 w-4" aria-hidden />
             Zobacz pakiety i ceny
           </Link>
-          <Link href="/o-nas" className="inline-flex items-center rounded-lg border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm hover:bg-white/20">
+          <Link href="/o-nas" className="inline-flex items-center rounded-xl border border-white/25 bg-white/8 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/15">
             O nas
           </Link>
         </div>
-        <div className="mt-6 flex flex-wrap gap-4 text-sm text-white/85">
-          <span className="flex items-center gap-1.5"><Shield className="h-4 w-4" /> Gwarancja 30 dni</span>
-          <span className="flex items-center gap-1.5"><Clock className="h-4 w-4" /> 7–14 dni realizacji</span>
-          <span className="flex items-center gap-1.5"><Zap className="h-4 w-4" /> Płatność Stripe</span>
+        <div className="mt-6 flex flex-wrap gap-4 text-sm text-white/70">
+          <span className="flex items-center gap-1.5"><Shield className="h-4 w-4 text-emerald-400" /> Gwarancja 30 dni</span>
+          <span className="flex items-center gap-1.5"><Clock className="h-4 w-4 text-sky-400" /> 7–14 dni realizacji</span>
+          <span className="flex items-center gap-1.5"><Zap className="h-4 w-4 text-orange-400" /> Płatność Stripe</span>
         </div>
       </HeroBanner>
 
@@ -210,22 +216,35 @@ export default function HomePage() {
       <section className="py-14">
         <div className="mx-auto max-w-3xl px-4 sm:px-6">
           <h2 className="text-center text-2xl font-bold text-slate-900">FAQ</h2>
-          <dl className="mt-8 space-y-4">
+          <div className="mt-8 space-y-2">
             {FAQ.map((item) => (
-              <div key={item.q} className="rounded-xl border border-slate-200 bg-white p-5">
-                <dt className="font-semibold text-slate-900">{item.q}</dt>
-                <dd className="mt-2 text-sm text-slate-600">{item.a}</dd>
-              </div>
+              <details key={item.q} className="faq-item group rounded-xl border border-slate-200 bg-white">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 font-semibold text-slate-900 hover:text-brand-700">
+                  {item.q}
+                  <span className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-400 transition group-open:rotate-45 group-open:border-brand-200 group-open:bg-brand-50 group-open:text-brand-700">
+                    +
+                  </span>
+                </summary>
+                <p className="px-5 pb-4 text-sm leading-relaxed text-slate-600">{item.a}</p>
+              </details>
             ))}
-          </dl>
+          </div>
         </div>
       </section>
 
-      <section className="bg-brand-700 py-14 text-white">
-        <div className="mx-auto max-w-7xl px-4 text-center sm:px-6">
-          <h2 className="text-2xl font-bold sm:text-3xl">Gotowy na stronę lub sklep?</h2>
-          <p className="mx-auto mt-3 max-w-xl text-brand-100">Wybierz pakiet, zapłać online, wypełnij brief — resztą zajmiemy się my.</p>
-          <Link href="/uslugi" className="mt-6 inline-flex rounded-lg bg-white px-8 py-3 text-sm font-semibold text-brand-800 hover:bg-brand-50">
+      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-violet-900 to-indigo-950 py-16 text-white">
+        <div className="pointer-events-none absolute inset-0">
+          <div className="animate-blob absolute -left-20 top-0 h-72 w-72 rounded-full bg-violet-500/20 blur-3xl" aria-hidden />
+          <div className="animate-blob animation-delay-2000 absolute right-0 bottom-0 h-64 w-64 rounded-full bg-indigo-400/15 blur-3xl" aria-hidden />
+        </div>
+        <div className="relative mx-auto max-w-7xl px-4 text-center sm:px-6">
+          <h2 className="text-2xl font-extrabold sm:text-3xl">Gotowy na stronę lub sklep?</h2>
+          <p className="mx-auto mt-3 max-w-xl text-white/70">Wybierz pakiet, zapłać online, wypełnij brief — resztą zajmiemy się my.</p>
+          <Link
+            href="/uslugi"
+            className="mt-6 inline-flex items-center gap-2 rounded-xl bg-accent-500 px-8 py-3.5 text-sm font-bold text-white shadow-lg shadow-accent-500/30 transition hover:bg-accent-600 active:scale-95"
+          >
+            <Zap className="h-4 w-4" aria-hidden />
             Przeglądaj katalog usług
           </Link>
         </div>

@@ -1,5 +1,8 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { Cpu } from "lucide-react";
+import HeroBanner from "@/components/HeroBanner";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { LucideByName } from "@/components/wykonane/LucideByName";
 import {
   getTechnologiaMeta,
@@ -37,10 +40,17 @@ export default function TechnologiaPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
-      <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6">
-        <h1 className="text-3xl font-bold text-slate-900 md:text-4xl">{tMeta.h1}</h1>
-        <p className="mt-4 text-lg text-slate-600 leading-relaxed">{tMeta.intro}</p>
-      </div>
+      <HeroBanner
+        variant="catalog"
+        icon={Cpu}
+        badge="WordPress · Shopify · Shoper · Next.js"
+        title={tMeta.h1}
+        subtitle={tMeta.intro}
+        compact
+      />
+      <Breadcrumbs items={[{ label: "Technologia" }]} />
+
+      <div className="mx-auto max-w-4xl px-4 py-4 sm:px-6" />
 
       <section className="border-y border-slate-100 bg-slate-50 py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">

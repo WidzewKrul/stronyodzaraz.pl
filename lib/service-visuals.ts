@@ -98,9 +98,9 @@ export function visualForCategory(category: string): ServiceVisual {
 export type HeroVariant = "home" | "catalog" | "category";
 
 const HERO_GRADIENTS: Record<HeroVariant, string> = {
-  home: "from-brand-600 via-indigo-600 to-sky-700",
-  catalog: "from-indigo-700 via-brand-700 to-violet-800",
-  category: "from-brand-700 via-indigo-700 to-slate-800",
+  home: "from-slate-900 via-violet-900 to-indigo-950",
+  catalog: "from-indigo-950 via-violet-900 to-slate-900",
+  category: "from-slate-900 via-indigo-900 to-violet-900",
 };
 
 export function heroGradient(variant: HeroVariant): string {

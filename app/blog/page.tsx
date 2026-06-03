@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BookOpen } from "lucide-react";
+import HeroBanner from "@/components/HeroBanner";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { getBlogPosts } from "@/lib/blog";
 
 export const metadata: Metadata = {
@@ -12,27 +15,50 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   const posts = getBlogPosts();
   return (
-    <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6">
-      <nav aria-label="Breadcrumb" className="mb-2 text-xs text-slate-500">
-        <Link href="/" className="hover:text-brand-700">Strona główna</Link>
-        <span className="mx-1.5">/</span>
-        <span className="text-slate-700">Blog</span>
-      </nav>
-      <h1 className="text-3xl font-bold text-slate-900 md:text-4xl">Blog</h1>
-      <p className="mt-3 text-slate-600">Poradniki o stronach WWW, e-commerce, WordPress i SEO dla polskich firm.</p>
+    <>
+      <HeroBanner
+        variant="catalog"
+        icon={BookOpen}
+        badge={`${posts.length} artykułów · WordPress · Shopify · SEO`}
+        title="Blog — poradniki web dla firm"
+        subtitle="Praktyczne artykuły o stronach internetowych, sklepach e-commerce, opiece WordPress i marketingu online dla polskich firm B2B."
+        compact
+      />
+      <Breadcrumbs items={[{ label: "Blog" }]} />
 
-      <div className="mt-8 grid gap-5 md:grid-cols-2">
-        {posts.map((p) => (
-          <Link key={p.slug} href={`/blog/${p.slug}`} className="group flex flex-col rounded-xl border border-slate-200 bg-white p-5 transition hover:border-brand-300 hover:shadow">
-            <p className="text-xs text-slate-500">{new Date(p.publishedAt).toLocaleDateString("pl-PL")} · {p.readMinutes} min czytania</p>
-            <h2 className="mt-2 text-lg font-semibold text-slate-900 group-hover:text-brand-700">{p.title}</h2>
-            <p className="mt-2 text-sm text-slate-600">{p.excerpt}</p>
-            <div className="mt-4 flex flex-wrap gap-1.5">
-              {p.tags.map((t) => <span key={t} className="rounded-full bg-brand-50 px-2 py-0.5 text-[11px] font-medium text-brand-800">{t}</span>)}
-            </div>
-          </Link>
-        ))}
+      <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6">
+        {posts.length === 0 ? (
+          <p className="text-center text-slate-500 py-16">Wkrótce pojawią się pierwsze artykuły.</p>
+        ) : (
+          <div className="grid gap-5 md:grid-cols-2">
+            {posts.map((p) => (
+              <Link
+                key={p.slug}
+                href={`/blog/${p.slug}`}
+                className="group flex flex-col rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-md"
+              >
+                <p className="text-xs text-slate-400">
+                  {new Date(p.publishedAt).toLocaleDateString("pl-PL")} · {p.readMinutes} min czytania
+                </p>
+                <h2 className="mt-2 text-base font-semibold leading-snug text-slate-900 transition group-hover:text-brand-700 sm:text-lg">
+                  {p.title}
+                </h2>
+                <p className="mt-2 line-clamp-2 text-sm text-slate-500">{p.excerpt}</p>
+                <div className="mt-4 flex flex-wrap gap-1.5">
+                  {p.tags.map((t) => (
+                    <span key={t} className="rounded-full bg-brand-50 px-2.5 py-0.5 text-[11px] font-semibold text-brand-700 ring-1 ring-brand-100">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+                <span className="mt-4 text-xs font-semibold text-brand-600 transition group-hover:text-brand-700">
+                  Czytaj dalej →
+                </span>
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
-    </div>
+    </>
   );
 }

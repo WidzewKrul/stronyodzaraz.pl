@@ -1,6 +1,8 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { Layers } from "lucide-react";
 import BrowserMock from "@/components/wykonane/BrowserMock";
+import HeroBanner from "@/components/HeroBanner";
 import { buildMetaFromTemplate } from "@/lib/seo/metadata";
 import { buildFaqJsonLd } from "@/lib/seo/json-ld";
 import { getDemoDisclaimer, getDemoPageMeta, getDemos, demoToBrowserMock } from "@/lib/demo-content";
@@ -18,18 +20,25 @@ export default function DemoPage() {
   const pageMeta = getDemoPageMeta();
   const demos = getDemos();
   const faqJsonLd = buildFaqJsonLd(pageMeta.faq);
+  const demoCount = demos.length;
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
-      <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6">
-        <h1 className="text-3xl font-bold text-slate-900 md:text-4xl">{pageMeta.h1}</h1>
-        <p className="mt-4 text-lg text-slate-600">{pageMeta.intro}</p>
-        <p className="mt-2 text-sm text-amber-800 rounded-lg bg-amber-50 border border-amber-200 px-3 py-2">
+      <HeroBanner
+        variant="catalog"
+        icon={Layers}
+        badge={`${demoCount} szablonów · WordPress · Shopify · WooCommerce`}
+        title={pageMeta.h1}
+        subtitle={pageMeta.intro}
+        compact
+      >
+        <p className="inline-flex items-center gap-2 rounded-xl border border-amber-300/30 bg-amber-400/10 px-3 py-2 text-xs text-amber-200">
+          <span className="text-amber-300">ℹ</span>
           {getDemoDisclaimer()}
         </p>
-      </div>
+      </HeroBanner>
 
       <div className="mx-auto max-w-7xl space-y-16 px-4 pb-16 sm:px-6">
         {demos.map((demo) => (

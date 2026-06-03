@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { MessageCircle } from "lucide-react";
+import HeroBanner from "@/components/HeroBanner";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import KontaktForm from "./KontaktForm";
 
 export const metadata: Metadata = {
@@ -10,13 +12,19 @@ export const metadata: Metadata = {
 
 export default function KontaktPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
-      <nav aria-label="Breadcrumb" className="mb-4 text-xs text-slate-500">
-        <Link href="/" className="hover:text-brand-700">Strona główna</Link>
-        <span className="mx-1.5">/</span>
-        <span className="text-slate-700">Kontakt</span>
-      </nav>
-      <KontaktForm />
-    </div>
+    <>
+      <HeroBanner
+        variant="category"
+        icon={MessageCircle}
+        badge="Odpowiadamy w 24h robocze"
+        title="Kontakt"
+        subtitle="Masz pytanie o pakiet, chcesz dopasować scope do budżetu albo po prostu porozmawiać — napisz do nas."
+        compact
+      />
+      <Breadcrumbs items={[{ label: "Kontakt" }]} />
+      <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6">
+        <KontaktForm />
+      </div>
+    </>
   );
 }

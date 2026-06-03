@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Code2, Globe, ShoppingCart, Shield, Users, Zap } from "lucide-react";
+import { Code2, Globe, Shield, Users, Zap, Building2 } from "lucide-react";
+import HeroBanner from "@/components/HeroBanner";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import PortfolioOdZaraz from "@/components/PortfolioOdZaraz";
 
 export const metadata: Metadata = {
@@ -33,14 +35,19 @@ export default function ONasPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgServiceJsonLd) }} />
-      <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
-        <nav aria-label="Breadcrumb" className="mb-4 text-xs text-slate-500">
-          <Link href="/" className="hover:text-brand-700">Strona główna</Link>
-          <span className="mx-1.5">/</span>
-          <span className="text-slate-700">O nas</span>
-        </nav>
 
-        <h1 className="text-3xl font-bold text-slate-900 md:text-4xl">O nas</h1>
+      <HeroBanner
+        variant="category"
+        icon={Building2}
+        badge="Polska agencja web B2B · od 2024"
+        title="O nas — kim jesteśmy i jak pracujemy"
+        subtitle="Productized software house specjalizujący się w stronach WordPress, sklepach WooCommerce, Shopify i Shoper. Jasna cena, realizacja 7–14 dni."
+        compact
+      />
+
+      <Breadcrumbs items={[{ label: "O nas" }]} />
+
+      <div className="mx-auto max-w-4xl px-4 py-12 sm:px-6">
         <p className="mt-4 text-lg text-slate-600">
           <strong>stronyodzaraz.pl</strong> to polska agencja web B2B. Stawiamy strony i sklepy internetowe od zera —
           WordPress, WooCommerce, Shopify, Shoper. Nie outsourcing z Indii, nie freelancer z OLX — productized software house
@@ -99,13 +106,18 @@ export default function ONasPage() {
           </ol>
         </section>
 
-        <div className="mt-12 rounded-xl bg-brand-700 p-8 text-center text-white">
-          <Code2 className="mx-auto h-10 w-10" aria-hidden />
-          <h2 className="mt-4 text-xl font-bold">Gotowy na współpracę?</h2>
-          <p className="mt-2 text-brand-100">Przeglądaj pakiety z ceną online lub napisz do nas.</p>
-          <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <Link href="/uslugi" className="rounded-lg bg-white px-6 py-2.5 text-sm font-semibold text-brand-800 hover:bg-brand-50">Katalog usług</Link>
-            <Link href="/kontakt" className="rounded-lg border border-white/40 px-6 py-2.5 text-sm font-semibold hover:bg-white/10">Kontakt</Link>
+        <div className="relative mt-12 overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-violet-900 to-indigo-950 p-8 text-center text-white shadow-2xl">
+          <div className="animate-blob absolute -right-10 -top-10 h-40 w-40 rounded-full bg-violet-500/20 blur-2xl" aria-hidden />
+          <Code2 className="relative mx-auto h-10 w-10 text-violet-300" aria-hidden />
+          <h2 className="relative mt-4 text-xl font-bold">Gotowy na współpracę?</h2>
+          <p className="relative mt-2 text-white/70">Przeglądaj pakiety z ceną online lub napisz do nas.</p>
+          <div className="relative mt-6 flex flex-wrap justify-center gap-3">
+            <Link href="/uslugi" className="rounded-xl bg-accent-500 px-6 py-2.5 text-sm font-bold text-white shadow-md transition hover:bg-accent-600">
+              Katalog usług
+            </Link>
+            <Link href="/kontakt" className="rounded-xl border border-white/30 px-6 py-2.5 text-sm font-semibold transition hover:bg-white/10">
+              Kontakt
+            </Link>
           </div>
         </div>
       </div>
