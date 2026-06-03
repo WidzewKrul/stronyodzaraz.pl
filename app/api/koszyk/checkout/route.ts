@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import type Stripe from "stripe";
 import { db } from "@/lib/db";
 import { serviceOrders } from "@/lib/schema";
-import { eq } from "drizzle-orm";
 import { requireStripe } from "@/lib/stripe";
 import { getStoreProductBySlug } from "@/lib/uslugi";
 import { rateLimit, clientIp } from "@/lib/rate-limit";
@@ -61,39 +60,8 @@ export async function POST(req: NextRequest) {
       resolved.push({ slug: item.slug, pismo, prefillData: item.prefillData });
     }
 
-    const orderRows = await Promise.all(
-      resolved.map(({ pismo, prefillData }) =>
-        db
-          .insert(serviceOrders)
-          .values({
-            ...customerValues,
-            toolSlug: `uslugi:${pismo!.slug}`,
-            priceGrosze: pismo!.priceGrosze,
-            status: "PENDING",
-            promotionCode: promotionCode || null,
-            ...(prefillData && Object.keys(prefillData).length > 0
-              ? {
-                  questionnaireData: {
-                    ...prefillData,
-                    kategoria: pismo!.category,
-                    tytulWzoru: pismo!.title,
-                    branch: pismo!.branch ?? "",
-                  },
-                }
-              : {
-                  questionnaireData: {
-                    kategoria: pismo!.category,
-                    tytulWzoru: pismo!.title,
-                    branch: pismo!.branch ?? "",
-                  },
-                }),
-          })
-          .returning()
-          .then((rows) => rows[0]!)
-      )
-    );
-
-    const orderIds = orderRows.map((o) => o.id);
+    // Generate IDs before Stripe — insert to DB only after Stripe session confirmed.
+    const orderIds = resolved.map(() => crypto.randomUUID());
     const stripe = requireStripe();
     const base = siteUrl();
 
@@ -142,10 +110,23 @@ export async function POST(req: NextRequest) {
       idempotencyKey: `koszyk-checkout:${orderIds[0]}`,
     });
 
+    // Insert to DB only after Stripe session confirmed — avoids orphaned PENDING rows on Stripe failure.
     await Promise.all(
-      orderRows.map((o) =>
-        db.update(serviceOrders).set({ stripeSessionId: session.id }).where(eq(serviceOrders.id, o.id))
-      )
+      resolved.map(({ pismo, prefillData }, idx) => {
+        const qd = prefillData && Object.keys(prefillData).length > 0
+          ? { ...prefillData, kategoria: pismo!.category, tytulWzoru: pismo!.title, branch: pismo!.branch ?? "" }
+          : { kategoria: pismo!.category, tytulWzoru: pismo!.title, branch: pismo!.branch ?? "" };
+        return db.insert(serviceOrders).values({
+          id: orderIds[idx],
+          ...customerValues,
+          toolSlug: `uslugi:${pismo!.slug}`,
+          priceGrosze: pismo!.priceGrosze,
+          status: "PENDING",
+          promotionCode: promotionCode || null,
+          stripeSessionId: session.id,
+          questionnaireData: qd,
+        });
+      })
     );
 
     return NextResponse.json({ url: session.url, orderIds });

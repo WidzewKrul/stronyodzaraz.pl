@@ -47,40 +47,13 @@ export async function POST(req: NextRequest) {
     }
 
     const checkoutGroupId = crypto.randomUUID();
+    const orderId = crypto.randomUUID();
     const customerValues = buildServiceOrderCustomerValues(data, {
       checkoutGroupId,
       termsAcceptedIp: ip,
     });
 
     const toolSlug = `uslugi:${pismo.slug}`;
-
-    const [order] = await db
-      .insert(serviceOrders)
-      .values({
-        ...customerValues,
-        toolSlug,
-        priceGrosze: pismo.priceGrosze,
-        status: "PENDING",
-        promotionCode: promotionCode || null,
-        ...(prefillData && Object.keys(prefillData).length > 0
-          ? {
-              questionnaireData: {
-                ...prefillData,
-                kategoria: pismo.category,
-                tytulWzoru: pismo.title,
-                branch: pismo.branch ?? "",
-              },
-            }
-          : {
-              questionnaireData: {
-                kategoria: pismo.category,
-                tytulWzoru: pismo.title,
-                branch: pismo.branch ?? "",
-              },
-            }),
-      })
-      .returning();
-
     const stripe = requireStripe();
     const base = siteUrl();
 
@@ -103,12 +76,12 @@ export async function POST(req: NextRequest) {
           },
         },
       ],
-      success_url: `${base}/sukces?order=${order!.id}&tool=uslugi&session_id={CHECKOUT_SESSION_ID}`,
+      success_url: `${base}/sukces?order=${orderId}&tool=uslugi&session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${base}/uslugi/${pismo.category}/${pismo.slug}`,
       ...buildStripeCheckoutExtras({ ...data, checkoutGroupId }),
       metadata: {
         orderType: "uslugi",
-        serviceOrderId: order!.id,
+        serviceOrderId: orderId,
         toolSlug,
         pismoSlug: pismo.slug,
         ...buildStripeCustomerMetadata({ ...data, checkoutGroupId }),
@@ -128,12 +101,26 @@ export async function POST(req: NextRequest) {
     }
 
     const session = await stripe.checkout.sessions.create(sessionParams, {
-      idempotencyKey: `uslugi-checkout:${order!.id}`,
+      idempotencyKey: `uslugi-checkout:${orderId}`,
     });
 
-    await db.update(serviceOrders).set({ stripeSessionId: session.id }).where(eq(serviceOrders.id, order!.id));
+    // Insert to DB only after Stripe session is confirmed — avoids orphaned PENDING rows on Stripe failure.
+    const questionnaireData = prefillData && Object.keys(prefillData).length > 0
+      ? { ...prefillData, kategoria: pismo.category, tytulWzoru: pismo.title, branch: pismo.branch ?? "" }
+      : { kategoria: pismo.category, tytulWzoru: pismo.title, branch: pismo.branch ?? "" };
 
-    return NextResponse.json({ url: session.url, orderId: order!.id });
+    await db.insert(serviceOrders).values({
+      id: orderId,
+      ...customerValues,
+      toolSlug,
+      priceGrosze: pismo.priceGrosze,
+      status: "PENDING",
+      promotionCode: promotionCode || null,
+      stripeSessionId: session.id,
+      questionnaireData,
+    });
+
+    return NextResponse.json({ url: session.url, orderId });
   } catch (err) {
     log.error("[uslugi/checkout] error", { err: String(err) });
     const msg = err instanceof Error ? err.message : "Nieoczekiwany błąd";

@@ -45,10 +45,12 @@ export function buildServiceOrderCustomerValues(
 
 export function buildStripeCheckoutExtras(
   data: CustomerFields & { checkoutGroupId: string }
-): Pick<Stripe.Checkout.SessionCreateParams, "billing_address_collection" | "tax_id_collection"> {
+): Pick<Stripe.Checkout.SessionCreateParams, "billing_address_collection" | "tax_id_collection" | "automatic_tax"> {
+  const automaticTax = process.env.STRIPE_TAX_ENABLED === "true";
   return {
     billing_address_collection: "auto",
     tax_id_collection: { enabled: true },
+    ...(automaticTax ? { automatic_tax: { enabled: true } } : {}),
   };
 }
 

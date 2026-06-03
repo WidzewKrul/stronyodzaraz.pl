@@ -4,6 +4,7 @@ import { useCart } from "@/components/CartProvider";
 import { useRouter } from "next/navigation";
 import { ShoppingCart, Zap } from "lucide-react";
 import { useState } from "react";
+import { trackAddToCart } from "@/lib/analytics";
 
 type Props = {
   slug: string;
@@ -20,12 +21,14 @@ export default function AddToCartBox({ slug, title, category, priceGrosze }: Pro
 
   function handleAdd() {
     addItem({ slug, title, category, priceGrosze });
+    trackAddToCart({ slug, title, priceGrosze, category });
     setJustAdded(true);
     setTimeout(() => setJustAdded(false), 2000);
   }
 
   function handleBuyNow() {
     addItem({ slug, title, category, priceGrosze });
+    trackAddToCart({ slug, title, priceGrosze, category });
     router.push("/koszyk");
   }
 

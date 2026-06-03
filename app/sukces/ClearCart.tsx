@@ -1,18 +1,24 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useCart } from "@/components/CartProvider";
+import { trackPurchase } from "@/lib/analytics";
 
 type Props = { orderId?: string; sessionId?: string; tool?: string };
 
 export default function ClearCart({ orderId, sessionId, tool }: Props) {
   const [status, setStatus] = useState<string | null>(null);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
-  const { clearCart } = useCart();
+  const { clearCart, items } = useCart();
+  const purchaseTracked = useRef(false);
 
   useEffect(() => {
+    if (!purchaseTracked.current && orderId && items.length > 0) {
+      purchaseTracked.current = true;
+      trackPurchase(orderId, items.map((i) => ({ slug: i.slug, title: i.title, priceGrosze: i.priceGrosze, category: i.category })));
+    }
     clearCart();
-  }, [clearCart]);
+  }, [clearCart, items, orderId]);
 
   useEffect(() => {
     if (!orderId) return;

@@ -37,7 +37,8 @@ export function getCategorySitemapPaths(): SitemapUrlEntry[] {
 export function getPrimaryPdpSitemapPaths(): SitemapUrlEntry[] {
   return getAllUslugi().map((p) => ({
     path: `/uslugi/${p.category}/${p.slug}`,
-    priority: 0.6,
+    // Higher priority for top-priced and recurring packages (money pages).
+    priority: p.priceGrosze >= 500_000 || p.category === "opieka-techniczna" ? 0.8 : 0.6,
     changeFrequency: "monthly" as const,
   }));
 }

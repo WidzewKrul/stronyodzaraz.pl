@@ -6,6 +6,7 @@ import { getCategoryConfig, type FormField } from "@/lib/uslugi-config";
 import Link from "next/link";
 import { Trash2, ShoppingCart } from "lucide-react";
 import { useEffect, useState } from "react";
+import { trackBeginCheckout } from "@/lib/analytics";
 
 function formatPrice(grosze: number): string {
   return (grosze / 100).toFixed(2).replace(".", ",") + " zł";
@@ -172,6 +173,7 @@ export default function CartPage() {
       }
     }
 
+    trackBeginCheckout(items.map((i) => ({ slug: i.slug, title: i.title, priceGrosze: i.priceGrosze, category: i.category })));
     setLoading(true);
     try {
       const res = await fetch("/api/koszyk/checkout", {

@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -7,6 +8,8 @@ import ConsentBanner from "@/components/ConsentBanner";
 import CartProvider from "@/components/CartProvider";
 import ScrollReveal from "@/components/ScrollReveal";
 import { siteUrl as resolveSiteUrl } from "@/lib/env";
+
+const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });
 
 const SITE_URL = resolveSiteUrl();
 
@@ -65,6 +68,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     description:
       "Polska agencja web — strony WordPress, sklepy WooCommerce, Shopify i Shoper. Productized services z jasną ceną i realizacją 7–14 dni.",
     foundingDate: "2024",
+    address: { "@type": "PostalAddress", addressCountry: "PL", addressRegion: "Polska" },
+    sameAs: [
+      "https://www.linkedin.com/company/stronyodzaraz",
+      "https://www.facebook.com/stronyodzaraz",
+    ],
     areaServed: { "@type": "Country", name: "Poland" },
     knowsAbout: [
       "WordPress",
@@ -95,13 +103,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     },
   };
   return (
-    <html lang="pl">
+    <html lang="pl" className={inter.variable}>
       <head>
         <link rel="preconnect" href="https://js.stripe.com" />
         <link rel="preconnect" href="https://checkout.stripe.com" />
         <link rel="dns-prefetch" href="https://js.stripe.com" />
       </head>
-      <body className="flex min-h-screen flex-col">
+      <body className={`${inter.className} flex min-h-screen flex-col`}>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
         <CartProvider>

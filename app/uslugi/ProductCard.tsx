@@ -33,7 +33,7 @@ export default function ProductCard({
 
   return (
     <article className="group flex flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-lg">
-      <Link href={href} className="block overflow-hidden">
+      <Link href={href} tabIndex={-1} aria-hidden="true" className="block overflow-hidden">
         <ServiceThumb slug={slug} title={title} category={category} className="group-hover:scale-[1.01] transition duration-300" />
       </Link>
       <div className="flex flex-1 flex-col p-4 sm:p-5">
@@ -51,6 +51,7 @@ export default function ProductCard({
         </div>
         <Link
           href={href}
+          aria-label={`Zamów pakiet: ${displayTitle}`}
           className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-brand-700 px-3 py-2.5 text-xs font-semibold text-white transition hover:bg-brand-800 focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2"
         >
           Zamów pakiet
