@@ -3,7 +3,7 @@ export function siteUrl(): string {
 }
 
 export function resendFrom(): string {
-  return process.env.RESEND_FROM ?? "stronyodzaraz.pl <noreply@stronyodzaraz.pl>";
+  return process.env.RESEND_FROM ?? "stronyodzaraz.pl <noreply@dostarcz-zamowienie.pl>";
 }
 
 export function contactEmail(): string {
