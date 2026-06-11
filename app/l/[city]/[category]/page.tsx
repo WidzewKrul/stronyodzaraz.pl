@@ -11,9 +11,13 @@ import {
   getCategoryIntro,
   getLocalCityCategoryFaq,
   getPriceFromForCategory,
+  getCityContext,
+  getCityGenitive,
+  getCityLocative,
+  getCityCategoryUseCases,
 } from "@/lib/seo/local";
 import { buildMetaFromTemplate } from "@/lib/seo/metadata";
-import { buildBreadcrumbJsonLd, buildFaqJsonLd, buildLocalBusinessJsonLd } from "@/lib/seo/json-ld";
+import { buildBreadcrumbJsonLd, buildFaqJsonLd, buildLocalServiceJsonLd } from "@/lib/seo/json-ld";
 
 type Props = { params: Promise<{ city: string; category: string }> };
 
@@ -42,6 +46,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: meta.title,
     description: meta.description,
     alternates: { canonical: `/l/${city.slug}/${categorySlug}` },
+    openGraph: {
+      title: meta.title,
+      description: meta.description,
+      url: `/l/${city.slug}/${categorySlug}`,
+      type: "website",
+    },
   };
 }
 
@@ -68,8 +78,12 @@ export default async function LocalCityCategoryPage({ params }: Props) {
   const cfg = getCategoryConfig(categorySlug);
   const CategoryIcon = cfg?.icon;
   const intro = getCategoryIntro(city, categorySlug);
-  const faq = getLocalCityCategoryFaq(city, category.title);
+  const cityCtx = getCityContext(city.slug);
+  const faq = [...getLocalCityCategoryFaq(city, category.title), ...(cityCtx?.faq ?? [])];
   const products = getUslugiByCategory(categorySlug, 12);
+  const genitive = getCityGenitive(city);
+  const locative = getCityLocative(city);
+  const useCases = getCityCategoryUseCases(city, categorySlug);
 
   const jsonLd = [
     buildBreadcrumbJsonLd([
@@ -78,7 +92,7 @@ export default async function LocalCityCategoryPage({ params }: Props) {
       { name: category.title, item: `/l/${city.slug}/${categorySlug}` },
     ]),
     buildFaqJsonLd(faq),
-    buildLocalBusinessJsonLd(city.name),
+    buildLocalServiceJsonLd(city.name, genitive),
   ];
 
   return (
@@ -96,8 +110,51 @@ export default async function LocalCityCategoryPage({ params }: Props) {
         compact
       />
 
+      {cityCtx && (
+        <section className="mx-auto max-w-4xl px-4 pt-10 sm:px-6">
+          <p className="leading-8 text-slate-700">{cityCtx.context}</p>
+          {cityCtx.sectors.length > 0 && (
+            <>
+              <p className="mt-4 leading-8 text-slate-700">
+                {category.title} w {locative} zamawiają u nas najczęściej firmy z branż:{" "}
+                {cityCtx.sectors.join(", ")}. Każdy pakiet ma stałą cenę z katalogu i jest
+                realizowany zdalnie — bez dopłaty za lokalizację.
+              </p>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {cityCtx.sectors.map((s) => (
+                  <span
+                    key={s}
+                    className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-sm text-slate-700"
+                  >
+                    {s}
+                  </span>
+                ))}
+              </div>
+            </>
+          )}
+        </section>
+      )}
+
+      {useCases.length > 0 && (
+        <section className="mx-auto max-w-4xl px-4 pt-10 sm:px-6">
+          <h2 className="text-xl font-bold text-slate-900">
+            {category.title} w {locative} — typowe zastosowania
+          </h2>
+          <ul className="mt-5 grid gap-3 sm:grid-cols-2">
+            {useCases.map((uc) => (
+              <li
+                key={uc}
+                className="rounded-xl border border-slate-200 bg-white p-4 text-sm leading-6 text-slate-700"
+              >
+                {uc}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
       <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
-        <h2 className="text-xl font-bold text-slate-900">Pakiety {category.title.toLowerCase()} dla {city.name}</h2>
+        <h2 className="text-xl font-bold text-slate-900">Pakiety {category.title.toLowerCase()} dla firm z {genitive}</h2>
         <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {products.map((p) => {
             const relCfg = CATEGORY_CONFIGS.find((c) => c.slug === p.category);
@@ -136,7 +193,7 @@ export default async function LocalCityCategoryPage({ params }: Props) {
       <section className="border-t border-slate-100 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
           <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-500">
-            Inne kategorie w {city.name}
+            Inne kategorie w {locative}
           </h2>
           <div className="mt-4 flex flex-wrap gap-2">
             {localCategories

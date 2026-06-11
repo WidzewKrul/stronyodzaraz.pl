@@ -1,59 +1,59 @@
 {
   "templates": {
     "home": {
-      "title": "Strony i sklepy internetowe od zera — WordPress, Shopify, Shoper | stronyodzaraz.pl",
+      "title": "Strony i sklepy internetowe od zera — WordPress, Shopify, Shoper",
       "description": "Polska agencja web B2B. Productized packages — jasna cena, Stripe checkout, realizacja 7–14 dni. WordPress, WooCommerce, Shopify, opieka techniczna."
     },
     "uslugi_hub": {
-      "title": "Katalog usług — strony, sklepy, opieka, integracje | stronyodzaraz.pl",
+      "title": "Katalog usług — strony, sklepy, opieka, integracje",
       "description": "317+ pakietów z jasną ceną. Strony WordPress, sklepy WooCommerce, Shopify, opieka, Google Ads, migracje."
     },
     "uslugi_category": {
-      "title": "{categoryTitle} — pakiety i ceny | stronyodzaraz.pl",
+      "title": "{categoryTitle} — pakiety i ceny",
       "description": "{categoryDescription} Stałe ceny, realizacja 7–14 dni, płatność online Stripe."
     },
     "pdp": {
-      "title": "{seoTitle} | stronyodzaraz.pl — od {priceFormatted} zł, realizacja {deliveryDays} dni",
-      "description": "Pakiet {productName} dla {branch}: {scopeShort}. Stała cena {priceFormatted} zł, płatność online, brief po zakupie."
+      "title": "{seoTitle} — od {priceFormatted} zł",
+      "description": "{scopeShort}. Stała cena {priceFormatted} zł, płatność online, brief po zakupie."
     },
     "blog_list": {
-      "title": "Poradnik — strony, sklepy, e-commerce | stronyodzaraz.pl",
+      "title": "Poradnik — strony, sklepy, e-commerce",
       "description": "Artykuły o kosztach stron www, sklepach internetowych, WordPress, SEO i integracjach PL."
     },
     "blog_post": {
-      "title": "{postTitle} | stronyodzaraz.pl",
+      "title": "{postTitle}",
       "description": "{postExcerpt}"
     },
     "wykonane_hub": {
-      "title": "Przykładowe strony, sklepy i projekty — portfolio układów | stronyodzaraz.pl",
+      "title": "Przykładowe strony, sklepy i projekty — portfolio układów",
       "description": "Zobacz typowe układy pakietów: landing, WordPress, sklep WooCommerce, opieka, integracje. Marki fikcyjne — ilustracja scope."
     },
     "wykonane_detail": {
-      "title": "{showcaseTitle} — przykład {tier} | stronyodzaraz.pl",
+      "title": "{showcaseTitle} — przykład {tier}",
       "description": "{scopeOneLiner} Pakiet od {priceFrom} zł. Realizacja {deliveryDays} dni."
     },
     "demo": {
-      "title": "Przykładowe układy stron i sklepów | stronyodzaraz.pl",
+      "title": "Przykładowe układy stron i sklepów",
       "description": "Podgląd typowych sekcji dla restauracji, gabinetu i sklepu — ilustracja scope pakietu."
     },
     "technologia": {
-      "title": "Technologia — WordPress, WooCommerce, Shopify | stronyodzaraz.pl",
+      "title": "Technologia — WordPress, WooCommerce, Shopify",
       "description": "Stack wdrożeń: CMS, sklepy, płatności PL, hosting, SSL, RODO. Konkretnie co wdrażamy w pakietach."
     },
     "o_nas": {
-      "title": "O nas — polska agencja web productized | stronyodzaraz.pl",
+      "title": "O nas — polska agencja web productized",
       "description": "Strony i sklepy z jasną ceną online. Remote-first, cała Polska. Część ekosystemu *odzaraz*."
     },
     "kontakt": {
-      "title": "Kontakt | stronyodzaraz.pl",
+      "title": "Kontakt",
       "description": "Napisz lub zamów pakiet online w katalogu. Odpowiadamy w 1 dzień roboczy."
     },
     "local_city": {
-      "title": "Strony i sklepy internetowe {cityName} — ceny online | stronyodzaraz.pl",
-      "description": "Realizacja zdalna dla firm z {cityName}. Pakiety od {priceFrom} zł. WordPress, sklepy, opieka — bez dopłaty lokalnej."
+      "title": "Strony i sklepy internetowe {cityName} — ceny online",
+      "description": "Realizacja zdalna dla firm z {cityGenitive}. Pakiety od {priceFrom} zł. WordPress, sklepy, opieka — bez dopłaty lokalnej."
     },
     "local_city_category": {
-      "title": "{categoryTitle} {cityName} — pakiety od {priceFrom} zł | stronyodzaraz.pl",
+      "title": "{categoryTitle} {cityName} — pakiety od {priceFrom} zł",
       "description": "{localIntroShort}"
     }
   }

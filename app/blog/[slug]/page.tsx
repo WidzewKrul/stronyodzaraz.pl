@@ -3,8 +3,13 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Avatar from "boring-avatars";
 import { getAllBlogPostsForRoutes, getPost } from "@/lib/blog";
+import { siteUrl } from "@/lib/env";
 
 type Params = { params: Promise<{ slug: string }> };
+
+// DB-generated posts are published on-demand via ISR (dynamicParams defaults to
+// true), then revalidated hourly.
+export const revalidate = 3600;
 
 const TAG_TO_CATEGORY: Record<string, { slug: string; title: string }> = {
   "strony www": { slug: "strony-internetowe", title: "Strony internetowe" },
@@ -33,12 +38,12 @@ const TAG_TO_CATEGORY: Record<string, { slug: string; title: string }> = {
 };
 
 export async function generateStaticParams() {
-  return getAllBlogPostsForRoutes().map((p) => ({ slug: p.slug }));
+  return (await getAllBlogPostsForRoutes()).map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
-  const p = getPost(slug);
+  const p = await getPost(slug);
   if (!p) return { title: "Nie znaleziono" };
   return {
     title: p.title,
@@ -116,21 +121,28 @@ function inline(s: string) {
 
 export default async function BlogPost({ params }: Params) {
   const { slug } = await params;
-  const post = getPost(slug);
+  const post = await getPost(slug);
   if (!post) notFound();
 
   const matchedCat = post.tags
     .map((t) => TAG_TO_CATEGORY[t] ?? TAG_TO_CATEGORY[t.toLowerCase()])
     .find(Boolean);
 
+  const base = siteUrl().replace(/\/$/, "");
+  const logoUrl = `${base}/images/brand/logo-mark.webp`;
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
     headline: post.title,
     description: post.excerpt,
     datePublished: post.publishedAt,
+    image: logoUrl,
     author: { "@type": "Organization", name: "stronyodzaraz.pl" },
-    publisher: { "@type": "Organization", name: "stronyodzaraz.pl" },
+    publisher: {
+      "@type": "Organization",
+      name: "stronyodzaraz.pl",
+      logo: { "@type": "ImageObject", url: logoUrl },
+    },
   };
 
   return (

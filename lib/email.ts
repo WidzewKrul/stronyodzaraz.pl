@@ -59,18 +59,32 @@ async function safeSend(params: {
     log.warn("[email] RESEND_API_KEY missing", { to: params.to, subject: params.subject });
     return false;
   }
-  const res = await resend.emails.send({
-    from,
-    to: params.to,
-    subject: params.subject,
-    html: params.html,
-    replyTo: params.replyTo,
-    attachments: params.attachments,
-  });
-  if ("error" in res && res.error) {
-    throw new Error(String(res.error.message ?? res.error));
+  // Bounded retry with backoff so a transient Resend hiccup (429/5xx/network) on a
+  // one-shot send (contact form, auto-reply, drip) doesn't permanently drop the message.
+  const MAX_ATTEMPTS = 3;
+  let lastErr: unknown;
+  for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+    try {
+      const res = await resend.emails.send({
+        from,
+        to: params.to,
+        subject: params.subject,
+        html: params.html,
+        replyTo: params.replyTo,
+        attachments: params.attachments,
+      });
+      if ("error" in res && res.error) {
+        throw new Error(String(res.error.message ?? res.error));
+      }
+      return true;
+    } catch (err) {
+      lastErr = err;
+      if (attempt < MAX_ATTEMPTS) {
+        await new Promise((r) => setTimeout(r, 400 * attempt));
+      }
+    }
   }
-  return true;
+  throw lastErr instanceof Error ? lastErr : new Error(String(lastErr));
 }
 
 export async function sendAdminOrderFailedAlert(params: {

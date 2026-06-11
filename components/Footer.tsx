@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { Lock, Mail } from "lucide-react";
 import BrandLogo from "@/components/BrandLogo";
+import { getTierACities } from "@/lib/seo/local";
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const cities = getTierACities();
   return (
     <footer className="mt-20 border-t border-slate-200 bg-slate-950 text-slate-300">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 md:grid-cols-4">
@@ -90,10 +92,27 @@ export default function Footer() {
         </div>
       </div>
 
+      {cities.length > 0 && (
+        <div className="border-t border-slate-800/60">
+          <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6">
+            <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">Obsługujemy firmy w miastach</p>
+            <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+              {cities.map((c) => (
+                <li key={c.slug}>
+                  <Link href={`/l/${c.slug}`} className="text-slate-400 transition hover:text-white">
+                    Strony i sklepy {c.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
+
       <div className="border-t border-slate-800/60">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-2 px-4 py-5 sm:px-6">
-          <p className="text-xs text-slate-600">© {year} stronyodzaraz.pl — Wszelkie prawa zastrzeżone</p>
-          <p className="text-xs text-slate-700">NIP / KRS · Polska agencja web B2B</p>
+          <p className="text-xs text-slate-400">© {year} stronyodzaraz.pl — Wszelkie prawa zastrzeżone</p>
+          <p className="text-xs text-slate-400">NIP / KRS · Polska agencja web B2B</p>
         </div>
       </div>
     </footer>

@@ -1,0 +1,95 @@
+{
+  "$comment": "Unikalny, lokalny kontekst per miasto Tier-A — używany na stronach /l/{slug} i /l/{slug}/{category}, by uniknąć cienkiej/zduplikowanej treści (doorway pages). Treść oparta o realny profil gospodarczy miasta.",
+  "cities": [
+    {
+      "slug": "warszawa",
+      "context": "Warszawa to największy w Polsce rynek usług, finansów i korporacyjnych central. Działają tu firmy doradcze, kancelarie, fintechy, startupy oraz tysiące mikroprzedsiębiorstw walczących o uwagę wymagającego, mobilnego klienta. Konkurencja jest ostra, więc liczy się szybkie wejście online i spójna prezentacja oferty. Model zdalny pasuje stołecznym firmom, które cenią czas i nie chcą tracić go na spotkania w korkach. Działamy bez biura w mieście, dostarczając gotowy pakiet w 7–14 dni, co odpowiada tempu warszawskiego biznesu i jego oczekiwaniu konkretnych, mierzalnych efektów online.",
+      "sectors": ["finanse i fintech", "kancelarie prawne i doradztwo", "gastronomia i HoReCa", "nieruchomości", "startupy i usługi IT", "agencje eventowe"],
+      "faq": [
+        { "q": "Czy zdalna agencja poradzi sobie z konkurencyjnym warszawskim rynkiem?", "a": "Tak. Warszawska konkurencja online wymaga przede wszystkim szybkiej, dopracowanej strony, a nie fizycznego biura. Pracujemy zdalnie z firmami z całej stolicy i dostarczamy gotowy projekt w 7–14 dni." },
+        { "q": "Czy musimy spotkać się osobiście w Warszawie, by ustalić projekt?", "a": "Nie ma takiej potrzeby. Wszystko ustalamy online, co oszczędza czas w mieście znanym z korków. Dzięki temu start projektu jest natychmiastowy, bez dojazdów i terminów spotkań." }
+      ]
+    },
+    {
+      "slug": "krakow",
+      "context": "Kraków łączy silny sektor IT i centra usług wspólnych (BPO/SSC) z ogromnym ruchem turystycznym i kulturą. Obok globalnych software house'ów funkcjonują tu hotele, restauracje, przewodnicy, manufaktury i firmy rzemieślnicze obsługujące gości z całego świata. Taka dwoistość rynku oznacza zapotrzebowanie zarówno na nowoczesne, anglojęzyczne strony, jak i na proste wizytówki dla lokalnych usług. Zdalny model współpracy sprawdza się w mieście, gdzie kultura pracy zdalnej jest codziennością branży technologicznej. Dostarczamy uporządkowany pakiet w 7–14 dni, dopasowany do tempa i międzynarodowego charakteru krakowskiego biznesu.",
+      "sectors": ["software house i IT", "centra usług BPO/SSC", "turystyka i hotelarstwo", "gastronomia i kawiarnie", "rzemiosło i manufaktury", "przewodnicy i usługi kulturalne"],
+      "faq": [
+        { "q": "Czy zrobicie stronę dwujęzyczną dla klientów turystycznych z zagranicy?", "a": "Tak. W Krakowie wersja anglojęzyczna jest często niezbędna w turystyce i HoReCa. Przygotujemy stronę z wersją polską i angielską, gotową do obsługi gości spoza Polski." },
+        { "q": "Pracujecie zdalnie, a w Krakowie działa wiele firm IT — czy to dla nas problem?", "a": "Wręcz przeciwnie. Praca zdalna jest tu standardem branży technologicznej, więc nasz model jest naturalny. Cały projekt prowadzimy online, bez konieczności spotkań w mieście." }
+      ]
+    },
+    {
+      "slug": "wroclaw",
+      "context": "Wrocław to prężny ośrodek IT, nowoczesnych usług oraz produkcji i logistyki na Dolnym Śląsku. Mieszają się tu międzynarodowe centra technologiczne, zakłady produkcyjne z okolicznych stref ekonomicznych oraz dynamiczne, lokalne firmy usługowe i gastronomiczne. Taki przekrój gospodarki tworzy popyt na strony zarówno wizerunkowe dla przemysłu, jak i sprzedażowe dla handlu. Zdalna współpraca dobrze pasuje do otwartego na technologie wrocławskiego rynku, gdzie liczy się sprawność i konkret. Realizujemy ustalony z góry pakiet w 7–14 dni, bez biura w mieście, co upraszcza i przyspiesza cały proces.",
+      "sectors": ["IT i nowe technologie", "produkcja przemysłowa", "logistyka i transport", "handel i e-commerce", "gastronomia i usługi", "branża motoryzacyjna"],
+      "faq": [
+        { "q": "Obsługujecie firmy produkcyjne z dolnośląskich stref ekonomicznych?", "a": "Tak. Dla zakładów produkcyjnych przygotowujemy przejrzyste strony wizerunkowe i katalogowe, prezentujące ofertę i możliwości B2B. Cały proces prowadzimy zdalnie, niezależnie od lokalizacji zakładu." },
+        { "q": "Czy zdalny model sprawdzi się dla wrocławskiej firmy technologicznej?", "a": "Zdecydowanie. Wrocławski rynek jest mocno cyfrowy i przyzwyczajony do współpracy online. Ustalenia, projekt i wdrożenie realizujemy bez spotkań stacjonarnych, w ustalonym terminie." }
+      ]
+    },
+    {
+      "slug": "poznan",
+      "context": "Poznań to tradycyjny ośrodek handlu, targów międzynarodowych i biznesu B2B w Wielkopolsce. Działa tu wiele firm handlowych, hurtowni, producentów i przedsiębiorstw usługowych nastawionych na relacje biznesowe i kontakty targowe. Lokalny rynek ceni rzetelność, konkret i sprawną organizację, co dobrze współgra z modelem stałych cen i jasnego zakresu prac. Zdalna współpraca pasuje firmom, które wolą wykorzystać czas na sprzedaż niż na koordynację spotkań. Dostarczamy uporządkowany pakiet strony lub sklepu w 7–14 dni, gotowy do prezentacji partnerom i klientom B2B z kraju i zagranicy.",
+      "sectors": ["handel hurtowy i B2B", "branża targowa i wystawiennicza", "produkcja i przemysł", "logistyka i dystrybucja", "usługi dla biznesu", "e-commerce"],
+      "faq": [
+        { "q": "Czy strona sprawdzi się jako wizytówka przed targami i spotkaniami B2B?", "a": "Tak. W Poznaniu strona często pełni rolę wizytówki przy kontaktach targowych i handlowych. Przygotujemy ją tak, by jasno prezentowała ofertę partnerom biznesowym z kraju i zagranicy." },
+        { "q": "Realizujecie sklepy dla wielkopolskich hurtowni i firm handlowych?", "a": "Tak. Dla handlu i dystrybucji przygotowujemy sklepy i katalogi dopasowane do sprzedaży B2B. Zakres i cenę ustalamy z góry, a wdrożenie prowadzimy w pełni zdalnie." }
+      ]
+    },
+    {
+      "slug": "gdansk",
+      "context": "Gdańsk to centrum gospodarki morskiej, portu, logistyki i rosnącego sektora IT na Pomorzu. Funkcjonują tu firmy spedycyjne, obsługa portu, przemysł stoczniowy, a obok nich turystyka, hotelarstwo i usługi czerpiące z nadmorskiego charakteru miasta. Taki miks tworzy popyt na strony zarówno techniczne, B2B, jak i przyciągające turystów. Zdalny model współpracy jest naturalny dla firm działających w handlu międzynarodowym i logistyce, przyzwyczajonych do kontaktu online. Realizujemy ustalony pakiet w 7–14 dni, bez konieczności spotkań, co odpowiada tempu pracy nadmorskiego i portowego biznesu.",
+      "sectors": ["logistyka i spedycja", "gospodarka morska i port", "turystyka i hotelarstwo", "IT i usługi nowoczesne", "gastronomia i HoReCa", "handel międzynarodowy"],
+      "faq": [
+        { "q": "Obsługujecie firmy spedycyjne i logistyczne związane z portem?", "a": "Tak. Dla logistyki i spedycji tworzymy przejrzyste strony B2B prezentujące usługi i obszar działania. Współpracę prowadzimy zdalnie, co pasuje do firm działających w handlu międzynarodowym." },
+        { "q": "Czy przygotujecie stronę pod sezon turystyczny nad morzem?", "a": "Tak. Dla turystyki i HoReCa przygotujemy stronę gotową na sezon, z możliwością wersji anglojęzycznej. Dzięki realizacji w 7–14 dni zdążysz przed wzmożonym ruchem gości." }
+      ]
+    },
+    {
+      "slug": "gdynia",
+      "context": "Gdynia, młodsza siostra Trójmiasta, to nowoczesny port, biznes morski i prężny sektor usług oraz handlu. Miasto zbudowane wokół portu przyciąga firmy spedycyjne, armatorów, przedsiębiorstwa morskie, ale też modny handel, gastronomię i usługi nastawione na mieszkańców i turystów. Ten praktyczny, przedsiębiorczy charakter dobrze pasuje do współpracy opartej na jasnym zakresie i stałej cenie. Model zdalny sprawdza się u firm zorientowanych na konkret i sprawną realizację. Dostarczamy gotowy pakiet strony lub sklepu w 7–14 dni, bez biura w mieście, w tempie odpowiadającym dynamice gdyńskiego biznesu.",
+      "sectors": ["biznes morski i armatorski", "spedycja i logistyka", "handel detaliczny", "gastronomia i usługi", "turystyka nadmorska", "usługi dla biznesu"],
+      "faq": [
+        { "q": "Czym różni się oferta dla Gdyni od tej dla Gdańska?", "a": "Zakres usług jest ten sam, bo pracujemy zdalnie w całym Trójmieście. Dopasowujemy jedynie treści i akcenty do profilu firmy — morskiego, handlowego czy usługowego." },
+        { "q": "Czy zrobicie sklep internetowy dla gdyńskiej firmy handlowej?", "a": "Tak. Przygotujemy sklep dopasowany do asortymentu i sposobu sprzedaży, gotowy do działania. Cenę i zakres ustalamy z góry, a całość wdrażamy zdalnie w 7–14 dni." }
+      ]
+    },
+    {
+      "slug": "lodz",
+      "context": "Łódź przeszła drogę od stolicy włókiennictwa do ośrodka e-commerce, logistyki i usług biznesowych w centralnej Polsce. Dawne fabryki ustąpiły miejsca centrom magazynowym, firmom kreatywnym, sklepom internetowym i przedsiębiorstwom usługowym korzystającym z centralnego położenia miasta. Taki profil oznacza wysokie zapotrzebowanie na sprawne sklepy internetowe i strony sprzedażowe. Zdalna współpraca pasuje firmom, które myślą o zasięgu ogólnopolskim, a nie tylko lokalnym. Realizujemy ustalony pakiet sklepu lub strony w 7–14 dni, bez biura w mieście, z naciskiem na praktyczność i gotowość do sprzedaży online.",
+      "sectors": ["e-commerce i sprzedaż online", "logistyka i magazynowanie", "branża kreatywna i media", "tekstylia i moda", "usługi dla biznesu", "produkcja"],
+      "faq": [
+        { "q": "Specjalizujecie się w sklepach internetowych dla łódzkich firm e-commerce?", "a": "Tak. E-commerce to mocna strona łódzkiego rynku, więc tworzymy sklepy gotowe do sprzedaży na terenie całego kraju. Zakres i cenę ustalamy z góry, a wdrożenie prowadzimy zdalnie." },
+        { "q": "Czy strona pomoże dotrzeć poza Łódź, do klientów z całej Polski?", "a": "Tak. Projektujemy strony i sklepy z myślą o zasięgu ogólnopolskim, co odpowiada centralnemu położeniu Łodzi. Dzięki temu łatwiej docierasz do klientów spoza miasta." }
+      ]
+    },
+    {
+      "slug": "katowice",
+      "context": "Katowice i Górnośląsko-Zagłębiowska Metropolia przechodzą cyfrową transformację — od ciężkiego przemysłu ku usługom, IT i nowoczesnej gospodarce. Obok firm produkcyjnych i technicznych, mocno zakorzenionych w śląskiej tradycji, rośnie sektor usług biznesowych, technologii i wydarzeń. Ta zmiana tworzy popyt na strony, które unowocześniają wizerunek firm o przemysłowych korzeniach. Zdalny model współpracy pasuje przedsiębiorstwom z całej gęsto zaludnionej metropolii, gdzie firmy działają blisko siebie, ale cenią efektywność. Dostarczamy uporządkowany pakiet w 7–14 dni, pomagając łączyć solidną, śląską renomę z nowoczesną obecnością w internecie.",
+      "sectors": ["przemysł i produkcja", "usługi techniczne i B2B", "IT i nowe technologie", "branża eventowa i targowa", "budownictwo", "handel i usługi"],
+      "faq": [
+        { "q": "Czy unowocześnicie wizerunek firmy o przemysłowych, śląskich korzeniach?", "a": "Tak. Dla firm produkcyjnych i technicznych tworzymy strony, które łączą solidną renomę z nowoczesnym, czytelnym wizerunkiem online. Cały proces prowadzimy zdalnie, niezależnie od lokalizacji w metropolii." },
+        { "q": "Obsługujecie firmy z całej metropolii śląskiej, nie tylko z Katowic?", "a": "Tak. Pracujemy zdalnie, więc obsługujemy przedsiębiorstwa z całej Górnośląsko-Zagłębiowskiej Metropolii. Lokalizacja firmy nie wpływa na zakres ani tempo realizacji." }
+      ]
+    },
+    {
+      "slug": "lublin",
+      "context": "Lublin to największy ośrodek akademicki i gospodarczy wschodniej Polski, z silnym środowiskiem uczelni, młodych firm i przedsiębiorstw spoglądających na rynki wschodnie. Studenci, startupy, usługi medyczne, gastronomia i handel tworzą żywy, lokalny rynek, który dopiero buduje swoją obecność online. Daje to przestrzeń firmom, które chcą wyróżnić się dobrą stroną wcześniej niż konkurencja. Zdalny model współpracy pozwala lubelskim przedsiębiorcom korzystać z usług bez ograniczeń lokalnego rynku wykonawców. Realizujemy ustalony pakiet w 7–14 dni, bez biura w mieście, w cenie znanej z góry, bez niespodzianek.",
+      "sectors": ["uczelnie i edukacja", "startupy i usługi IT", "usługi medyczne", "gastronomia i handel", "handel ze wschodem", "usługi lokalne"],
+      "faq": [
+        { "q": "Czy zdalna współpraca to dobry wybór na lubelskim rynku?", "a": "Tak. Praca zdalna pozwala korzystać z usług niezależnie od lokalnej dostępności wykonawców na wschodzie Polski. Cały projekt prowadzimy online, w ustalonym z góry zakresie i cenie." },
+        { "q": "Przygotujecie stronę dla firmy działającej na rynkach wschodnich?", "a": "Tak. Możemy przygotować stronę z wersją obcojęzyczną dopasowaną do kontaktów ze wschodnimi partnerami. Zakres uzgadniamy na początku, a realizację prowadzimy zdalnie." }
+      ]
+    },
+    {
+      "slug": "szczecin",
+      "context": "Szczecin to nadodrzański ośrodek handlu, logistyki i gospodarki morskiej, silnie powiązany z pobliskim rynkiem niemieckim. Bliskość granicy sprzyja firmom prowadzącym wymianę transgraniczną, spedycji, usługom oraz handlowi obsługującemu klientów po obu stronach Odry. Taki przygraniczny charakter tworzy popyt na strony zorientowane na dwa rynki, często dwujęzyczne. Zdalny model współpracy dobrze pasuje przedsiębiorcom przyzwyczajonym do działania ponad granicami i kontaktu na odległość. Dostarczamy gotowy pakiet strony lub sklepu w 7–14 dni, bez biura w mieście, w tempie odpowiadającym otwartemu, transgranicznemu charakterowi szczecińskiego biznesu.",
+      "sectors": ["handel transgraniczny", "logistyka i spedycja", "gospodarka morska i port", "usługi dla rynku niemieckiego", "turystyka", "handel i e-commerce"],
+      "faq": [
+        { "q": "Czy zrobicie stronę dwujęzyczną pod klientów z Niemiec?", "a": "Tak. W Szczecinie wersja niemiecka często ma realne znaczenie biznesowe przy handlu transgranicznym. Przygotujemy stronę polsko-niemiecką, gotową do obsługi klientów po obu stronach granicy." },
+        { "q": "Obsługujecie firmy prowadzące wymianę handlową z rynkiem niemieckim?", "a": "Tak. Dla handlu transgranicznego tworzymy strony i sklepy nastawione na dwa rynki. Współpracę prowadzimy zdalnie, co jest naturalne dla firm działających ponad granicą." }
+      ]
+    }
+  ]
+}

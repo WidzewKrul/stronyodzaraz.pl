@@ -11,13 +11,13 @@ async function handler(req: NextRequest) {
   const unauth = checkCronAuth(req);
   if (unauth) return unauth;
 
-  const next = pickNextPendingItem();
+  const next = await pickNextPendingItem();
   if (!next) {
     return NextResponse.json({ ok: true, skipped: true, reason: "no_pending_items" });
   }
 
-  const { item, index } = next;
-  markQueueItem(index, { status: "generating" });
+  const { item } = next;
+  await markQueueItem(item.primaryKeyword, { status: "generating" });
 
   const result = await generateAndPublishBlogArticle({
     primaryKeyword: item.primaryKeyword,
@@ -26,12 +26,12 @@ async function handler(req: NextRequest) {
   });
 
   if (!result.ok) {
-    markQueueItem(index, { status: "failed", error: result.error });
+    await markQueueItem(item.primaryKeyword, { status: "failed", error: result.error });
     log.warn("[cron/blog] failed", { keyword: item.primaryKeyword, error: result.error });
     return NextResponse.json({ ok: false, error: result.error }, { status: 500 });
   }
 
-  markQueueItem(index, { status: "published", publishedSlug: result.slug });
+  await markQueueItem(item.primaryKeyword, { status: "published", publishedSlug: result.slug });
   return NextResponse.json({ ok: true, slug: result.slug, title: result.title });
 }
 

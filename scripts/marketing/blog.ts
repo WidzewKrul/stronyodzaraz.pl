@@ -16,29 +16,29 @@ async function main() {
   const keyword = typeof args.keyword === "string" ? args.keyword : undefined;
 
   if (fromQueue) {
-    const next = pickNextPendingItem();
+    const next = await pickNextPendingItem();
     if (!next) {
-      logErr("Brak pending w content/blog/queue.json");
+      logErr("Brak pending w kolejce BlogQueue (DB)");
       process.exit(1);
     }
-    const { item, index } = next;
+    const { item } = next;
     logSection(`Kolejka: ${item.primaryKeyword}`);
     if (dryRun) {
       logOk(`Dry-run — pominięto generowanie (${item.category})`);
       return;
     }
-    markQueueItem(index, { status: "generating" });
+    await markQueueItem(item.primaryKeyword, { status: "generating" });
     const result = await generateAndPublishBlogArticle({
       primaryKeyword: item.primaryKeyword,
       category: item.category,
       internalLinks: item.internalLinks,
     });
     if (!result.ok) {
-      markQueueItem(index, { status: "failed", error: result.error });
+      await markQueueItem(item.primaryKeyword, { status: "failed", error: result.error });
       logErr(result.error);
       process.exit(1);
     }
-    markQueueItem(index, { status: "published", publishedSlug: result.slug });
+    await markQueueItem(item.primaryKeyword, { status: "published", publishedSlug: result.slug });
     logOk(`Opublikowano: /blog/${result.slug}`);
     return;
   }

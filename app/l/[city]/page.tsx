@@ -12,9 +12,12 @@ import {
   getHubIntro,
   getLocalFaq,
   getPriceFromForCategory,
+  getCityContext,
+  getCityGenitive,
+  getCityLocative,
 } from "@/lib/seo/local";
 import { buildMetaFromTemplate } from "@/lib/seo/metadata";
-import { buildBreadcrumbJsonLd, buildFaqJsonLd, buildLocalBusinessJsonLd } from "@/lib/seo/json-ld";
+import { buildBreadcrumbJsonLd, buildFaqJsonLd, buildLocalServiceJsonLd } from "@/lib/seo/json-ld";
 
 type Props = { params: Promise<{ city: string }> };
 
@@ -30,6 +33,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const meta = buildMetaFromTemplate("local_city", {
     cityName: city.name,
+    cityGenitive: getCityGenitive(city),
+    cityLocative: getCityLocative(city),
     priceFrom: getPriceFromForCategory("strony-internetowe"),
   });
 
@@ -37,6 +42,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: meta.title,
     description: meta.description,
     alternates: { canonical: `/l/${city.slug}` },
+    openGraph: {
+      title: meta.title,
+      description: meta.description,
+      url: `/l/${city.slug}`,
+      type: "website",
+    },
   };
 }
 
@@ -56,8 +67,11 @@ export default async function LocalCityPage({ params }: Props) {
   if (!city || city.tier !== "A") notFound();
 
   const intro = getHubIntro(city);
-  const faq = getLocalFaq(city);
+  const cityCtx = getCityContext(city.slug);
+  const faq = [...getLocalFaq(city), ...(cityCtx?.faq ?? [])];
   const localCategories = getLocalCategories();
+  const genitive = getCityGenitive(city);
+  const locative = getCityLocative(city);
 
   const featured = localCategories
     .slice(0, 3)
@@ -65,7 +79,7 @@ export default async function LocalCityPage({ params }: Props) {
     .slice(0, 6);
 
   const jsonLd = [
-    buildLocalBusinessJsonLd(city.name),
+    buildLocalServiceJsonLd(city.name, genitive),
     buildBreadcrumbJsonLd([
       { name: "Strona główna", item: "/" },
       { name: city.name, item: `/l/${city.slug}` },
@@ -93,11 +107,24 @@ export default async function LocalCityPage({ params }: Props) {
 
       <section className="mx-auto max-w-4xl px-4 py-10 sm:px-6">
         <p className="text-lg leading-8 text-slate-700">{intro}</p>
+        {cityCtx && (
+          <div className="mt-8">
+            <h2 className="text-xl font-bold text-slate-900">Rynek lokalny — {city.name}</h2>
+            <p className="mt-3 leading-8 text-slate-700">{cityCtx.context}</p>
+            <div className="mt-5 flex flex-wrap gap-2">
+              {cityCtx.sectors.map((s) => (
+                <span key={s} className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-sm text-slate-700">
+                  {s}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
       </section>
 
       <section className="border-t border-slate-100 bg-slate-50">
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
-          <h2 className="text-xl font-bold text-slate-900">Kategorie usług w {city.name}</h2>
+          <h2 className="text-xl font-bold text-slate-900">Kategorie usług w {locative}</h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {localCategories.map((catSlug) => {
               const cat = CATEGORIES.find((c) => c.slug === catSlug);
@@ -124,7 +151,7 @@ export default async function LocalCityPage({ params }: Props) {
 
       {featured.length > 0 && (
         <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
-          <h2 className="text-xl font-bold text-slate-900">Popularne pakiety dla firm z {city.name}</h2>
+          <h2 className="text-xl font-bold text-slate-900">Popularne pakiety dla firm z {genitive}</h2>
           <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {featured.map((p) => {
               const relCfg = CATEGORY_CONFIGS.find((c) => c.slug === p.category);

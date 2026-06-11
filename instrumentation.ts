@@ -9,4 +9,12 @@ export async function register() {
       throw new Error(`Missing required env vars: ${missing.join(", ")}`);
     }
   }
+
+  // Optional integrations — not fatal, but warn at boot so a misconfiguration
+  // surfaces here instead of as recurring runtime failures in the cron jobs.
+  const optional = ["OPENROUTER_API_KEY", "INDEXNOW_KEY"];
+  const missingOptional = optional.filter((k) => !process.env[k]);
+  if (missingOptional.length > 0) {
+    console.warn(`[startup] Missing optional env vars (AI/IndexNow features degraded): ${missingOptional.join(", ")}`);
+  }
 }

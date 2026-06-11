@@ -32,10 +32,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!cat) return {};
   const cfg = CATEGORY_CONFIGS.find((c) => c.slug === category);
   const tagline = cfg?.tagline ?? cat.description;
+  const title = `${cat.title} — pakiety usług web`;
+  const description = `${tagline}. Zamów online — jasna cena, realizacja 7–14 dni. ${cat.description}.`;
   return {
-    title: `${cat.title} — pakiety usług web | stronyodzaraz.pl`,
-    description: `${tagline}. Zamów online — jasna cena, realizacja 7–14 dni. ${cat.description}.`,
+    title,
+    description,
     alternates: { canonical: `/uslugi/${category}` },
+    openGraph: {
+      title,
+      description,
+      url: `/uslugi/${category}`,
+      type: "website",
+    },
   };
 }
 

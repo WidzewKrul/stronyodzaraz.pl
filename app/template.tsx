@@ -1,16 +1,6 @@
-"use client";
-
-import { motion, AnimatePresence } from "motion/react";
-
+// Page-transition fade implemented with a CSS class (`.animate-fade-in` in
+// globals.css, which is disabled under prefers-reduced-motion). This keeps the
+// framer-motion runtime out of every route's client bundle. No "use client" needed.
 export default function Template({ children }: { children: React.ReactNode }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 6 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -4 }}
-      transition={{ duration: 0.22, ease: [0.25, 0.46, 0.45, 0.94] }}
-    >
-      {children}
-    </motion.div>
-  );
+  return <div className="animate-fade-in">{children}</div>;
 }

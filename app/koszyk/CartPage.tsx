@@ -301,7 +301,7 @@ export default function CartPage() {
             </div>
 
             {error && (
-              <p className="mt-4 rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700">{error}</p>
+              <p role="alert" className="mt-4 rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700">{error}</p>
             )}
 
             <button
@@ -319,7 +319,9 @@ export default function CartPage() {
 
           <button
             type="button"
-            onClick={clearCart}
+            onClick={() => {
+              if (window.confirm("Na pewno usunąć wszystkie pozycje z koszyka?")) clearCart();
+            }}
             className="w-full rounded-lg border border-slate-200 px-4 py-2 text-xs font-medium text-slate-500 transition hover:border-red-200 hover:text-red-600"
           >
             Wyczyść koszyk

@@ -1,6 +1,6 @@
 "use client";
 import { useRouter, usePathname } from "next/navigation";
-import { useCallback, useState, useTransition } from "react";
+import { useCallback, useEffect, useRef, useState, useTransition } from "react";
 import { Search, X } from "lucide-react";
 
 export default function SearchBar({
@@ -14,6 +14,11 @@ export default function SearchBar({
   const pathname = usePathname();
   const [value, setValue] = useState(defaultValue);
   const [isPending, startTransition] = useTransition();
+  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => () => {
+    if (debounceRef.current) clearTimeout(debounceRef.current);
+  }, []);
 
   const navigate = useCallback(
     (q: string, cat: string) => {
@@ -30,6 +35,15 @@ export default function SearchBar({
     [router, pathname],
   );
 
+  // Debounce route pushes so typing doesn't fire a navigation per keystroke.
+  const navigateDebounced = useCallback(
+    (q: string, cat: string) => {
+      if (debounceRef.current) clearTimeout(debounceRef.current);
+      debounceRef.current = setTimeout(() => navigate(q, cat), 300);
+    },
+    [navigate],
+  );
+
   return (
     <div className="relative w-full max-w-xl">
       <Search
@@ -41,7 +55,7 @@ export default function SearchBar({
         value={value}
         onChange={(e) => {
           setValue(e.target.value);
-          navigate(e.target.value, defaultCat);
+          navigateDebounced(e.target.value, defaultCat);
         }}
         placeholder="Szukaj: WordPress, sklep, opieka, migracja…"
         className="w-full rounded-xl border border-slate-200 bg-white py-3 pl-10 pr-10 text-sm shadow-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-100"

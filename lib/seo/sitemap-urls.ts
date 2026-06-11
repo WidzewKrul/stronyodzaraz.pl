@@ -43,8 +43,8 @@ export function getPrimaryPdpSitemapPaths(): SitemapUrlEntry[] {
   }));
 }
 
-export function getBlogSitemapPaths(): SitemapUrlEntry[] {
-  return getAllBlogPostsForRoutes().map((p) => ({
+export async function getBlogSitemapPaths(): Promise<SitemapUrlEntry[]> {
+  return (await getAllBlogPostsForRoutes()).map((p) => ({
     path: `/blog/${p.slug}`,
     priority: 0.6,
     changeFrequency: "monthly" as const,
@@ -83,19 +83,19 @@ export function getWykonaneSitemapPaths(): SitemapUrlEntry[] {
   }));
 }
 
-export function getAllSitemapPaths(): SitemapUrlEntry[] {
+export async function getAllSitemapPaths(): Promise<SitemapUrlEntry[]> {
   return [
     ...getStaticSitemapPaths(),
     ...getCategorySitemapPaths(),
     ...getPrimaryPdpSitemapPaths(),
     ...getWykonaneSitemapPaths(),
     ...getLocalSitemapPaths(),
-    ...getBlogSitemapPaths(),
+    ...(await getBlogSitemapPaths()),
   ];
 }
 
-export function getSitemapUrlCount(): number {
-  return getAllSitemapPaths().length;
+export async function getSitemapUrlCount(): Promise<number> {
+  return (await getAllSitemapPaths()).length;
 }
 
 export function toAbsoluteSitemapUrl(path: string): string {

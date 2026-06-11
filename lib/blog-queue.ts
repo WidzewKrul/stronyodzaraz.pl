@@ -1,5 +1,9 @@
 import fs from "node:fs";
 import path from "node:path";
+import { desc, eq } from "drizzle-orm";
+import { db } from "@/lib/db";
+import { blogQueue } from "@/lib/schema";
+import { log } from "@/lib/logger";
 
 export type QueueItem = {
   priority: number;
@@ -11,48 +15,82 @@ export type QueueItem = {
   error?: string;
 };
 
-type QueueFile = { version: number; items: QueueItem[] };
+type SeedFile = { version: number; items: QueueItem[] };
 
-const QUEUE_PATH = path.join(process.cwd(), "content", "blog", "queue.json");
 const SEED_PATH = path.join(process.cwd(), "docs", "blog", "queue", "seed-queue.json");
 
-function ensureQueueFile(): QueueFile {
-  fs.mkdirSync(path.dirname(QUEUE_PATH), { recursive: true });
-  if (!fs.existsSync(QUEUE_PATH)) {
-    const seed = JSON.parse(fs.readFileSync(SEED_PATH, "utf8")) as QueueFile;
-    fs.writeFileSync(QUEUE_PATH, JSON.stringify(seed, null, 2), "utf8");
-    return seed;
+let seeded = false;
+
+/**
+ * Seed the BlogQueue table from the bundled seed file on first use.
+ * `docs/` IS available in the runtime image. Only inserts keywords whose row
+ * does not already exist (onConflictDoNothing), so it's safe to re-run.
+ */
+async function ensureSeeded(): Promise<void> {
+  if (seeded) return;
+  seeded = true;
+  try {
+    const seed = JSON.parse(fs.readFileSync(SEED_PATH, "utf8")) as SeedFile;
+    if (!seed.items?.length) return;
+    await db
+      .insert(blogQueue)
+      .values(
+        seed.items.map((it) => ({
+          primaryKeyword: it.primaryKeyword,
+          priority: it.priority,
+          category: it.category,
+          internalLinks: it.internalLinks,
+          status: it.status ?? "pending",
+          publishedSlug: it.publishedSlug,
+          error: it.error,
+        })),
+      )
+      .onConflictDoNothing({ target: blogQueue.primaryKeyword });
+  } catch (err) {
+    // Allow a retry on the next call if seeding failed transiently.
+    seeded = false;
+    log.warn("[blog-queue] seeding failed", {
+      error: err instanceof Error ? err.message : String(err),
+    });
   }
-  return JSON.parse(fs.readFileSync(QUEUE_PATH, "utf8")) as QueueFile;
 }
 
-export function loadBlogQueue(): QueueFile {
-  return ensureQueueFile();
+function toQueueItem(row: typeof blogQueue.$inferSelect): QueueItem {
+  return {
+    priority: row.priority,
+    primaryKeyword: row.primaryKeyword,
+    category: row.category,
+    internalLinks: row.internalLinks,
+    status: row.status as QueueItem["status"],
+    publishedSlug: row.publishedSlug ?? undefined,
+    error: row.error ?? undefined,
+  };
 }
 
-function saveQueue(data: QueueFile): void {
-  fs.mkdirSync(path.dirname(QUEUE_PATH), { recursive: true });
-  fs.writeFileSync(QUEUE_PATH, JSON.stringify(data, null, 2), "utf8");
+/** Highest-priority pending item, or null if none. */
+export async function pickNextPendingItem(): Promise<{ item: QueueItem } | null> {
+  await ensureSeeded();
+  const rows = await db
+    .select()
+    .from(blogQueue)
+    .where(eq(blogQueue.status, "pending"))
+    .orderBy(desc(blogQueue.priority))
+    .limit(1);
+  if (rows.length === 0) return null;
+  return { item: toQueueItem(rows[0]) };
 }
 
-export function pickNextPendingItem(): { item: QueueItem; index: number } | null {
-  const data = loadBlogQueue();
-  let bestIdx = -1;
-  let bestPriority = -1;
-  for (let i = 0; i < data.items.length; i++) {
-    const it = data.items[i];
-    if (it.status !== "pending") continue;
-    if (it.priority > bestPriority) {
-      bestPriority = it.priority;
-      bestIdx = i;
-    }
-  }
-  if (bestIdx < 0) return null;
-  return { item: data.items[bestIdx], index: bestIdx };
-}
-
-export function markQueueItem(index: number, patch: Partial<QueueItem>): void {
-  const data = loadBlogQueue();
-  data.items[index] = { ...data.items[index], ...patch };
-  saveQueue(data);
+/** Update a queue row by its primaryKeyword. */
+export async function markQueueItem(
+  primaryKeyword: string,
+  patch: Partial<QueueItem>,
+): Promise<void> {
+  const update: Partial<typeof blogQueue.$inferInsert> = {};
+  if (patch.priority !== undefined) update.priority = patch.priority;
+  if (patch.category !== undefined) update.category = patch.category;
+  if (patch.internalLinks !== undefined) update.internalLinks = patch.internalLinks;
+  if (patch.status !== undefined) update.status = patch.status;
+  if (patch.publishedSlug !== undefined) update.publishedSlug = patch.publishedSlug;
+  if (patch.error !== undefined) update.error = patch.error;
+  await db.update(blogQueue).set(update).where(eq(blogQueue.primaryKeyword, primaryKeyword));
 }

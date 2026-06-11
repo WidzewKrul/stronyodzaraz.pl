@@ -10,7 +10,7 @@ import {
   isPrimaryProductSlug,
   CATEGORIES,
 } from "@/lib/uslugi";
-import { buildMetaFromTemplate, formatPricePln } from "@/lib/seo/metadata";
+import { buildMetaFromTemplate, formatPricePln, clipAtWord } from "@/lib/seo/metadata";
 import { getCategoryConfig, CATEGORY_CONFIGS } from "@/lib/uslugi-config";
 import {
   buildProductLongDesc,
@@ -133,7 +133,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     seoTitle: pismo.seoTitle,
     productName: pismo.seoTitle,
     branch: pismo.branch ?? "Twojej firmy",
-    scopeShort: pismo.shortDesc.slice(0, 120),
+    scopeShort: clipAtWord(pismo.shortDesc, 95),
     priceFormatted: formatPricePln(pismo.priceGrosze),
     deliveryDays: "7–14",
   });
@@ -183,6 +183,10 @@ export default async function UslugaPage({ params }: Props) {
   const faq = buildProductFaq(pismo, cfg);
   const delivery = buildDeliveryContent(pismo);
 
+  // Rolling validity ~1 year out so the price offer never silently expires in
+  // Google's eyes (priceValidUntil is required for the price rich result).
+  const priceValidUntil = `${new Date().getFullYear() + 1}-12-31`;
+
   const productJsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -191,8 +195,10 @@ export default async function UslugaPage({ params }: Props) {
     brand: { "@type": "Brand", name: "stronyodzaraz.pl" },
     offers: {
       "@type": "Offer",
+      url: `/uslugi/${pismo.category}/${pismo.slug}`,
       price: (pismo.priceGrosze / 100).toFixed(2),
       priceCurrency: "PLN",
+      priceValidUntil,
       availability: "https://schema.org/InStock",
       seller: { "@type": "Organization", name: "stronyodzaraz.pl" },
     },

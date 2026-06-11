@@ -34,6 +34,12 @@ if (!reg) {
 console.log("[migrate] Repair ServiceOrder customer columns from 0002 (idempotent)...");
 await applySqlFile("./drizzle/0002_service_order_customer.sql");
 
+console.log("[migrate] Apply 0004: ServiceOrder.followUp7SentAt (idempotent)...");
+await applySqlFile("./drizzle/0004_serviceorder_followup7.sql");
+
+console.log("[migrate] Apply 0005: BlogQueue table (idempotent)...");
+await applySqlFile("./drizzle/0005_blog_queue.sql");
+
 const [{ hasRefunded }] = await client`
   SELECT EXISTS (
     SELECT 1 FROM pg_enum

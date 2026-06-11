@@ -9,7 +9,7 @@ import CartProvider from "@/components/CartProvider";
 import ScrollReveal from "@/components/ScrollReveal";
 import { siteUrl as resolveSiteUrl } from "@/lib/env";
 
-const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });
+const inter = Inter({ subsets: ["latin", "latin-ext"], display: "swap", variable: "--font-inter" });
 
 const SITE_URL = resolveSiteUrl();
 
@@ -61,6 +61,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const orgJsonLd = {
     "@context": "https://schema.org",
     "@type": ["Organization", "ProfessionalService"],
+    "@id": `${SITE_URL}/#organization`,
     name: "stronyodzaraz.pl",
     url: SITE_URL,
     email: "kontakt@bblikh.pl",
@@ -95,7 +96,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     name: "stronyodzaraz.pl",
     url: SITE_URL,
     inLanguage: "pl-PL",
-    publisher: { "@type": "Organization", name: "stronyodzaraz.pl", url: SITE_URL },
+    publisher: { "@type": "Organization", "@id": `${SITE_URL}/#organization` },
     potentialAction: {
       "@type": "SearchAction",
       target: { "@type": "EntryPoint", urlTemplate: `${SITE_URL}/uslugi?q={search_term_string}` },
@@ -112,9 +113,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${inter.className} flex min-h-screen flex-col`}>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-brand-700 focus:px-4 focus:py-2 focus:text-white"
+        >
+          Przejdź do treści
+        </a>
         <CartProvider>
           <Header />
-          <main className="flex-1">{children}</main>
+          <main id="main" className="flex-1">{children}</main>
           <Footer />
         </CartProvider>
         <ScrollReveal />

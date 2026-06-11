@@ -118,10 +118,10 @@ export default function ProductTabs({
 
           {active === "zawiera" && (
             <div>
-              <h2 className="text-xl font-bold tracking-tight text-slate-900 sm:text-2xl">Co zawiera dokument „{title}"</h2>
+              <h2 className="text-xl font-bold tracking-tight text-slate-900 sm:text-2xl">Co zawiera pakiet „{title}"</h2>
               <p className="mt-3 text-sm leading-7 text-slate-600">
-                Nie dostajesz pustego szablonu — dokument zawiera kompletne procedury dopasowane do Twojej branży,
-                gotowe do wypełnienia danymi zakładu i okazania na kontroli sanepidu.
+                Jasny, stały zakres — bez ukrytych dopłat. Poniżej dokładnie to, co dostajesz w ramach pakietu
+                i czym zajmujemy się po Twojej stronie.
               </p>
               <ul className="mt-8 grid gap-4 sm:grid-cols-2">
                 {whatYouGet.map((item, i) => (
@@ -160,9 +160,10 @@ export default function ProductTabs({
 
           {active === "dostawa" && (
             <div>
-              <h2 className="text-xl font-bold tracking-tight text-slate-900 sm:text-2xl">Dostawa dokumentu „{title}"</h2>
+              <h2 className="text-xl font-bold tracking-tight text-slate-900 sm:text-2xl">Realizacja i przekazanie — „{title}"</h2>
               <p className="mt-3 text-sm leading-7 text-slate-600">
-                Nie wysyłamy fizycznej przesyłki — otrzymujesz pliki PDF i DOCX gotowe do wydruku i okazania inspektorowi sanepidu.
+                Po opłacie dostajesz brief online, a my realizujemy pakiet zdalnie. Gotowy projekt przekazujemy wraz z dostępami,
+                instrukcją i wsparciem we wdrożeniu.
               </p>
               <ul className="mt-8 space-y-4 text-sm text-slate-700">
                 {(delivery ?? []).map((item) => (
@@ -180,10 +181,10 @@ export default function ProductTabs({
 
           {active === "dla-kogo" && (
             <div>
-              <h2 className="text-xl font-bold tracking-tight text-slate-900 sm:text-2xl">Dla kogo jest ten dokument?</h2>
+              <h2 className="text-xl font-bold tracking-tight text-slate-900 sm:text-2xl">Dla kogo jest ten pakiet?</h2>
               <p className="mt-3 text-sm leading-7 text-slate-600">
-                Dla właścicieli zakładów gastronomicznych, spożywczych i usługowych, którzy potrzebują
-                kompletnej dokumentacji sanepidowskiej szybko i bez angażowania zewnętrznego konsultanta.
+                Dla firm i przedsiębiorców, którzy potrzebują profesjonalnej strony lub sklepu szybko, w stałej cenie
+                i bez tygodni wycen — z gotowym wdrożeniem online.
               </p>
               <ul className="mt-8 grid gap-3 sm:grid-cols-2">
                 {forWhom.map((item) => (

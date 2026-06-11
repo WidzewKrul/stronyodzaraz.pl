@@ -14,6 +14,9 @@ export default function Error({ reset }: { error: Error; reset: () => void }) {
         >
           Spróbuj ponownie
         </button>
+        {/* Hard navigation is intentional in an error boundary: a full document
+            load resets the broken client state that a soft <Link> nav would keep. */}
+        {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
         <a
           href="/"
           className="px-5 py-2.5 bg-slate-100 text-slate-700 rounded-lg font-semibold hover:bg-slate-200 transition-colors"

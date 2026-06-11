@@ -3,7 +3,7 @@ import path from "node:path";
 import { z } from "zod";
 import { generateWithOpenRouter } from "@/lib/openrouter";
 import { getBlogPostBySlug, type BlogPost } from "@/lib/blog";
-import { blogSlugExists, saveGeneratedBlogPost } from "@/lib/blog-fs";
+import { dbBlogSlugExists, saveDbBlogPost } from "@/lib/blog-db";
 import { submitIndexNow } from "@/lib/indexnow";
 
 const articleSchema = z.object({
@@ -50,6 +50,8 @@ export type GenerateBlogResult =
   | { ok: true; slug: string; title: string; path: string }
   | { ok: false; error: string };
 
+const MIN_INTERNAL_LINKS_IN_BODY = 2;
+
 export async function generateAndPublishBlogArticle(input: GenerateBlogInput): Promise<GenerateBlogResult> {
   if (!process.env.OPENROUTER_API_KEY) {
     return { ok: false, error: "OPENROUTER_API_KEY is not configured" };
@@ -83,7 +85,17 @@ export async function generateAndPublishBlogArticle(input: GenerateBlogInput): P
     return { ok: false, error: `Validation failed: ${err instanceof Error ? err.message : String(err)}` };
   }
 
-  if (getBlogPostBySlug(parsed.slug) || blogSlugExists(parsed.slug)) {
+  // Quality gate: the declared internalLinks must actually be embedded in the
+  // article body. Otherwise the model "declares" links it never wrote.
+  const linksInBody = parsed.internalLinks.filter((link) => parsed.bodyMd.includes(link));
+  if (linksInBody.length < MIN_INTERNAL_LINKS_IN_BODY) {
+    return {
+      ok: false,
+      error: `Only ${linksInBody.length} of ${parsed.internalLinks.length} internal links appear in bodyMd (need at least ${MIN_INTERNAL_LINKS_IN_BODY})`,
+    };
+  }
+
+  if ((await getBlogPostBySlug(parsed.slug)) || (await dbBlogSlugExists(parsed.slug))) {
     return { ok: false, error: `Slug already exists: ${parsed.slug}` };
   }
 
@@ -97,8 +109,8 @@ export async function generateAndPublishBlogArticle(input: GenerateBlogInput): P
     bodyMd: parsed.bodyMd,
   };
 
-  const filePath = saveGeneratedBlogPost(post);
+  await saveDbBlogPost(post);
   await submitIndexNow([`/blog/${post.slug}`]);
 
-  return { ok: true, slug: post.slug, title: post.title, path: filePath };
+  return { ok: true, slug: post.slug, title: post.title, path: post.slug };
 }

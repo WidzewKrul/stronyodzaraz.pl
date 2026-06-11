@@ -4,7 +4,7 @@
 
 ## Co oferujemy
 
-- Ponad 400 pakietów usług web w 8 kategoriach (strony, sklepy, WordPress, Shopify/Shoper, marketing, opieka, integracje, migracje)
+- Ponad 300 pakietów usług web w 8 kategoriach (strony, sklepy, WordPress, Shopify/Shoper, marketing, opieka, integracje, migracje)
 - Strony WordPress od 2 490 zł, sklepy WooCommerce od 5 990 zł, Shopify od 7 990 zł
 - Polskie integracje: Przelewy24, BLIK, PayU, InPost, Allegro, BaseLinker, fakturowanie
 - Opieka techniczna WordPress od 299 zł/mc

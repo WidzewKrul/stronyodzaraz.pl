@@ -42,14 +42,14 @@ export default function KontaktForm() {
 
   return (
     <>
-      <h1 className="text-3xl font-bold text-slate-900 md:text-4xl">Kontakt</h1>
+      <h2 className="text-2xl font-bold text-slate-900 md:text-3xl">Napisz do nas</h2>
       <p className="mt-3 text-slate-600">
         Masz pytanie o pakiet, custom projekt lub status zamówienia? Napisz — odpowiadamy w ciągu 24h roboczych.
         Szybciej? <Link href="/uslugi" className="font-medium text-brand-700 hover:underline">Zamów pakiet online</Link> z jasną ceną.
       </p>
 
       {status === "ok" ? (
-        <div className="mt-8 rounded-xl border border-emerald-200 bg-emerald-50 p-6 text-emerald-900">
+        <div role="status" aria-live="polite" className="mt-8 rounded-xl border border-emerald-200 bg-emerald-50 p-6 text-emerald-900">
           <p className="font-semibold">Wiadomość wysłana!</p>
           <p className="mt-2 text-sm">Potwierdzenie trafi też na Twój e-mail. Odpowiemy w ciągu 24h roboczych.</p>
         </div>
@@ -96,7 +96,7 @@ export default function KontaktForm() {
             Wiadomość *
             <textarea name="message" required rows={5} className="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" placeholder="Opisz projekt, branżę, deadline..." />
           </label>
-          {status === "error" && <p className="text-sm text-red-600">{errorMsg}</p>}
+          {status === "error" && <p role="alert" className="text-sm text-red-600">{errorMsg}</p>}
           <button
             type="submit"
             disabled={status === "loading"}

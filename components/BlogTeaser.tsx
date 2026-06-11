@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { getBlogPosts } from "@/lib/blog";
 
-export default function BlogTeaser() {
-  const posts = getBlogPosts().slice(0, 3);
+export default async function BlogTeaser() {
+  const posts = (await getBlogPosts()).slice(0, 3);
 
   return (
     <section className="py-14">

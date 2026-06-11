@@ -203,10 +203,14 @@ async function markOrderFailed(
 }
 
 async function runGenerate(orderId: string) {
+  // Atomically claim the order: flip FILLED -> GENERATING in a single conditional
+  // UPDATE. If two workers (overlapping cron runs, or cron + webhook kickoff) race,
+  // only one matches status='FILLED' and proceeds; the loser gets no row and bails,
+  // preventing duplicate document generation and duplicate delivery emails.
   const [order] = await db
     .update(serviceOrders)
     .set({ status: "GENERATING", generateAttempts: sql`${serviceOrders.generateAttempts} + 1` })
-    .where(eq(serviceOrders.id, orderId))
+    .where(and(eq(serviceOrders.id, orderId), eq(serviceOrders.status, "FILLED")))
     .returning();
 
   if (!order) return;

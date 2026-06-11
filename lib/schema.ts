@@ -79,6 +79,7 @@ export const serviceOrders = pgTable("ServiceOrder", {
   error: text("error"),
   deliveredAt: timestamp("deliveredAt"),
   followUpSentAt: timestamp("followUpSentAt"),
+  followUp7SentAt: timestamp("followUp7SentAt"),
   invoiceId: text("invoiceId"),
   invoiceUrl: text("invoiceUrl"),
   createdAt: timestamp("createdAt").notNull().default(sql`now()`),
@@ -168,7 +169,19 @@ export const documentTemplates = pgTable("DocumentTemplate", {
   index("DocumentTemplate_status_idx").on(t.status),
 ]);
 
+export const blogQueue = pgTable("BlogQueue", {
+  primaryKeyword: text("primaryKeyword").primaryKey(),
+  priority: integer("priority").notNull().default(0),
+  category: text("category").notNull(),
+  internalLinks: json("internalLinks").notNull().$type<string[]>(),
+  status: text("status").notNull().default("pending"),
+  publishedSlug: text("publishedSlug"),
+  error: text("error"),
+  updatedAt: timestamp("updatedAt").default(sql`now()`).$onUpdateFn(() => new Date()),
+});
+
 export type Order = typeof orders.$inferSelect;
 export type ServiceOrder = typeof serviceOrders.$inferSelect;
 export type NewOrder = typeof orders.$inferInsert;
 export type NewServiceOrder = typeof serviceOrders.$inferInsert;
+export type BlogQueueItem = typeof blogQueue.$inferSelect;

@@ -160,11 +160,21 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
   .animate-fade-up,
+  .animate-fade-in,
   .animate-on-scroll {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
+  }
+  /* Infinite decorative animations also respect the user's preference. */
+  .animate-blob,
+  .animate-float,
+  .animate-pulse-ring {
+    animation: none !important;
   }
 }
 

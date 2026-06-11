@@ -19,6 +19,17 @@ async function markProcessed(eventId: string, type: string): Promise<boolean> {
   }
 }
 
+// Release the idempotency claim so Stripe's automatic retry can re-deliver the
+// event. Without this, a transient failure mid-handler would leave the event
+// recorded as "processed" and the paid order would never be fulfilled.
+async function releaseProcessed(eventId: string): Promise<void> {
+  try {
+    await db.delete(processedEvents).where(eq(processedEvents.id, eventId));
+  } catch (err) {
+    log.error("[webhook] failed to release processed claim", { id: eventId, err: String(err) });
+  }
+}
+
 function mergeStripeCustomerDetails(
   order: ServiceOrder,
   details: Stripe.Checkout.Session.CustomerDetails | null | undefined
@@ -152,6 +163,9 @@ export async function POST(req: NextRequest) {
     }
   } catch (err) {
     log.error("[webhook] handler error", { err: String(err), type: event.type });
+    // Release the claim so Stripe retries this exact event instead of seeing it
+    // as an already-processed duplicate.
+    await releaseProcessed(event.id);
     return NextResponse.json({ error: "Handler error" }, { status: 500 });
   }
 

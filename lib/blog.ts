@@ -1,4 +1,4 @@
-import { loadGeneratedBlogPosts } from "@/lib/blog-fs";
+import { loadDbBlogPosts } from "@/lib/blog-db";
 
 export type BlogPost = {
   slug: string;
@@ -185,30 +185,30 @@ To skraca sales cycle z tygodni do minut (Stripe checkout).
   },
 ];
 
-function mergeBlogPosts(): BlogPost[] {
-  const generated = loadGeneratedBlogPosts();
+async function mergeBlogPosts(): Promise<BlogPost[]> {
+  const generated = await loadDbBlogPosts();
   const slugs = new Set(BLOG_POSTS.map((p) => p.slug));
   return [...BLOG_POSTS, ...generated.filter((p) => !slugs.has(p.slug))].sort((a, b) =>
     b.publishedAt.localeCompare(a.publishedAt),
   );
 }
 
-export function getBlogPosts(): BlogPost[] {
+export async function getBlogPosts(): Promise<BlogPost[]> {
   return mergeBlogPosts();
 }
 
-export function getBlogPostBySlug(slug: string): BlogPost | undefined {
-  return mergeBlogPosts().find((p) => p.slug === slug);
+export async function getBlogPostBySlug(slug: string): Promise<BlogPost | undefined> {
+  return (await mergeBlogPosts()).find((p) => p.slug === slug);
 }
 
 /** Alias for blog pages */
-export function getAllBlogPostsForRoutes(): BlogPost[] {
+export async function getAllBlogPostsForRoutes(): Promise<BlogPost[]> {
   return mergeBlogPosts();
 }
 
 /** @deprecated use getAllBlogPostsForRoutes() */
 export const POSTS = BLOG_POSTS;
 
-export function getPost(slug: string): BlogPost | undefined {
+export async function getPost(slug: string): Promise<BlogPost | undefined> {
   return getBlogPostBySlug(slug);
 }

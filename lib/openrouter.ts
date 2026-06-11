@@ -22,6 +22,7 @@ export async function generateWithOpenRouter(messages: Msg[], opts?: {
       "HTTP-Referer": base,
       "X-Title": "stronyodzaraz.pl",
     },
+    signal: AbortSignal.timeout(90_000),
     body: JSON.stringify({
       model,
       temperature: opts?.temperature ?? 0.4,
@@ -65,6 +66,7 @@ export async function extractImageTextWithVision(
       "HTTP-Referer": base,
       "X-Title": "stronyodzaraz.pl",
     },
+    signal: AbortSignal.timeout(90_000),
     body: JSON.stringify({
       model: "google/gemini-2.0-flash-001",
       temperature: 0.1,
@@ -124,6 +126,7 @@ export async function generateImagesWithOpenRouter(params: {
         "HTTP-Referer": base,
         "X-Title": "stronyodzaraz.pl",
       },
+      signal: AbortSignal.timeout(120_000),
       body: JSON.stringify({
         model,
         modalities: ["image", "text"],
@@ -156,8 +159,10 @@ export async function generateImagesWithOpenRouter(params: {
         const match = /^data:([^;]+);base64,(.+)$/.exec(url);
         if (match) return { mimeType: match[1], base64: match[2] };
       }
-      if (typeof url === "string" && url.startsWith("http")) {
-        const r = await fetch(url);
+      if (typeof url === "string" && url.startsWith("https://")) {
+        // Only follow https URLs, with a timeout — avoids hanging on a slow host and
+        // narrows the SSRF surface (no http:// to internal services / metadata IPs).
+        const r = await fetch(url, { signal: AbortSignal.timeout(15_000) });
         const buf = Buffer.from(await r.arrayBuffer());
         const mime = r.headers.get("content-type") ?? "image/png";
         return { mimeType: mime, base64: buf.toString("base64") };

@@ -54,3 +54,21 @@ export function buildMetaFromTemplate(
 export function formatPricePln(grosze: number): string {
   return (grosze / 100).toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
+
+/**
+ * Przycina tekst do maks. `max` znaków po granicy słowa (nie ucina w połowie
+ * wyrazu) i usuwa zawieszone spójniki/przyimki oraz znaki interpunkcyjne z końca.
+ * Używane do meta description, żeby fragmenty opisu produktu nie kończyły się
+ * urwanym słowem typu „…30 dni. Z”.
+ */
+export function clipAtWord(text: string, max: number): string {
+  const clean = text.trim();
+  if (clean.length <= max) return clean;
+  let cut = clean.slice(0, max);
+  const lastSpace = cut.lastIndexOf(" ");
+  if (lastSpace > 0) cut = cut.slice(0, lastSpace);
+  // usuń zawieszony jednoliterowy/krótki spójnik lub przyimek na końcu
+  cut = cut.replace(/[\s.,;:–-]+$/u, "");
+  cut = cut.replace(/\s+(z|w|i|o|a|na|do|od|po|za|ze|we)$/iu, "");
+  return cut.replace(/[\s.,;:–-]+$/u, "");
+}

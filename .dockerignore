@@ -9,3 +9,6 @@ README.md
 *.md
 .vscode
 .claude
+gemini-assets
+gemini-obrazki
+tsconfig.tsbuildinfo
